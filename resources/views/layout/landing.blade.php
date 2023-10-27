@@ -5,7 +5,7 @@
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Eventre - Event &amp; Conference Html5 Template</title>
+    <title>{{ $class }}</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -81,7 +81,7 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="{{ route('landing.contact') }}">Contact</a>
                 </li>
             </ul>
             <a href="{{ route('auth.login') }}" class="ticket">
@@ -93,7 +93,21 @@
 </nav>
 
 <!--====  End of Navigation Section  ====-->
-
+<section class="page-title bg-title overlay-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="title">
+                    <h3>{{ $class }}</h3>
+                </div>
+                <ol class="breadcrumb justify-content-center p-0 m-0">
+                    <li class="breadcrumb-item"><a href="{{ route('landing.home') }}">{{ $title }}</a></li>
+                    <li class="breadcrumb-item active">{{ $class }}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
 <!--================================
 =            Yield            =
 =================================-->
@@ -109,7 +123,7 @@
             <div class="col-md-12">
                 <div class="block text-center">
                     <div class="footer-logo">
-                        <img src="{{ asset('assets/theme/images/footer-logo.png') }}" alt="logo" class="img-fluid">
+                        <img src="https://ppni.or.id/simk/image/LOGO-PPNI.png" alt="logo" class="img-fluid" width="200px">
                     </div>
                     <ul class="social-links-footer list-inline">
                         <li class="list-inline-item">
@@ -122,7 +136,7 @@
                             <a href="https://themefisher.com/"><i class="fa fa-instagram"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://themefisher.com/"><i class="fa fa-rss"></i></a>
+                            <a href="https://themefisher.com/"><i class="fa fa-youtube-play"></i></a>
                         </li>
                         <li class="list-inline-item">
                             <a href="https://themefisher.com/"><i class="fa fa-vimeo"></i></a>

@@ -33,6 +33,7 @@ Route::get('/events', [LandingController::class, 'events'])->name('landing.event
 Route::get('/photos', [LandingController::class, 'photos'])->name('landing.photos')->middleware('guest');
 Route::get('/videos', [LandingController::class, 'videos'])->name('landing.videos')->middleware('guest');
 Route::get('/faq', [LandingController::class, 'faq'])->name('landing.faq')->middleware('guest');
+Route::get('/contact', [LandingController::class, 'contact'])->name('landing.contact')->middleware('guest');
 
 Route::get('/person/show', [LandingController::class, 'person'])->name('landing.person.show')->middleware('guest');
 

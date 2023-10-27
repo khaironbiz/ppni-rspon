@@ -8,21 +8,52 @@ use Illuminate\Http\Request;
 class LandingController extends Controller
 {
     public function index(){
-        return view('landing.home');
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Tentang Kita'
+        ];
+        return view('landing.home', $data);
     }
     public function events(){
-        return view('landing.events');
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Events'
+        ];
+        return view('landing.events', $data);
     }
     public function news(){
-        return view('landing.news');
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'News'
+        ];
+        return view('landing.news', $data);
     }
     public function photos(){
-        return view('landing.photos');
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Photos'
+        ];
+        return view('landing.photos', $data);
     }
     public function faq(){
-        return view('landing.faq');
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'FAQ'
+        ];
+        return view('landing.faq', $data);
     }
     public function person(){
-        return view('landing.person');
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Person'
+        ];
+        return view('landing.person', $data);
+    }
+    public function contact(){
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Contact'
+        ];
+        return view('landing.contacts', $data);
     }
 }
