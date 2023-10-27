@@ -339,5 +339,6 @@
             </div>
         </div>
     </section>
+    //aahir dari cerita
 
 @endsection
