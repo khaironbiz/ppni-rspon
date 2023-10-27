@@ -30,7 +30,7 @@
     <link href="{{ asset('assets/theme/css/style.css') }}" rel="stylesheet">
 
     <!-- FAVICON -->
-    <link href="{{ asset('assets/theme/images/favicon.png') }}" rel="shortcut icon">
+    <link href="https://ppni.or.id/simk/image/LOGO-PPNI.png" rel="shortcut icon">
 
 </head>
 
