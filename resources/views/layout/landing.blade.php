@@ -18,7 +18,7 @@
     <!-- PLUGINS CSS STYLE -->
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-{{--    <link href="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.css') }}" rel="stylesheet">--}}
+    <link href="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{ asset('assets/theme/plugins/font-awsome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- Magnific Popup -->
@@ -155,9 +155,7 @@
 <!-- jQuey -->
 <script src="{{ asset('assets/theme/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-{{--<script src="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.js') }}"></script>--}}
+<script src="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.js') }}"></script>
 <!-- Shuffle -->
 <script src="{{ asset('assets/theme/plugins/shuffle/shuffle.min.js') }}"></script>
 <!-- Magnific Popup -->
