@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-6 align-self-md-center">
                         <div class="image-block">
-                            <img src="{{ asset('assets/theme/images/speakers/single-speaker.jpg') }}" class="img-fluid" alt="speaker">
+                            <img src="https://ppni.or.id/simk/id/image/foto/31720126348.jpg" class="img-fluid" alt="speaker">
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-6 align-self-center">

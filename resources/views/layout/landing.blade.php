@@ -42,8 +42,8 @@
 <nav class="navbar main-nav border-less fixed-top navbar-expand-lg p-0">
     <div class="container-fluid p-0">
         <!-- logo -->
-        <a class="navbar-brand" href="index.html">
-            <img src="{{ asset('assets/theme/images/logo.png') }}" alt="logo">
+        <a class="navbar-brand" href="{{ route('landing.home') }}">
+            <h4><b class="text-danger">DPK PPNI</b> <b class="text-success">RSPON</b></h4>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -164,7 +164,7 @@
 <!-- SyoTimer -->
 <script src="{{ asset('assets/theme/plugins/syotimer/jquery.syotimer.min.js') }}"></script>
 <!-- Google Mapl -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqkdFObO2sofmc8kPRXW6hn5at1fsnM1s"></script>
 <script src="{{ asset('assets/theme/plugins/google-map/gmap.js') }}"></script>
 <!-- Custom Script -->
 <script src="{{ asset('assets/theme/js/script.js') }}"></script>

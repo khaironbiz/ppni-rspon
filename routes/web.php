@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/', [AuthController::class, 'index'])->name('auth.login')->middleware('guest');
+Route::get('/login', [AuthController::class, 'index'])->name('auth.login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login.do')->middleware('guest');
 Route::get('/forgot', [AuthController::class, 'forgot'])->name('auth.forgot')->middleware('guest');
 Route::post('/forgot', [AuthController::class, 'getPassword'])->name('auth.getPassword')->middleware('guest');
@@ -27,7 +27,7 @@ Route::get('/logout', [AuthController::class, 'index'])->name('auth.logout')->mi
 
 
 //landing
-Route::get('/home', [LandingController::class, 'index'])->name('landing.home')->middleware('guest');
+Route::get('/', [LandingController::class, 'index'])->name('landing.home')->middleware('guest');
 Route::get('/news', [LandingController::class, 'news'])->name('landing.news')->middleware('guest');
 Route::get('/events', [LandingController::class, 'events'])->name('landing.events')->middleware('guest');
 Route::get('/photos', [LandingController::class, 'photos'])->name('landing.photos')->middleware('guest');
