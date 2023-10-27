@@ -34,3 +34,5 @@ Route::get('/photos', [LandingController::class, 'photos'])->name('landing.photo
 Route::get('/videos', [LandingController::class, 'videos'])->name('landing.videos')->middleware('guest');
 Route::get('/faq', [LandingController::class, 'faq'])->name('landing.faq')->middleware('guest');
 
+Route::get('/person/show', [LandingController::class, 'person'])->name('landing.person.show')->middleware('guest');
+

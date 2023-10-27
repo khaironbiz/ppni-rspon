@@ -17,19 +17,19 @@
 
     <!-- PLUGINS CSS STYLE -->
     <!-- Bootstrap -->
-    <link href="assets/theme/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="assets/theme/plugins/font-awsome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/theme/plugins/font-awsome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- Magnific Popup -->
-    <link href="assets/theme/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="{{ asset('assets/theme/plugins/magnific-popup/magnific-popup.css') }}" rel="stylesheet">
     <!-- Slick Carousel -->
-    <link href="assets/themep/lugins/slick/slick.css" rel="stylesheet">
-    <link href="assets/themep/lugins/slick/slick-theme.css" rel="stylesheet">
+    <link href="{{ asset('assets/themep/lugins/slick/slick.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/themep/lugins/slick/slick-theme.css') }}" rel="stylesheet">
     <!-- CUSTOM CSS -->
-    <link href="assets/theme/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/theme/css/style.css') }}" rel="stylesheet">
 
     <!-- FAVICON -->
-    <link href="assets/theme/images/favicon.png" rel="shortcut icon">
+    <link href="{{ asset('assets/theme/images/favicon.png') }}" rel="shortcut icon">
 
 </head>
 
@@ -43,7 +43,7 @@
     <div class="container-fluid p-0">
         <!-- logo -->
         <a class="navbar-brand" href="index.html">
-            <img src="assets/theme/images/logo.png" alt="logo">
+            <img src="{{ asset('assets/theme/images/logo.png') }}" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +83,7 @@
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
             </ul>
-            <a href="contact.html" class="ticket">
+            <a href="{{ route('auth.login') }}" class="ticket">
 
                 <span>Login</span>
             </a>
@@ -108,7 +108,7 @@
             <div class="col-md-12">
                 <div class="block text-center">
                     <div class="footer-logo">
-                        <img src="assets/theme/images/footer-logo.png" alt="logo" class="img-fluid">
+                        <img src="{{ asset('assets/theme/images/footer-logo.png') }}" alt="logo" class="img-fluid">
                     </div>
                     <ul class="social-links-footer list-inline">
                         <li class="list-inline-item">
@@ -152,22 +152,22 @@
 
 <!-- JAVASCRIPTS -->
 <!-- jQuey -->
-<script src="assets/theme/plugins/jquery/jquery.min.js"></script>
+<script src="{{ asset('assets/theme/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="assets/theme/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.js') }}"></script>
 <!-- Shuffle -->
-<script src="assets/theme/plugins/shuffle/shuffle.min.js"></script>
+<script src="{{ asset('assets/theme/plugins/shuffle/shuffle.min.js') }}"></script>
 <!-- Magnific Popup -->
-<script src="assets/theme/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="{{ asset('assets/theme/plugins/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
 <!-- Slick Carousel -->
-<script src="assets/theme/plugins/slick/slick.min.js"></script>
+<script src="{{ asset('assets/theme/plugins/slick/slick.min.js') }}"></script>
 <!-- SyoTimer -->
-<script src="assets/theme/plugins/syotimer/jquery.syotimer.min.js"></script>
+<script src="{{ asset('assets/theme/plugins/syotimer/jquery.syotimer.min.js') }}"></script>
 <!-- Google Mapl -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
-<script src="assets/theme/plugins/google-map/gmap.js"></script>
+<script src="{{ asset('assets/theme/plugins/google-map/gmap.js') }}"></script>
 <!-- Custom Script -->
-<script src="assets/theme/js/script.js"></script>
+<script src="{{ asset('assets/theme/js/script.js') }}"></script>
 </body>
 
 </html>

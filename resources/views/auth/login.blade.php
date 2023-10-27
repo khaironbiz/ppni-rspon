@@ -49,6 +49,7 @@
                 </form>
                     <hr>
                     <p class="mb-0"><a href="{{ route('auth.forgot') }}">I forgot my password</a></p>
+                    <p class="mb-0"><a href="{{ route('landing.home') }}">Home Page</a></p>
             </div>
 
         </div>

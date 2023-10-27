@@ -22,4 +22,7 @@ class LandingController extends Controller
     public function faq(){
         return view('landing.faq');
     }
+    public function person(){
+        return view('landing.person');
+    }
 }
