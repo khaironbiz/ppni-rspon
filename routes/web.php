@@ -1,0 +1,36 @@
+<?php
+
+use App\Http\Controllers\Web\AuthController;
+use App\Http\Controllers\Web\LandingController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+Route::get('/', [AuthController::class, 'index'])->name('auth.login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login.do')->middleware('guest');
+Route::get('/forgot', [AuthController::class, 'forgot'])->name('auth.forgot')->middleware('guest');
+Route::post('/forgot', [AuthController::class, 'getPassword'])->name('auth.getPassword')->middleware('guest');
+Route::get('/logout', [AuthController::class, 'index'])->name('auth.logout')->middleware('guest');
+
+
+
+//landing
+Route::get('/home', [LandingController::class, 'index'])->name('landing.home')->middleware('guest');
+Route::get('/news', [LandingController::class, 'news'])->name('landing.news')->middleware('guest');
+Route::get('/events', [LandingController::class, 'events'])->name('landing.events')->middleware('guest');
+Route::get('/photos', [LandingController::class, 'photos'])->name('landing.photos')->middleware('guest');
+Route::get('/videos', [LandingController::class, 'videos'])->name('landing.videos')->middleware('guest');
+Route::get('/faq', [LandingController::class, 'faq'])->name('landing.faq')->middleware('guest');
+
