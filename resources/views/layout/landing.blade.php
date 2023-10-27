@@ -17,7 +17,8 @@
 
     <!-- PLUGINS CSS STYLE -->
     <!-- Bootstrap -->
-    <link href="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+{{--    <link href="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.css') }}" rel="stylesheet">--}}
     <!-- Font Awesome -->
     <link href="{{ asset('assets/theme/plugins/font-awsome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- Magnific Popup -->
@@ -137,12 +138,12 @@
 <footer class="subfooter">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 align-self-center">
+            <div class="col-md-8 align-self-center">
                 <div class="copyright-text">
-                    <p><a href="index.html">Eventre</a> &copy; 2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></p>
+                    <p><a href="{{ route('landing.home') }}">DPK PPNI RS Pusat Otak Nasional Jakarta</a> &copy; 2016, Developed by <b class="text-danger">Khairon</b></p>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <a href="#" class="to-top"><i class="fa fa-angle-up"></i></a>
             </div>
         </div>
@@ -154,7 +155,9 @@
 <!-- jQuey -->
 <script src="{{ asset('assets/theme/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+{{--<script src="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.js') }}"></script>--}}
 <!-- Shuffle -->
 <script src="{{ asset('assets/theme/plugins/shuffle/shuffle.min.js') }}"></script>
 <!-- Magnific Popup -->
