@@ -17,7 +17,7 @@
 
     <!-- PLUGINS CSS STYLE -->
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{ asset('assets/theme/plugins/font-awsome/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -44,7 +44,7 @@
     <div class="container-fluid p-0">
         <!-- logo -->
         <a class="navbar-brand" href="{{ route('landing.home') }}">
-            <h4><b class="text-danger">DPK PPNI</b> <b class="text-success">RSPON</b></h4>
+            <h4><b class="text-danger">{{ env('APP_NAME') }}</b> </h4>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,6 +75,11 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('landing.faq') }}">Faq
+                        <span>/</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('landing.price') }}">Price
                         <span>/</span>
                     </a>
                 </li>
@@ -168,6 +173,9 @@
 <!-- JAVASCRIPTS -->
 <!-- jQuey -->
 <script src="{{ asset('assets/theme/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap 5 -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('assets/theme/plugins/bootstrap/bootstrap.min.js') }}"></script>
 <!-- Shuffle -->

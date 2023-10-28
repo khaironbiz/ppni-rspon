@@ -49,6 +49,20 @@ class LandingController extends Controller
         ];
         return view('landing.person', $data);
     }
+    public function price(){
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Price'
+        ];
+        return view('landing.pricing', $data);
+    }
+    public function booking(){
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Book'
+        ];
+        return view('landing.book', $data);
+    }
     public function contact(){
         $data = [
             'title'     => 'HOME',
