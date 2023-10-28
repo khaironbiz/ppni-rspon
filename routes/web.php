@@ -39,3 +39,5 @@ Route::get('/contact', [LandingController::class, 'contact'])->name('landing.con
 
 Route::get('/person/show', [LandingController::class, 'person'])->name('landing.person.show')->middleware('guest');
 
+Route::get('/crop-image-upload', [LandingController::class, 'upload'])->name('landing.upload')->middleware('guest');
+Route::post('/crop-image-upload-ajax', [LandingController::class, 'crop'])->name('landing.upload.crop')->middleware('guest');

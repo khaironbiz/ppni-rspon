@@ -11,7 +11,7 @@
                                 <div class="blog-post">
                                     <div class="post-thumb">
                                         <a href="news-single.html">
-                                            <img src="assets/theme/images/news/post-thumb-one.jpg" alt="post-image" class="img-fluid">
+                                            <img src="assets/theme/images/news/matahari.jpg" alt="post-image" class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="post-content">
@@ -44,7 +44,7 @@
                                 <div class="blog-post">
                                     <div class="post-thumb">
                                         <a href="news-single.html">
-                                            <img src="assets/theme/images/news/post-thumb-two.jpg" alt="post-image" class="img-fluid">
+                                            <img src="assets/theme/images/news/abstract.jpg" alt="post-image" class="img-fluid">
                                         </a>
                                     </div>
                                     <div class="post-content">

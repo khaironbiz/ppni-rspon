@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\CropImage;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -69,5 +70,22 @@ class LandingController extends Controller
             'class'     => 'Contact'
         ];
         return view('landing.contacts', $data);
+    }
+    public function upload(){
+        return view('upload.upload');
+    }
+    public function crop(Request $request){
+        $folderPath     = public_path('upload/');
+        $image_parts    = explode(";base64,", $request->image);
+        $image_type_aux = explode("image/", $image_parts[0]);
+        $image_type     = $image_type_aux[1];
+        $image_base64   = base64_decode($image_parts[1]);
+        $imageName      = uniqid() . '.png';
+        $imageFullPath  = $folderPath.$imageName;
+        file_put_contents($imageFullPath, $image_base64);
+        $saveFile       = new CropImage;
+        $saveFile->name = $imageName;
+        $saveFile->save();
+        return response()->json(['success'=>'Crop Image Uploaded Successfully']);
     }
 }
