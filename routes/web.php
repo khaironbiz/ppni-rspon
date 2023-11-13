@@ -29,7 +29,11 @@ Route::get('/logout', [AuthController::class, 'index'])->name('auth.logout')->mi
 //landing
 Route::get('/', [LandingController::class, 'index'])->name('landing.home')->middleware('guest');
 Route::get('/news', [LandingController::class, 'news'])->name('landing.news')->middleware('guest');
+
 Route::get('/events', [LandingController::class, 'events'])->name('landing.events')->middleware('guest');
+Route::get('/event/{id}/show', [LandingController::class, 'event_show'])->name('landing.event.show')->middleware('guest');
+Route::get('/event/{id}/topik', [LandingController::class, 'event_topik'])->name('landing.event.topik')->middleware('guest');
+
 Route::get('/photos', [LandingController::class, 'photos'])->name('landing.photos')->middleware('guest');
 Route::get('/videos', [LandingController::class, 'videos'])->name('landing.videos')->middleware('guest');
 Route::get('/faq', [LandingController::class, 'faq'])->name('landing.faq')->middleware('guest');

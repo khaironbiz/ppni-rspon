@@ -22,6 +22,20 @@ class LandingController extends Controller
         ];
         return view('landing.events', $data);
     }
+    public function event_show($id){
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Events'
+        ];
+        return view('landing.event_detail', $data);
+    }
+    public function event_topik($id){
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Events'
+        ];
+        return view('landing.event_topik', $data);
+    }
     public function news(){
         $data = [
             'title'     => 'HOME',

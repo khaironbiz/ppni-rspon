@@ -7,7 +7,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="blog-post">
                         <div class="post-thumb">
-                            <a href="news-single.html">
+                            <a href="{{  route('landing.event.show', ['id'=>"NIHSS"]) }}">
                                 <img src="assets/theme/images/news/post-thumb-one.jpg" alt="post-image" class="img-fluid">
                             </a>
                         </div>
@@ -40,7 +40,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="blog-post">
                         <div class="post-thumb">
-                            <a href="news-single.html">
+                            <a href="{{  route('landing.event.show', ['id'=>"NIHSS"]) }}">
                                 <img src="assets/theme/images/news/post-thumb-two.jpg" alt="post-image" class="img-fluid">
                             </a>
                         </div>
