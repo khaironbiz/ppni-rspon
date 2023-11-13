@@ -53,33 +53,53 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
 
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('landing.home') }}">Home--}}
+{{--                        <span>/</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('landing.news') }}">News--}}
+{{--                        <span>/</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('landing.events') }}">Events--}}
+{{--                        <span>/</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('landing.photos') }}">Photos--}}
+{{--                        <span>/</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('landing.faq') }}">Faq--}}
+{{--                        <span>/</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('landing.price') }}">Price--}}
+{{--                        <span>/</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.home') }}">Home
+                    <a class="nav-link" href="{{ route('landing.price') }}">HOME
                         <span>/</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.news') }}">News
+                    <a class="nav-link" href="{{ route('landing.price') }}">PRETEST
                         <span>/</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.events') }}">Events
+                    <a class="nav-link" href="{{ route('landing.price') }}">POST TEST
                         <span>/</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.photos') }}">Photos
-                        <span>/</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.faq') }}">Faq
-                        <span>/</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.price') }}">Price
+                    <a class="nav-link" href="{{ route('landing.price') }}">E MODUL
                         <span>/</span>
                     </a>
                 </li>
@@ -128,7 +148,7 @@
             <div class="col-md-12">
                 <div class="block text-center">
                     <div class="footer-logo">
-                        <img src="https://ppni.or.id/simk/image/LOGO-PPNI.png" alt="logo" class="img-fluid" width="200px">
+{{--                        <img src="https://ppni.or.id/simk/image/LOGO-PPNI.png" alt="logo" class="img-fluid" width="200px">--}}
                     </div>
                     <ul class="social-links-footer list-inline">
                         <li class="list-inline-item">

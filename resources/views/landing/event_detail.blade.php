@@ -5,7 +5,7 @@
 
     <section class="news section">
         <div class="container">
-            <div class="row mt-30">
+            <div class="row">
                 <div class="col-col-md-12 mx-auto">
                     <div class="block">
                         <!-- Article -->
@@ -46,15 +46,16 @@
                                 </div>
                                 <div class="post-details">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor incididunt ut labore dolore magna aliqua enim ad minim veniam quis nostrud.laboris nisi ut aliquip ex ea commodo conse
-                                        quat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        Stroke adalah penyebab kematian dan kecacatan kedua  di dunia. (Kuriakose & Xiao, 2020; Lindsay et al., 2019). Kondisi ini dapat menghambat aliran darah menuju otak sehingga berisiko mempengaruhi fungsi otak dalam mengontrol seluruh aktivitas tubuh.
                                     </p>
                                     <p>
-                                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                                        Bagi penderita stroke, kondisi tersebut dapat diminimalkan dengan melakukan penilaian prognosis stroke. Di mana, prognosis adalah istilah kedokteran yang mengacu pada prediksi mengenai potensi perkembangan dari suatu penyakit.
                                     </p>
                                     <p>
-                                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam.
-                                        quaerat voluptatem.
+                                        Penilaian Prognosis stroke dapat dilakukan dengan beberapa metode. Salah satu metode yang bisa dilakukan penilaian NIHSS.
+                                    </p>
+                                    <p>
+                                        National Institutes of Health Stroke Scale (NIHSS) mencerminkan disfungsi serebral dengan menilai beberapa item klinis. Skor ini memiliki nilai prognostik yang kuat untuk luaran fungsional jangka panjang setelah stroke. NIHSS telah menjadi standar untuk penilaian keparahan stroke setelah uji klinis NINDS r-tPA (National Institute of Neurological Disorders and Stroke recombinant tissue-type plasminogen activator.
                                     </p>
                                     <h4>Pre Test</h4>
                                     <h4>Topik Pelatihan</h4>
