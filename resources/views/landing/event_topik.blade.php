@@ -99,6 +99,7 @@
                                 </div>
                             </div>
                         </article>
+                        <a href="{{ route('landing.event.show', ['id'=>"NIHSS"]) }}" class="btn btn-warning">Back</a>
 
                     </div>
                 </div>
