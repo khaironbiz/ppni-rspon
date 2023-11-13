@@ -26,7 +26,7 @@
                                     <h4>20<span>May</span></h4>
                                 </div>
                                 <div class="post-title">
-                                    <h3>Pelatihan NIHSS</h3>
+                                    <h3>Pengkajian NIHSS</h3>
                                 </div>
                                 <div class="post-meta">
                                     <ul class="list-inline">
