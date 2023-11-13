@@ -58,7 +58,7 @@
                                         National Institutes of Health Stroke Scale (NIHSS) mencerminkan disfungsi serebral dengan menilai beberapa item klinis. Skor ini memiliki nilai prognostik yang kuat untuk luaran fungsional jangka panjang setelah stroke. NIHSS telah menjadi standar untuk penilaian keparahan stroke setelah uji klinis NINDS r-tPA (National Institute of Neurological Disorders and Stroke recombinant tissue-type plasminogen activator.
                                     </p>
                                     <h4>Pre Test</h4>
-                                    <h4>Topik Pelatihan</h4>
+                                    <h4>E Module NIHSS</h4>
                                     <ul>
 
                                         <li><a href="{{  route('landing.event.topik', ['id'=>"kesadaran"]) }}">1.a Tingkat Kesadaran</a></li>
