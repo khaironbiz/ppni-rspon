@@ -1,8 +1,5 @@
 @extends('layout.landing')
 @section('content')
-
-
-
     <section class="news section">
         <div class="container">
             <div class="row">
