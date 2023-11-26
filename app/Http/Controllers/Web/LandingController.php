@@ -102,4 +102,11 @@ class LandingController extends Controller
         $saveFile->save();
         return response()->json(['success'=>'Crop Image Uploaded Successfully']);
     }
+    public function text(){
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Book'
+        ];
+        return view('admin.create', $data);
+    }
 }

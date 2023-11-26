@@ -22,6 +22,7 @@
           href="https://rspon.net/ppni/assets/AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="https://rspon.net/ppni/assets/AdminLTE/dist/css/adminlte.min.css">
+    <script src="https://cdn.tiny.cloud/1/w1uizkwg0iz2di1di5deh3welq64lh13f5zh8nbnx4zi2t84/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -57,7 +58,7 @@
     <footer class="main-footer">
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 2.0.0    </div>
-        <strong>Copyright &copy; 2014-2022 <a href="{{ route('home') }}">{{ env('APP_NAME') }}</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2014-2022 <a href="">{{ env('APP_NAME') }}</a>.</strong> All rights reserved.
     </footer>
 
 </div>    <!-- ./wrapper -->
