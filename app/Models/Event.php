@@ -18,4 +18,8 @@ class Event extends Model
             ->generateSlugsFrom('title') // field to generate the slug from
             ->saveSlugsTo('slug'); // field to save the slug to
     }
+    public function class()
+    {
+        return $this->hasMany(ClassEvent::class);
+    }
 }

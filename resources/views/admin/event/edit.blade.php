@@ -2,56 +2,39 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <b>Create New Class</b>
+            <b>Create New Event</b>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.class.store') }}" method="POST">
+            <form action="{{ route('admin.event.store') }}" method="POST">
                 @csrf
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Judul</label>
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Judul</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="title">
+                        <input type="text" class="form-control" name="title" value="{{ $event->title }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Event</label>
-                    <div class="col-sm-10">
-                        <select class="form-control" name="event_id">
-                            @foreach($events as $data)
-                                <option value="{{ $data->id }}">{{ $data->title }}</option>
-                            @endforeach
-
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Date</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Date</label>
                     <div class="col-sm-4">
-                        <input type="date" class="form-control" name="date_start">
+                        <input type="date" class="form-control" name="date_start" value="{{ old('date_start') }}">
                     </div>
                     <div class="col-sm-2 text-center">
                         <b>SD</b>
                     </div>
                     <div class="col-sm-4">
-                        <input type="date" class="form-control" name="date_finish">
+                        <input type="date" class="form-control" name="date_finish" value="{{ old('date_finish') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Penjelasan</label>
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Penjelasan</label>
                     <div class="col-sm-10">
                         <textarea id="my-editor" name="description"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">File</label>
+                    <label for="staticEmail" class="col-sm-2 col-form-label">File</label>
                     <div class="col-sm-10">
                         <input type="file" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">URL Canva</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="canva_url">
                     </div>
                 </div>
                 <div class="form-group row">

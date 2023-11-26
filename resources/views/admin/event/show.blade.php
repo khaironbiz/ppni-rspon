@@ -34,6 +34,10 @@
 
             </div>
         </div>
+        <div class="card-footer">
+            <a href="{{ route('admin.event.edit', ['slug'=>$event->slug]) }}" class="btn btn-success">Edit</a>
+            <a href="" class="btn btn-danger">Delete</a>
+        </div>
 
     </div>
 

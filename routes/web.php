@@ -25,8 +25,6 @@ Route::get('/', [LandingController::class, 'index'])->name('landing.home')->midd
 @include('web/news.php');
 //landing
 
-
-
 Route::get('/photos', [LandingController::class, 'photos'])->name('landing.photos')->middleware('guest');
 Route::get('/videos', [LandingController::class, 'videos'])->name('landing.videos')->middleware('guest');
 Route::get('/faq', [LandingController::class, 'faq'])->name('landing.faq')->middleware('guest');

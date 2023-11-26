@@ -13,3 +13,4 @@ Route::get('/admin/events', [\App\Http\Controllers\Web\Admin\EventController::cl
 Route::get('/admin/event', [\App\Http\Controllers\Web\Admin\EventController::class,'create'])->name('admin.event.create')->middleware('guest');
 Route::post('/admin/events', [\App\Http\Controllers\Web\Admin\EventController::class,'store'])->name('admin.event.store')->middleware('guest');
 Route::get('/admin/event/{slug}/show', [\App\Http\Controllers\Web\Admin\EventController::class,'show'])->name('admin.event.show')->middleware('guest');
+Route::get('/admin/event/{slug}/edit', [\App\Http\Controllers\Web\Admin\EventController::class,'edit'])->name('admin.event.edit')->middleware('guest');

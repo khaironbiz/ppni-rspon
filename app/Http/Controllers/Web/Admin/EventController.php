@@ -50,4 +50,14 @@ class EventController extends Controller
         ];
         return view('admin.event.show', $data);
     }
+    public function edit($slug){
+        $event = Event::where('slug', $slug)->first();
+        $data = [
+            'class'         => 'Event',
+            'sub_class'     => 'Show',
+            'title'         => 'Show Event',
+            'event'         => $event
+        ];
+        return view('admin.event.edit', $data);
+    }
 }
