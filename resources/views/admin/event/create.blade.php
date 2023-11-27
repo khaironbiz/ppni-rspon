@@ -26,15 +26,15 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Penjelasan</label>
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Embed Canva</label>
                     <div class="col-sm-10">
-                        <textarea id="my-editor" name="description"></textarea>
+                        <textarea name="canva_event" class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">File</label>
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Penjelasan</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control">
+                        <textarea id="my-editor" name="description"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -56,6 +56,14 @@
     <script>
         tinymce.init({
             selector: '#my-editor',
+            plugins: 'autolink lists link image charmap print preview',
+            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link image',
+            height: 500,
+        });
+    </script>
+    <script>
+        tinymce.init({
+            selector: '#canva_event',
             plugins: 'autolink lists link image charmap print preview',
             toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link image',
             height: 300,

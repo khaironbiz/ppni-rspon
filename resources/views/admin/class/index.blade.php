@@ -17,6 +17,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                @if($classEvent->count()>0)
                 @foreach($classEvent as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
@@ -24,10 +25,12 @@
                         <td>{{ $data->event->title }}</td>
                         <td>{{ $data->date_start }}</td>
                         <td>{{ $data->date_finish }}</td>
-                        <td></td>
+                        <td>
+                            <a href="{{ route('admin.class.show', ['slug'=>$data->slug]) }}" class="btn btn-sm btn-info">Detail</a>
+                        </td>
                     </tr>
                 @endforeach
-
+                @endif
                 </tbody>
             </table>
         </div>

@@ -39,4 +39,37 @@ class ClassController extends Controller
         }
 
     }
+    public function show($slug){
+        $class = ClassEvent::where('slug', $slug)->first();
+        $data = [
+            'class'         => 'Event',
+            'sub_class'     => 'Class',
+            'title'         => 'Show Class Event',
+            'class_event'   => $class
+        ];
+        return view('admin.class.show', $data);
+    }
+    public function edit($slug){
+        $class = ClassEvent::where('slug', $slug)->first();
+        $data = [
+            'class'         => 'Event',
+            'sub_class'     => 'Class',
+            'title'         => 'Show Class Event',
+            'class_event'   => $class
+        ];
+        return view('admin.class.edit', $data);
+    }
+    public function destroy(Request $request){
+        $class_slug = $request->class_slug;
+        $class      = ClassEvent::where('slug', $class_slug)->first();
+        $delete     = $class->delete();
+        if($delete){
+            session('success', 'Success class deleted');
+            return redirect()->route('admin.class.index');
+        }else{
+            session('danger', 'Class failed delete');
+            return redirect()->route('admin.class.index');
+        }
+
+    }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->date('date_start');
             $table->date('date_finish');
-            $table->string('file')->nullable();
+            $table->text('canva_event')->nullable();
             $table->text('description');
             $table->string('slug');
             $table->timestamps();

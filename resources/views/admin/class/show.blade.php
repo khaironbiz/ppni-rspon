@@ -6,48 +6,25 @@
         </div>
         <div class="card-body">
             <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Title</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $event->title }}
-                </div>
+                <div class="col-md-2"><b>Title</b></div>
+                <div class="col-md-10">{{ $class_event->title }}</div>
             </div>
             <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Date</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $event->date_start }} SD {{ $event->date_finish }}
-                </div>
-
+                <div class="col-md-2"><b>Date</b></div>
+                <div class="col-md-10">{{ $class_event->date_start }} sd {{ $class_event->date_finish }}</div>
             </div>
             <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Description</b>
-                </div>
-                <div class="col-md-10">
-                    @php
-                    echo $event->description
-                    @endphp
-                </div>
-
+                <div class="col-md-2"><b>Description</b></div>
+                <div class="col-md-10"><?= $class_event->description ?></div>
             </div>
             <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Canva</b>
-                </div>
-                <div class="col-md-10">
-                    @php
-                        echo $event->canva_event
-                    @endphp
-                </div>
-
+                <div class="col-md-2"><b>Canva</b></div>
+                <div class="col-md-10"><?= $class_event->canva_url ?></div>
             </div>
+
         </div>
         <div class="card-footer">
-            <a href="{{ route('admin.event.edit', ['slug'=>$event->slug]) }}" class="btn btn-success">Edit</a>
-            <!-- Button trigger modal -->
+            <a href="{{ route('admin.class.edit', ['slug'=>$class_event->slug]) }}" class="btn btn-success">Edit</a>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
                 Delete
             </button>
@@ -62,11 +39,11 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('admin.event.destroy') }}" method="post">
+                        <form action="{{ route('admin.class.delete') }}" method="post">
                             @csrf
                             @method('DELETE')
                             <div class="modal-body">
-                                <input type="checkbox" required value="{{ $event->slug }}" name="event_slug"> Saya Setuju menghapus data ini
+                                <input type="checkbox" required value="{{ $class_event->slug }}" name="class_slug"> Saya Setuju menghapus data ini
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -78,7 +55,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 @endsection

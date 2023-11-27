@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date_start');
             $table->date('date_finish');
             $table->string('file')->nullable();
-            $table->string('canva_url');
+            $table->text('canva_url');
             $table->text('description');
             $table->string('slug');
             $table->timestamps();

@@ -60,4 +60,35 @@ class EventController extends Controller
         ];
         return view('admin.event.edit', $data);
     }
+    public function update(Request $request){
+        $data_post = $request->all();
+//        dd($data_post);
+        $event = Event::find($request->event_id);
+        $update = $event->update($data_post);
+        if($update){
+            Session::flash('success', 'Data event updated');
+            return redirect()->route('admin.event.index');
+        }else{
+            Session::flash('danger', 'Data event failed update');
+            return redirect()->route('admin.event.index');
+        }
+    }
+    public function destroy(Request $request){
+        $event_slug = $request->event_slug;
+        $event = Event::where('slug', $event_slug)->first();
+        if(empty($event)){
+            Session::flash('danger', 'Data Event Not Found');
+            return redirect()->route('admin.event.index');
+        }else{
+            $delete = $event->delete();
+            if($delete){
+                Session::flash('success', 'Data event deleted');
+                return redirect()->route('admin.event.index');
+            }else{
+                Session::flash('danger', 'Delete failed');
+                return redirect()->route('admin.event.index');
+            }
+        }
+
+    }
 }
