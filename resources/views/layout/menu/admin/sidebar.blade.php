@@ -37,6 +37,12 @@
                         <p class="text">Class</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.subjectStudy.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <p class="text">Mata Ajar</p>
+                    </a>
+                </li>
 
 
                 <li class="nav-item">

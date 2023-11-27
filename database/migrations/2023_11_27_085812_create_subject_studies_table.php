@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('subject_studies', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('class_event_id');
+            $table->bigInteger('pengampu');
+            $table->string('kode_mata_ajar');
+            $table->string('title');
+            $table->string('slug');
             $table->timestamps();
         });
     }

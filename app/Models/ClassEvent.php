@@ -23,4 +23,8 @@ class ClassEvent extends Model
     {
         return $this->belongsTo(Event::class);
     }
+    public function subjectStudy()
+    {
+        return $this->hasMany(SubjectStudy::class);
+    }
 }

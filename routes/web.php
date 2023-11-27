@@ -22,6 +22,8 @@ Route::get('/', [LandingController::class, 'index'])->name('landing.home')->midd
 
 @include('web/event_class.php');
 
+@include('web/subject_study.php');
+
 @include('web/event_topic.php');
 
 @include('web/news.php');
