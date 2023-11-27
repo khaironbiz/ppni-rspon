@@ -223,8 +223,10 @@ class PaymentController extends Controller
 
     }
     public function cek_transaksi(Request $request){
-        $merchantCode       = 'D6168'; // dari duitku
-        $apiKey             = '6042a5aec73e29d92e94a846d0740cf6'; // dari duitku
+        $id_duitku          = 2;
+        $duitku             = Duitku::find($id_duitku);
+        $merchantCode       = $duitku->merchantCode;
+        $apiKey             = $duitku->apiKey;
         $merchantOrderId    = $request->order_id; // dari anda (merchant), bersifat unik
         $signature          = md5($merchantCode . $merchantOrderId . $apiKey);
         $params             = array(

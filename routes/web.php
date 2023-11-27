@@ -45,3 +45,7 @@ Route::get('/person/show', [LandingController::class, 'person'])->name('landing.
 
 Route::get('/crop-image-upload', [LandingController::class, 'upload'])->name('landing.upload')->middleware('guest');
 Route::post('/crop-image-upload-ajax', [LandingController::class, 'crop'])->name('landing.upload.crop')->middleware('guest');
+
+Route::get('/ckeditor', [LandingController::class, 'ckeditor'])->name('landing.admin.events.create')->middleware('guest');
+
+Route::get('/admin/event/create', [LandingController::class, 'ckeditor'])->name('admin.events.create')->middleware('guest');

@@ -20,21 +20,21 @@ class LandingController extends Controller
             'title'     => 'HOME',
             'class'     => 'Events'
         ];
-        return view('landing.events', $data);
+        return view('landing.events.index', $data);
     }
     public function event_show($id){
         $data = [
             'title'     => 'Learning',
             'class'     => 'NIHSS'
         ];
-        return view('landing.event_detail', $data);
+        return view('landing.events.event_detail', $data);
     }
     public function event_topik($id){
         $data = [
             'title'     => 'Learning',
             'class'     => 'NIHSS'
         ];
-        return view('landing.event_topik', $data);
+        return view('landing.topics.event_topik', $data);
     }
     public function news(){
         $data = [
@@ -88,6 +88,14 @@ class LandingController extends Controller
     public function upload(){
         return view('upload.upload');
     }
+    public function ckeditor(){
+        $data = [
+            'title' => 'Create Event',
+            'class' => 'Event',
+            'sub_class' => 'Create Event',
+        ];
+        return view('admin.events.create', $data);
+    }
     public function crop(Request $request){
         $folderPath     = public_path('upload/');
         $image_parts    = explode(";base64,", $request->image);
@@ -102,4 +110,5 @@ class LandingController extends Controller
         $saveFile->save();
         return response()->json(['success'=>'Crop Image Uploaded Successfully']);
     }
+
 }
