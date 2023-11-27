@@ -20,7 +20,9 @@ Route::get('/', [LandingController::class, 'index'])->name('landing.home')->midd
 
 @include('web/event.php');
 
-@include ('web/class_event.php');
+@include('web/event_class.php');
+
+@include('web/event_topic.php');
 
 @include('web/news.php');
 //landing

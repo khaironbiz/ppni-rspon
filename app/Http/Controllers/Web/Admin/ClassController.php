@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ClassEvent;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ClassController extends Controller
 {
@@ -59,15 +60,30 @@ class ClassController extends Controller
         ];
         return view('admin.class.edit', $data);
     }
+    public function update(Request $request){
+        $data_request = $request->all();
+        $class_slug = $request->class_slug;
+        $class      = ClassEvent::where('slug', $class_slug)->first();
+        $update     = $class->update($data_request);
+        if(empty($class)){
+            Session::flash('danger', 'Wrong slug class');
+        }elseif($update){
+            Session::flash('success', 'Success class updated');
+        }else{
+            Session::flash('danger', 'Gagal update');
+
+        }
+        return redirect()->route('admin.class.index');
+    }
     public function destroy(Request $request){
         $class_slug = $request->class_slug;
         $class      = ClassEvent::where('slug', $class_slug)->first();
         $delete     = $class->delete();
         if($delete){
-            session('success', 'Success class deleted');
+            Session::flash('success', 'Success class deleted');
             return redirect()->route('admin.class.index');
         }else{
-            session('danger', 'Class failed delete');
+            Session::flash('danger', 'Class failed delete');
             return redirect()->route('admin.class.index');
         }
 

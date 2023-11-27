@@ -5,11 +5,13 @@
             <b>Create New Class</b>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.class.store') }}" method="POST">
+            <form action="{{ route('admin.class.update') }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Judul</label>
                     <div class="col-sm-10">
+                        <input type="hidden" class="form-control" name="class_slug" value="{{ $class_event->slug }}">
                         <input type="text" class="form-control" name="title" value="{{ $class_event->title }}">
                     </div>
                 </div>

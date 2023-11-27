@@ -11,36 +11,32 @@
     @endif
     <div class="card">
         <div class="card-header">
-            {{ session('danger') }}
-            <a href="{{ route('admin.class.create') }}" class="btn btn-primary">Add New Class</a>
+            <a href="#" class="btn btn-primary">Add Event</a>
         </div>
         <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-striped table-sm">
                 <thead>
                 <tr>
-                    <th>No</th>
+                    <th class="text-center">No</th>
                     <th>Event Name</th>
-                    <th>Class</th>
                     <th>Date Start</th>
                     <th>Date Finish</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @if($classEvent->count()>0)
-                @foreach($classEvent as $data)
+                @foreach($events as $data)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $loop->iteration }}</td>
                         <td>{{ $data->title }}</td>
-                        <td>{{ $data->event->title }}</td>
                         <td>{{ $data->date_start }}</td>
                         <td>{{ $data->date_finish }}</td>
                         <td>
-                            <a href="{{ route('admin.class.show', ['slug'=>$data->slug]) }}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('admin.event.show', ['slug'=>$data->slug]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>
                     </tr>
                 @endforeach
-                @endif
+
                 </tbody>
             </table>
         </div>
