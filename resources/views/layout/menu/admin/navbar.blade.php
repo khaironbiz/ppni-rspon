@@ -6,7 +6,11 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
+<<<<<<< HEAD
             <a href="#" class="nav-link">My Profile</a>
+=======
+            <a href="" class="nav-link">My Profile</a>
+>>>>>>> 504e758c2fa764d9d7968e7762c8abb608267475
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>

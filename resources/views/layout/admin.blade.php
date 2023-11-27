@@ -22,7 +22,11 @@
           href="https://rspon.net/ppni/assets/AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="https://rspon.net/ppni/assets/AdminLTE/dist/css/adminlte.min.css">
+<<<<<<< HEAD
     <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+=======
+    <script src="https://cdn.tiny.cloud/1/w1uizkwg0iz2di1di5deh3welq64lh13f5zh8nbnx4zi2t84/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+>>>>>>> 504e758c2fa764d9d7968e7762c8abb608267475
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -58,7 +62,11 @@
     <footer class="main-footer">
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 2.0.0    </div>
+<<<<<<< HEAD
         <strong>Copyright &copy; 2014-2022 <a href="{{ route('landing.home') }}">{{ env('APP_NAME') }}</a>.</strong> All rights reserved.
+=======
+        <strong>Copyright &copy; 2014-2022 <a href="">{{ env('APP_NAME') }}</a>.</strong> All rights reserved.
+>>>>>>> 504e758c2fa764d9d7968e7762c8abb608267475
     </footer>
 
 </div>    <!-- ./wrapper -->

@@ -8,6 +8,7 @@
                 <img src="https://ppni.or.id/simk/id/image/foto/31720126348.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
+<<<<<<< HEAD
                 <a href="#" class="d-block">Nama</a>
             </div>
         </div>
@@ -21,6 +22,9 @@
                         <i class="fas fa-search fa-fw"></i>
                     </button>
                 </div>
+=======
+                <a href="#" class="d-block">Admin</a>
+>>>>>>> 504e758c2fa764d9d7968e7762c8abb608267475
             </div>
         </div>
 
@@ -30,11 +34,16 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a href="#" class="nav-link">
+=======
+                    <a href="" class="nav-link">
+>>>>>>> 504e758c2fa764d9d7968e7762c8abb608267475
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
@@ -68,6 +77,26 @@
 
                 <li class="nav-item">
                     <a href="https://rspon.net/ppni/simk/auth/logout.php" class="nav-link">
+=======
+
+                <li class="nav-header">Admin Area</li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.event.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <p class="text">Event</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.class.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <p class="text">Class</p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+>>>>>>> 504e758c2fa764d9d7968e7762c8abb608267475
                         <i class="nav-icon far fa-circle text-warning"></i>
                         <p>Logout</p>
                     </a>

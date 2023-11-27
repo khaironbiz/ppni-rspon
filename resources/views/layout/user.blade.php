@@ -28,24 +28,11 @@
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-    @if(! empty(\Illuminate\Support\Facades\Auth::user()->tbc))
 
-{{--        <script>--}}
-{{--            var tujuan = 'https://google.com';--}}
-{{--            let text = "Website Hacked!!!!!!!!!!!!!!\nEither OK or Cancel.";--}}
-{{--            if (confirm(text) == true) {--}}
-{{--                window.location.href = tujuan;--}}
-{{--            } else {--}}
-{{--                window.location.href = 'https://hipeni.or.id';--}}
-{{--            }--}}
-{{--            document.getElementById("demo").innerHTML = text;--}}
-{{--        </script>--}}
-    @endif
-
-    @include('layout.menu.user.navbar')
+{{--    @include('layout.menu.user.navbar')--}}
     <!-- /.navbar -->
     <!-- Main Sidebar Container -->
-    @include('layout.menu.user.sidebar')
+{{--    @include('layout.menu.user.sidebar')--}}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -72,7 +59,7 @@
     <footer class="main-footer mt-5">
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 2.0.0    </div>
-        <strong>Copyright &copy; 2014-2022 <a href="{{ route('home') }}">{{ env('APP_NAME') }}</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2014-2022 <a href="">{{ env('APP_NAME') }}</a>.</strong> All rights reserved.
     </footer>
 
 </div>    <!-- ./wrapper -->
