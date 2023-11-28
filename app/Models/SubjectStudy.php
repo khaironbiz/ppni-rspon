@@ -20,7 +20,7 @@ class SubjectStudy extends Model
     }
     public function class()
     {
-        return $this->belongsTo(ClassEvent::class);
+        return $this->belongsTo(ClassEvent::class, 'class_event_id');
     }
 
     public function topic()

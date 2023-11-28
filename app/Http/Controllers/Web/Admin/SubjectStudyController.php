@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ClassEvent;
 use App\Models\SubjectStudy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SubjectStudyController extends Controller
 {
@@ -19,28 +21,59 @@ class SubjectStudyController extends Controller
         return view('admin.subject_study.index', $data);
     }
     public function create(){
-        $subject_study = SubjectStudy::all();
+        $class_event = ClassEvent::all();
         $data = [
             'class'         => 'Event',
             'sub_class'     => 'Class',
             'title'         => 'Class Event All',
-            'subject_study'    => $subject_study
+            'class_event'   => $class_event
         ];
-        return view('admin.subject_study.index', $data);
+        return view('admin.subject_study.create', $data);
     }
-    public function store(){
-
+    public function store(Request $request){
+        $post_data = $request->all();
+        $post_data['pengampu']=1;
+        $post_data['kode_mata_ajar']=1;
+        $subject_study = new SubjectStudy();
+        $create         = $subject_study->create($post_data);
+        if($create){
+            Session::flash('success', 'Sukses membuat mata ajar baru');
+        }else{
+            Session::flash('danger', 'Gagal membuat mata ajar baru');
+        }
+        return redirect()->route('admin.subjectStudy.index');
     }
-    public function show(){
-
+    public function show($slug){
+        $subject_study = SubjectStudy::where('slug', $slug)->first();
+        $data = [
+            'class'         => 'Subject Study',
+            'sub_class'     => 'Show',
+            'title'         => 'Show Subject Study',
+            'subject_study' => $subject_study
+        ];
+        return view('admin.subject_study.show', $data);
     }
-    public function edit(){
-
+    public function edit($slug){
+        $subject_study = SubjectStudy::where('slug', $slug)->first();
+        $data = [
+            'class'         => 'Subject Study',
+            'sub_class'     => 'Show',
+            'title'         => 'Show Subject Study',
+            'subject_study' => $subject_study
+        ];
+        return view('admin.subject_study.edit', $data);
     }
     public function update(){
 
     }
-    public function destroy(){
-
+    public function destroy(Request $request){
+        $slug = $request->slug;
+        $delete = SubjectStudy::where('slug', $slug)->delete();
+        if($delete){
+            Session::flash('success', 'Sukses menghapus data');
+        }else{
+            Session::flash('danger', 'Gagal menghapus data');
+        }
+        return redirect()->route('admin.subjectStudy.index');
     }
 }

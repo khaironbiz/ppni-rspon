@@ -25,6 +25,6 @@ class ClassEvent extends Model
     }
     public function subjectStudy()
     {
-        return $this->hasMany(SubjectStudy::class);
+        return $this->hasMany(SubjectStudy::class, 'class_event_id');
     }
 }

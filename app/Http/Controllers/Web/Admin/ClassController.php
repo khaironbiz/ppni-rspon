@@ -35,7 +35,7 @@ class ClassController extends Controller
         $data_class = $request->all();
         $create = $class->create($data_class);
         if($create){
-            session('success', 'Success create class');
+            Session::flash('success', 'Success create class');
             return redirect()->route('admin.class.index');
         }
 
