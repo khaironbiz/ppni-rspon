@@ -7,24 +7,24 @@
         <div class="card-body">
             <div class="row mb-2">
                 <div class="col-md-2"><b>Title</b></div>
-                <div class="col-md-10">{{ $subject_study->title }}</div>
+                <div class="col-md-10">{{ $topic->title }}</div>
             </div>
             <div class="row mb-2">
                 <div class="col-md-2"><b>Kode Mata Ajar</b></div>
-                <div class="col-md-10">{{ $subject_study->kode_mata_ajar }}</div>
+                <div class="col-md-10">{{ $topic->kode_mata_ajar }}</div>
             </div>
             <div class="row mb-2">
                 <div class="col-md-2"><b>Description</b></div>
-                <div class="col-md-10"><?= $subject_study->description ?></div>
+                <div class="col-md-10"><?= $topic->description ?></div>
             </div>
             <div class="row mb-2">
                 <div class="col-md-2"><b>Canva</b></div>
-                <div class="col-md-10"><?= $subject_study->canva ?></div>
+                <div class="col-md-10"><?= $topic->canva ?></div>
             </div>
 
         </div>
         <div class="card-footer">
-            <a href="{{ route('admin.subjectStudy.edit', ['slug'=>$subject_study->slug]) }}" class="btn btn-success">Edit</a>
+            <a href="{{ route('admin.subjectStudy.edit', ['slug'=>$topic->slug]) }}" class="btn btn-success">Edit</a>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
                 Delete
             </button>
@@ -39,11 +39,11 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('admin.subjectStudy.delete') }}" method="post">
+                        <form action="{{ route('admin.topic.delete') }}" method="post">
                             @csrf
                             @method('DELETE')
                             <div class="modal-body">
-                                <input type="checkbox" required value="{{ $subject_study->slug }}" name="slug"> Saya Setuju menghapus data ini
+                                <input type="checkbox" required value="{{ $topic->slug }}" name="slug"> Saya Setuju menghapus data ini
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -57,34 +57,30 @@
     </div>
     <div class="card">
         <div class="card-header bg-dark">
-            <b>Topic</b>
+            <b>File</b>
         </div>
         <div class="card-body">
-
+            <a href="" class="btn btn-primary">Add File</a>
             <table class="table table-sm table-striped mt-2">
                 <thead>
                 <tr>
                     <th>#</th>
                     <th>Topic</th>
                     <th>Metode</th>
-                    <th>Durasi</th>
+                    <th>JPL</th>
                     <th>Pengajar</th>
-                    <th>Waktu</th>
-
+                    <th>Detail</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($topics as $data)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $data->title }}</td>
-                        <td>{{ $data->metode }}</td>
-                        <td>{{ $data->jpl }} JPL</td>
-                        <td>{{ $data->pengajar }}</td>
-                        <td>{{ date('d-m-Y', strtotime($data->time_open)) }} {{ date('H:i', strtotime($data->time_open)) }} sd {{ date('H:i', strtotime($data->time_close)) }}</td>
-                    </tr>
-                @endforeach
-
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
                 </tbody>
 
             </table>

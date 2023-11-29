@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClassEvent;
+use App\Models\EventTopic;
 use App\Models\SubjectStudy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -45,12 +46,15 @@ class SubjectStudyController extends Controller
     }
     public function show($slug){
         $subject_study = SubjectStudy::where('slug', $slug)->first();
+        $topics = $subject_study->topic;
         $data = [
             'class'         => 'Subject Study',
             'sub_class'     => 'Show',
             'title'         => 'Show Subject Study',
-            'subject_study' => $subject_study
+            'subject_study' => $subject_study,
+            'topics'        => $topics
         ];
+//        dd($topics);
         return view('admin.subject_study.show', $data);
     }
     public function edit($slug){

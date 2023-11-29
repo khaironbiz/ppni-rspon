@@ -23,6 +23,7 @@ return new class extends Migration
             $table->dateTime('time_close');
             $table->bigInteger('created_by')->default(1);
             $table->string('slug');
+            $table->string('canva');
             $table->timestamps();
         });
     }
