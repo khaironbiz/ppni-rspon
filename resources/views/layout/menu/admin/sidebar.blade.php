@@ -13,10 +13,6 @@
             </div>
         </div>
 
-        <!-- SidebarSearch Form -->
-
-
-        <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
@@ -27,20 +23,26 @@
                 <li class="nav-header">Admin Area</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.event.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <i class="nav-icon far fa-circle text-primary"></i>
                         <p class="text">Event</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.class.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <i class="nav-icon far fa-circle text-warning"></i>
                         <p class="text">Class</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.subjectStudy.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <i class="nav-icon far fa-circle text-info"></i>
                         <p class="text">Mata Ajar</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.topic.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
+                        <p class="text">Topics</p>
                     </a>
                 </li>
 
@@ -48,7 +50,7 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">
 
-                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <i class="nav-icon far fa-circle text-danger"></i>
                         <p>Logout</p>
                     </a>
                 </li>

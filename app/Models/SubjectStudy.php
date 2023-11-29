@@ -25,6 +25,6 @@ class SubjectStudy extends Model
 
     public function topic()
     {
-        return $this->hasMany(TopicEvent::class);
+        return $this->hasMany(EventTopic::class);
     }
 }

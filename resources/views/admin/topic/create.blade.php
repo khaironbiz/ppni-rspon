@@ -5,36 +5,39 @@
             <b>Create New Class</b>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.subjectStudy.update') }}" method="POST">
+            <form action="{{ route('admin.subjectStudy.store') }}" method="POST">
                 @csrf
-                @method('PUT')
+
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Subject Study</label>
                     <div class="col-sm-10">
-                        <input type="hidden" class="form-control" name="slug" value="{{ $subject_study->slug }}">
-                        <input type="text" class="form-control" name="title" value="{{ $subject_study->title }}">
+                        <select class="form-control" name="class_event_id">
+
+                            @foreach($subject_study as $data)
+                                <option value="{{ $data->id }}">{{ $data->title }}</option>
+                            @endforeach
+
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Class</label>
+                    <label class="col-sm-2 col-form-label">Topic Title</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="class_event_id">
-                            <option value="{{ $subject_study->class_event_id }}">{{ $subject_study->class->title }}</option>
-                        </select>
+                        <input type="text" class="form-control" name="title">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Penjelasan</label>
                     <div class="col-sm-10">
-                        <textarea id="my-editor" name="description">{{ $subject_study->description }}</textarea>
+                        <textarea id="my-editor" name="description"></textarea>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Embed Canva</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="canva" value="{{ $subject_study->canva }}">
+                        <input type="text" class="form-control" name="canva">
                     </div>
                 </div>
                 <div class="form-group row">

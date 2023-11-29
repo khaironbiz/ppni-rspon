@@ -11,9 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('curriculum_versions', function (Blueprint $table) {
+        Schema::create('event_topics', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('subject_study_id');
+            $table->bigInteger('module_id')->default(1);
+            $table->bigInteger('pengajar')->default(1);
+            $table->integer('jpl');
+            $table->string('metode');
             $table->string('title');
+            $table->dateTime('time_open');
+            $table->dateTime('time_close');
+            $table->bigInteger('created_by')->default(1);
             $table->string('slug');
             $table->timestamps();
         });
@@ -24,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('curriculum_versions');
+        Schema::dropIfExists('event_topics');
     }
 };

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('pengampu');
             $table->string('kode_mata_ajar');
             $table->string('title');
+            $table->text('description');
             $table->string('slug');
             $table->timestamps();
         });

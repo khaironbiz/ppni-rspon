@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('curricula', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('curiculum_version_id');
+            $table->string('title');
+            $table->string('slug');
             $table->timestamps();
         });
     }

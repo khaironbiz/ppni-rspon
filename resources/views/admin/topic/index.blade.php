@@ -11,7 +11,7 @@
     @endif
     <div class="card">
         <div class="card-header">
-            <a href="#" class="btn btn-primary">Add Event</a>
+            <a href="{{ route('admin.topic.create') }}" class="btn btn-primary">Add Topic</a>
         </div>
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped table-sm">
@@ -25,7 +25,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($events as $data)
+                @foreach($topic as $data)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>{{ $data->title }}</td>

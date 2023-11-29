@@ -14,8 +14,8 @@ class SubjectStudyController extends Controller
         $subject_study = SubjectStudy::all();
         $data = [
             'class'         => 'Event',
-            'sub_class'     => 'Class',
-            'title'         => 'Class Event All',
+            'sub_class'     => 'Subject',
+            'title'         => 'Subject Study All',
             'subject_study'    => $subject_study
         ];
         return view('admin.subject_study.index', $data);
@@ -63,7 +63,20 @@ class SubjectStudyController extends Controller
         ];
         return view('admin.subject_study.edit', $data);
     }
-    public function update(){
+    public function update(Request $request){
+        $slug           = $request->slug;
+        $subjectStudy   = SubjectStudy::where('slug', $slug)->first();
+        $data_update    = [
+            'class_event_id'    => $request->class_event_id,
+            'title'             => $request->title
+        ];
+        $update = $subjectStudy->update($data_update);
+        if($update){
+            Session::flash('success', 'Sukses update data');
+        }else{
+            Session::flash('danger', 'Gagal update data');
+        }
+        return redirect()->route('admin.subjectStudy.index');
 
     }
     public function destroy(Request $request){
