@@ -19,12 +19,12 @@
             </div>
             <div class="row mb-2">
                 <div class="col-md-2"><b>Canva</b></div>
-                <div class="col-md-10"><?= $topic->canva ?></div>
+                <div class="col-md-4"><?= $topic->canva ?></div>
             </div>
 
         </div>
         <div class="card-footer">
-            <a href="{{ route('admin.subjectStudy.edit', ['slug'=>$topic->slug]) }}" class="btn btn-success">Edit</a>
+            <a href="{{ route('admin.topic.edit', ['slug'=>$topic->slug]) }}" class="btn btn-success">Edit</a>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
                 Delete
             </button>

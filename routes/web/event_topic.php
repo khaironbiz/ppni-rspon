@@ -8,3 +8,5 @@ Route::get('/admin/topic', [TopicController::class,'create'])->name('admin.topic
 Route::post('/admin/topics', [TopicController::class,'store'])->name('admin.topic.store')->middleware('guest');
 Route::get('/admin/topic/{slug}/show', [TopicController::class,'show'])->name('admin.topic.show')->middleware('guest');
 Route::delete('/admin/topic', [TopicController::class,'destroy'])->name('admin.topic.delete')->middleware('guest');
+Route::get('/admin/topic/{slug}/edit', [TopicController::class,'edit'])->name('admin.topic.edit')->middleware('guest');
+Route::put('/admin/update', [TopicController::class,'update'])->name('admin.topic.update')->middleware('guest');

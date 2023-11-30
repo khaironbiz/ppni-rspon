@@ -5,11 +5,11 @@
         <div class="container">
             <div class="row justify-content-center mt-30">
 
-                @foreach($events as $data)
+                @foreach($class_events as $data)
                     <div class="col-lg-4 col-md-6 col-sm-8">
                         <div class="blog-post">
                             <div class="post-thumb">
-                                <a href="{{  route('landing.event.show', ['slug'=>$data->slug]) }}">
+                                <a href="{{  route('landing.class.show', ['slug'=>$data->slug]) }}">
                                     <img src="assets/theme/images/news/post-thumb-two.jpg" alt="post-image" class="img-fluid">
                                 </a>
                             </div>

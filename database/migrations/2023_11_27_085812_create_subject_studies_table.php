@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('kode_mata_ajar');
             $table->string('title');
             $table->text('description');
+            $table->text('canva');
             $table->string('slug');
             $table->timestamps();
         });

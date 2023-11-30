@@ -20,6 +20,6 @@ class EventTopic extends Model
     }
     public function subjectStudy()
     {
-        return $this->belongsTo(EventTopic::class, 'subject_study_id');
+        return $this->belongsTo(SubjectStudy::class, 'subject_study_id');
     }
 }

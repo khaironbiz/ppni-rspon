@@ -74,7 +74,8 @@ class SubjectStudyController extends Controller
             'class_event_id'    => $request->class_event_id,
             'title'             => $request->title
         ];
-        $update = $subjectStudy->update($data_update);
+//        dd($subjectStudy);
+        $update = $subjectStudy->update($request->all());
         if($update){
             Session::flash('success', 'Sukses update data');
         }else{

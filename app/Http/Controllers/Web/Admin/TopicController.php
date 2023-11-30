@@ -52,6 +52,29 @@ class TopicController extends Controller
         ];
         return view('admin.topic.show', $data);
     }
+    public function edit($slug){
+        $topic = EventTopic::where('slug', $slug)->first();
+        $data = [
+            'class'         => 'Event',
+            'sub_class'     => 'Topic',
+            'title'         => 'Update Topic',
+            'topic'         => $topic
+        ];
+        return view('admin.topic.edit', $data);
+    }
+    public function update(Request $request){
+        $data_post = $request->all();
+//        dd($data_post);
+        $topic = EventTopic::where('slug', $request->slug)->first();
+//        dd($topic);
+        $update = $topic->update($data_post);
+        if($update){
+            Session::flash('success', 'Sukses update data');
+        }else{
+            Session::flash('danger', 'Gagal update data');
+        }
+        return redirect()->route('admin.topic.index');
+    }
     public function destroy(Request $request){
         $delete = EventTopic::where('slug', $request->slug)->delete();
         if($delete){

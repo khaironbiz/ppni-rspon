@@ -11,7 +11,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Subject Study</label>
                     <div class="col-sm-10">
-                        <input type="hidden" class="form-control" name="slug" value="{{ $subject_study->slug }}">
+                        <input type="text" class="form-control" name="slug" value="{{ $subject_study->slug }}">
                         <input type="text" class="form-control" name="title" value="{{ $subject_study->title }}">
                     </div>
                 </div>
@@ -27,14 +27,14 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Penjelasan</label>
                     <div class="col-sm-10">
-                        <textarea id="my-editor" name="description">{{ $subject_study->description }}</textarea>
+                        <textarea id="my-editor" name="description" required>{{ $subject_study->description }}</textarea>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Embed Canva</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="canva" value="{{ $subject_study->canva }}">
+                        <textarea class="form-control" name="canva">{{ $subject_study->canva }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">

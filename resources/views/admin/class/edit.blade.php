@@ -50,7 +50,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Embed Canva</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="canva_url" value="{{ $class_event->canva_url }}">
+                        <textarea class="form-control" name="canva_url">{{ $class_event->canva_url }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">

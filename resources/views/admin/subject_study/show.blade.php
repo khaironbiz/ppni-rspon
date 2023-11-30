@@ -19,10 +19,11 @@
             </div>
             <div class="row mb-2">
                 <div class="col-md-2"><b>Canva</b></div>
-                <div class="col-md-10"><?= $subject_study->canva ?></div>
+                <div class="col-md-4"><?= $subject_study->canva ?></div>
             </div>
 
         </div>
+
         <div class="card-footer">
             <a href="{{ route('admin.subjectStudy.edit', ['slug'=>$subject_study->slug]) }}" class="btn btn-success">Edit</a>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">

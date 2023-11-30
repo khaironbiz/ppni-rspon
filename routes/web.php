@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [LandingController::class, 'index'])->name('landing.home')->middleware('guest');
+
+Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'])->name('landing.home')->middleware('guest');
 
 @include('web/auth.php');
 

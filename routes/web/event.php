@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 //landing
 Route::get('/events', [EventController::class,'index'])->name('landing.events')->middleware('guest');
-Route::get('/event/{id}/show', [EventController::class,'show'])->name('landing.event.show')->middleware('guest');
+Route::get('/event/{slug}/show', [EventController::class,'show'])->name('landing.event.show')->middleware('guest');
 Route::get('/event/{id}/topik', [EventController::class,'topik'])->name('landing.event.topik')->middleware('guest');
 
 //admin
