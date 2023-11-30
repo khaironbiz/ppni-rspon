@@ -28,6 +28,10 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 @include('web/event_topic.php');
 
 @include('web/news.php');
+
+@include('web/training.php');
+
+@include('web/modul.php');
 //landing
 
 Route::get('/photos', [LandingController::class, 'photos'])->name('landing.photos')->middleware('guest');

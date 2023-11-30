@@ -18,9 +18,19 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
 
-
-
                 <li class="nav-header">Admin Area</li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.training.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
+                        <p class="text">Trainings</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.training.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <p class="text">Curricula</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.event.index') }}" class="nav-link">
                         <i class="nav-icon far fa-circle text-primary"></i>
