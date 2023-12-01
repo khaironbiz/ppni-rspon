@@ -26,12 +26,24 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="post" action="{{ route('admin.training.store') }}">
+                        <form method="post" action="{{ route('admin.curriculum_version.store') }}">
                             @csrf
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label>Training Name</label>
+                                        <label>Training</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="training_id">
+                                            @foreach($trainings as $data)
+                                            <option value="{{ $data->id }}">{{ $data->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-4">
+                                        <label>Curriculum Version</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="title">
@@ -52,21 +64,21 @@
                 <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th>Training Name</th>
-                    <th>Curricula</th>
-                    <th>Module</th>
+                    <th>Nama Pelatihan</th>
+                    <th>Kurikulum</th>
+                    <th>Created At</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($trainings as $data)
+                @foreach($curriculum_version as $data)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
+                        <td>{{ $data->training->title }}</td>
                         <td>{{ $data->title }}</td>
-                        <td>{{ $data->date_start }}</td>
-                        <td>{{ $data->date_finish }}</td>
+                        <td>{{ $data->created_at }}</td>
                         <td>
-                            <a href="{{ route('admin.training.show', ['slug'=>$data->slug]) }}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('admin.curriculum_version.show', ['slug'=>$data->slug]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>
                     </tr>
                 @endforeach

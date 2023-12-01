@@ -7,3 +7,6 @@ Route::post('/admin/training', [\App\Http\Controllers\Web\Admin\TrainingControll
 Route::put('/admin/training', [\App\Http\Controllers\Web\Admin\TrainingController::class,'update'])->name('admin.training.update')->middleware('guest');
 Route::delete('/admin/training', [\App\Http\Controllers\Web\Admin\TrainingController::class,'destroy'])->name('admin.training.destroy')->middleware('guest');
 Route::get('/admin/training/{slug}/show', [\App\Http\Controllers\Web\Admin\TrainingController::class,'show'])->name('admin.training.show')->middleware('guest');
+
+
+//curriculum version

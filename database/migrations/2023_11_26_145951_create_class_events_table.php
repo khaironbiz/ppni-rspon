@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('class_events', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('event_id');
+            $table->foreignIdFor(\App\Models\Event::class);
             $table->string('title');
             $table->date('date_start');
             $table->date('date_finish');

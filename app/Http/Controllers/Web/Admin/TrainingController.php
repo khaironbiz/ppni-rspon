@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CurriculumVersion;
 use App\Models\Training;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -18,6 +19,18 @@ class TrainingController extends Controller
             'trainings'     => $trainings
         ];
         return view('admin.training.index', $data);
+    }
+    public function show($slug){
+        $training           = Training::where('slug', $slug)->first();
+        $curriculumVersion  = CurriculumVersion::where('training_id', $training->id)->get();
+        $data = [
+            'class'         => 'Training',
+            'sub_class'     => 'Index',
+            'title'         => 'Training All',
+            'training'      => $training,
+            'curriculumVersion' => $curriculumVersion
+        ];
+        return view('admin.training.show', $data);
     }
     public function create(){
         $trainings = Training::all();
@@ -41,7 +54,7 @@ class TrainingController extends Controller
         return redirect()->route('admin.training.index');
     }
     public function update(Request $request){
-        $training   = Training::where('slug', $request->slug)->first();
+        $training   = Training::find($request->id);
         $update     = $training->update($request->all());
         if($update){
             Session::flash('success', 'Training updated');
@@ -51,6 +64,20 @@ class TrainingController extends Controller
         return redirect()->route('admin.training.index');
     }
     public function destroy(Request $request){
+        $training_id = $request->id;
+        $training = Training::find($training_id);
+        if(empty($training)){
+            Session::flash('danger', 'Training not found');
+        }else{
+            $delete     = $training->delete();
+            $delete_    = $training->curriculumVersion()->delete();
+            if($delete){
+                Session::flash('success', 'Training deleted');
+            }else{
+                Session::flash('danger', 'Training filed delete');
+            }
+        }
 
+        return redirect()->route('admin.training.index');
     }
 }

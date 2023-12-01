@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('curricula', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('curiculum_version_id');
+            $table->uuid('id')->primary();
+            $table->foreignIdFor(\App\Models\CurriculumVersion::class);
             $table->string('title');
+            $table->string('type');
+            $table->string('jpl');
             $table->string('slug');
             $table->timestamps();
         });

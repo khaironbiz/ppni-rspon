@@ -26,7 +26,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.training.index') }}" class="nav-link">
+                    <a href="{{ route('admin.curriculum_version.index') }}" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Curricula</p>
                     </a>

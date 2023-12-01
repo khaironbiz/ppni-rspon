@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('curriculum_versions', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->foreignIdFor(\App\Models\Training::class);
             $table->string('title');
             $table->string('slug');
             $table->timestamps();

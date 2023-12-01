@@ -31,6 +31,10 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 
 @include('web/training.php');
 
+@include('web/curriculum_version.php');
+
+@include('web/curriculum.php');
+
 @include('web/modul.php');
 //landing
 
