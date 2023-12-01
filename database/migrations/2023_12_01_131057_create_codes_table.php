@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('codes', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignIdFor(\App\Models\Curriculum::class);
+            $table->string('code');
             $table->string('title');
-            $table->string('jpl');
-            $table->string('metode');
-            $table->string('slug');
+            $table->foreignIdFor(\App\Models\Code::class)->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('codes');
     }
 };

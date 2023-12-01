@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('module_attachments', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignIdFor(\App\Models\Curriculum::class);
-            $table->string('title');
-            $table->string('jpl');
-            $table->string('metode');
-            $table->string('slug');
+            $table->foreignIdFor(\App\Models\Module::class);
+            $table->string('file_type');
+            $table->text('file_name');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('module_attachments');
     }
 };
