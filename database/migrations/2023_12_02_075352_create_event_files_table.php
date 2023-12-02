@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('codes', function (Blueprint $table) {
+        Schema::create('event_files', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('urutan')->nullable();
-            $table->string('code');
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->uuid('parent_id')->nullable();
-            $table->string('slug');
-            $table->integer('child_number')->nullable();
+            $table->foreignIdFor(\App\Models\EventTopic::class);
+            $table->string('file_type');
+            $table->text('file_name');
             $table->timestamps();
         });
     }
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('codes');
+        Schema::dropIfExists('event_files');
     }
 };

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 class CodeController extends Controller
 {
     public function index(){
-        $codes = Code::all();
+        $codes = Code::orderBy('parent_id', 'ASC')->get();
         $data = [
             'class'         => 'Code',
             'sub_class'     => 'Index',
@@ -34,7 +34,7 @@ class CodeController extends Controller
     }
     public function show($id){
         $code = Code::find($id);
-        $child_codes = Code::where('parent_id', $id)->get();
+        $child_codes = Code::where('parent_id', $id)->orderBy('urutan','ASC')->get();
 //        dd($child_codes);
         $data = [
             'class'         => 'Code',
@@ -90,9 +90,19 @@ class CodeController extends Controller
     }
     public function destroy(Request $request){
         $code = Code::find($request->id);
+        if(empty($code)){
+            Session::flash('danger', 'Wrong Code');
+        }else if( $code->parent_id == null){
+            $parent_child_number = null;
+        }else{
+            $parent = Code::find($code->parent_id);
+            $parent_child_number = (int) $parent->child()->count()-1;
+            $parent->update(['child_number' => $parent_child_number]);
+        }
         $child_delete = $code->child()->delete();
         $code_delete = $code->delete();
         if($code_delete){
+
             Session::flash('success', 'Data sukses dihapus');
         }else{
             Session::flash('danger', 'Data gagal dihapus');

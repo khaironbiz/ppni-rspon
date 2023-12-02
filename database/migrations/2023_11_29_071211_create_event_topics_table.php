@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('event_topics', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('subject_study_id');
+            $table->uuid('id')->primary();
+            $table->foreignIdFor(\App\Models\SubjectStudy::class);
             $table->bigInteger('module_id')->default(1);
             $table->bigInteger('pengajar')->default(1);
             $table->integer('jpl');

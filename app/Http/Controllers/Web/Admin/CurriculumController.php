@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Code;
 use App\Models\Curriculum;
 use App\Models\CurriculumVersion;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class CurriculumController extends Controller
 {
     public function index() {
         $curriculums = Curriculum::all();
-        dd($curriculums);
+//        dd($curriculums);
         $data = [
             'class'         => 'Curricula',
             'sub_class'     => 'Show',
@@ -34,13 +35,17 @@ class CurriculumController extends Controller
         return redirect()->back();
     }
     public function show($id){
-
         $curriculum = Curriculum::find($id);
+        $metode_id  = Code::where('code', 'metode-pembelajaran')->first();
+        $methode    = Code::where('parent_id', $metode_id->id)->get();
+//        dd($curriculum->module()->get());
         $data = [
             'class'         => 'Curricula',
             'sub_class'     => 'Show',
             'title'         => 'Show Curricula',
-            'curriculum'    => $curriculum
+            'curriculum'    => $curriculum,
+            'modules'       => $curriculum->module()->get(),
+            'methode'       => $methode
         ];
         return view('admin.curriculum.show', $data);
     }

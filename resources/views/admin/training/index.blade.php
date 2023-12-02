@@ -9,7 +9,7 @@
             {{ session('danger') }}
         </div>
     @endif
-    <div class="card">
+    <div class="card ml-2">
         <div class="card-header">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">

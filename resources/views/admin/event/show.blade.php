@@ -1,7 +1,7 @@
 @extends('layout.admin')
 @section('content')
-    <div class="card">
-        <div class="card-header">
+    <div class="card ml-2 ">
+        <div class="card-header bg-dark">
             <b>{{ $title }}</b>
         </div>
         <div class="card-body">
@@ -77,6 +77,39 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+    </div>
+    <div class="card ml-2">
+        <div class="card-header bg-dark">
+            <label>Kelas</label>
+        </div>
+        <div class="card-body">
+            <table class="table table-sm table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Event</th>
+                    <th>Class</th>
+                    <th>Date</th>
+                    <th>Detail</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($event_classes as $data)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $event->title }}</td>
+                        <td>{{ $data->title }}</td>
+                        <td>{{ $data->date_start }} sd {{ $data->date_finish }}</td>
+                        <td>
+                            <a href="" class="btn btn-sm btn-info">Detail</a>
+                        </td>
+                    </tr>
+                @endforeach
+
+                </tbody>
+            </table>
         </div>
 
     </div>

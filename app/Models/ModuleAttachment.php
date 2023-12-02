@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Event extends Model
+class ModuleAttachment extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
     use HasFactory;
@@ -20,8 +20,9 @@ class Event extends Model
             ->generateSlugsFrom('title') // field to generate the slug from
             ->saveSlugsTo('slug'); // field to save the slug to
     }
-    public function class()
+
+    public function module()
     {
-        return $this->hasMany(ClassEvent::class);
+        return $this->belongsTo(Module::class,'module_id');
     }
 }

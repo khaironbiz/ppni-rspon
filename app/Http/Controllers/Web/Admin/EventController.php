@@ -42,11 +42,14 @@ class EventController extends Controller
     }
     public function show($slug){
         $event = Event::where('slug', $slug)->first();
+        $classes = $event->class()->get();
+//        dd($classes);
         $data = [
             'class'         => 'Event',
             'sub_class'     => 'Show',
             'title'         => 'Show Event',
-            'event'         => $event
+            'event'         => $event,
+            'event_classes' => $classes
         ];
         return view('admin.event.show', $data);
     }

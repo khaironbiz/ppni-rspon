@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('content')
-    <div class="card">
+    <div class="card ml-2">
         <div class="card-header">
             <b>Create New Event</b>
         </div>

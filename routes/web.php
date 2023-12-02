@@ -35,7 +35,9 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 
 @include('web/curriculum.php');
 
-@include('web/modul.php');
+@include('web/module.php');
+
+@include('web/module_attachment.php');
 
 @include('web/code.php');
 

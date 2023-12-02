@@ -20,6 +20,12 @@
 
                 <li class="nav-header">Admin Area</li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.code.parent') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
+                        <p class="text">Codes</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.training.index') }}" class="nav-link">
                         <i class="nav-icon far fa-circle text-success"></i>
                         <p class="text">Trainings</p>

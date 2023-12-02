@@ -25,4 +25,8 @@ class Curriculum extends Model
     {
         return $this->belongsTo(CurriculumVersion::class,'curriculum_version_id');
     }
+    public function module()
+    {
+        return $this->hasMany(Module::class, 'curriculum_id');
+    }
 }

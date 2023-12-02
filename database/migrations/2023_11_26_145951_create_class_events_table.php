@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('class_events', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->foreignIdFor(\App\Models\Event::class);
+            $table->foreignIdFor(\App\Models\Training::class)->nullable();
             $table->string('title');
             $table->date('date_start');
             $table->date('date_finish');

@@ -9,7 +9,7 @@
             {{ session('danger') }}
         </div>
     @endif
-    <div class="card">
+    <div class="card ml-2">
         <div class="card-header bg-info">
 
         </div>
@@ -35,18 +35,34 @@
                             <div class="modal-body">
                                 <div class="row mb-1">
                                     <div class="col-md-4">
+                                        <label>Urutan</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" class="form-control" name="urutan" value="{{ $codes->count()+1 }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
                                         <label>Code</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="code">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-1">
                                     <div class="col-md-4">
                                         <label>Code Title</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="title">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Description</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" name="description"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -66,16 +82,19 @@
                     <th>Code</th>
                     <th>Title</th>
                     <th>Child Number</th>
+                    <th>Sub</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($codes as $data)
+
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>{{ $data->code }}</td>
                         <td>{{ $data->title }}</td>
                         <td>{{ $data->child_number }}</td>
+                        <td></td>
                         <td>
                             <a href="{{ route('admin.code.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>

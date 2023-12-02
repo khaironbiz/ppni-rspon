@@ -1,19 +1,27 @@
 @extends('layout.admin')
 @section('content')
     @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success ml-2">
             {{ session('success') }}
         </div>
     @elseif(session('danger'))
-        <div class="alert alert-danger">
+        <div class="alert alert-danger ml-2">
             {{ session('danger') }}
         </div>
     @endif
-    <div class="card">
+    <div class="card ml-2">
         <div class="card-header">
             <b>{{ $title }}</b>
         </div>
         <div class="card-body">
+            <div class="row mb-2">
+                <div class="col-md-2">
+                    <b>Urutan</b>
+                </div>
+                <div class="col-md-10">
+                    {{ $code->urutan }}
+                </div>
+            </div>
             <div class="row mb-2">
                 <div class="col-md-2">
                     <b>Code</b>
@@ -32,12 +40,30 @@
             </div>
             <div class="row mb-2">
                 <div class="col-md-2">
+                    <b>Description</b>
+                </div>
+                <div class="col-md-10">
+                    {{ $code->description }}
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-2">
                     <b>Parent ID</b>
                 </div>
                 <div class="col-md-10">
                     @if($code->parent_id != null)
                         {{ $code->parent->title }}
                     @endif
+
+                </div>
+
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-2">
+                    <b>Child Number</b>
+                </div>
+                <div class="col-md-10">
+                    {{ $code->child_number }}
 
                 </div>
             </div>
@@ -65,19 +91,35 @@
                             <div class="modal-body">
                                 <div class="row mb-1">
                                     <div class="col-md-4">
-                                        <label>Code</label>
+                                        <label>Urutan</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="hidden" class="form-control" name="id" value="{{ $code->id }}">
+                                        <input type="text" class="form-control" name="urutan" value="{{ $code->urutan }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
+                                        <label>Code</label>
+                                    </div>
+                                    <div class="col-md-8">
                                         <input type="text" class="form-control" name="code" value="{{ $code->code }}">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-1">
                                     <div class="col-md-4">
                                         <label>Title</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="title" value="{{ $code->title }}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Description</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" name="description">{{ $code->description }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +163,8 @@
                 </div>
             </div>
         </div>
-        <hr>
+    </div>
+    <div class="card ml-2">
         <div class="card-header">
             <b>Child Code</b>
         </div>
@@ -154,18 +197,34 @@
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-md-4">
+                                        <label>Urutan</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" class="form-control" name="urutan" value="{{ $code->child_number+1 }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
                                         <label>Code</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="code">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-1">
                                     <div class="col-md-4">
                                         <label>Title</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="title">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Description</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" name="description"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -191,16 +250,16 @@
                 </thead>
                 <tbody>
                 @foreach($child_codes as $data)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $data->parent->title }}</td>
-                    <td>{{ $data->code }}</td>
-                    <td>{{ $data->title }}</td>
-                    <td>{{ $data->child_number }}</td>
-                    <td>
-                        <a href="{{ route('admin.code.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->parent->title }}</td>
+                        <td>{{ $data->code }}</td>
+                        <td>{{ $data->title }}</td>
+                        <td>{{ $data->child_number }}</td>
+                        <td>
+                            <a href="{{ route('admin.code.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
@@ -211,7 +270,6 @@
             @endif
 
         </div>
-
     </div>
 
 @endsection

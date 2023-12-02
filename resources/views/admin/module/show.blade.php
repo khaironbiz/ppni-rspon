@@ -16,20 +16,22 @@
         <div class="card-body bg-gray">
             <div class="row mb-2">
                 <div class="col-md-2">
-                    <b>Curriculum Version</b>
+                    <b>Curriculum</b>
                 </div>
-                <div class="col-md-10">
-                    {{ $curriculum->curriculum_version->title }}
-                </div>
+                <div class="col-md-10">{{ $module->curriculum->title }}</div>
 
             </div>
             <div class="row mb-2">
                 <div class="col-md-2">
-                    <b>Nama Pelajaran</b>
+                    <b>Metode Pembelajaran</b>
                 </div>
-                <div class="col-md-10">
-                    {{ $curriculum->title }}
+                <div class="col-md-10">{{ $module->code->title }}</div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-2">
+                    <b>Nama Module</b>
                 </div>
+                <div class="col-md-10">{{ $module->title }}</div>
             </div>
 
 
@@ -57,8 +59,8 @@
                                         <label>Nama Pelajaran</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="hidden" class="form-control" name="id" value="{{ $curriculum->id }}">
-                                        <input type="text" class="form-control" name="title" value="{{ $curriculum->title }}">
+                                        <input type="hidden" class="form-control" name="id" value="{{ $module->id }}">
+                                        <input type="text" class="form-control" name="title" value="{{ $module->title }}">
                                     </div>
                                 </div>
                             </div>
@@ -84,11 +86,11 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('admin.curriculum.delete') }}" method="post">
+                        <form action="{{ route('admin.module.delete') }}" method="post">
                             @csrf
                             @method('DELETE')
                             <div class="modal-body">
-                                <input type="checkbox" required value="{{ $curriculum->id }}" name="id"> Saya Setuju menghapus data ini
+                                <input type="checkbox" required value="{{ $module->id }}" name="id"> Saya Setuju menghapus data ini
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -104,7 +106,7 @@
     </div>
     <div class="card ml-2">
         <div class="card-header">
-            <b>Module</b>
+            <b>Attachment</b>
         </div>
         <div class="card-body">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addData">
@@ -129,7 +131,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <select class="form-control" name="curriculum_id">
-                                            <option value="{{ $curriculum->id }}">{{ $curriculum->title }}</option>
+                                            <option value=""></option>
                                         </select>
                                     </div>
                                 </div>
@@ -140,9 +142,9 @@
                                     <div class="col-md-8">
                                         <select class="form-control" name="metode" required>
                                             <option value="">------</option>
-                                            @foreach($methode as $data)
-                                                <option value="{{ $data->id }}">{{ $data->title }}</option>
-                                            @endforeach
+{{--                                            @foreach($methode as $data)--}}
+{{--                                                <option value="{{ $data->id }}">{{ $data->title }}</option>--}}
+{{--                                            @endforeach--}}
                                         </select>
                                     </div>
                                 </div>
@@ -184,10 +186,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($modules as $data)
+                @foreach($attachment as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $data->code->title }}</td>
+                        <td>{{ $data->id }}</td>
                         <td>{{ $data->title }}</td>
                         <td>{{ $data->jpl }}</td>
                         <td>
@@ -197,9 +199,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <a href="{{ route('admin.curriculum_version.show', ['slug'=>$curriculum->curriculum_version->slug]) }}" class="btn btn-warning mt-3">Back</a>
         </div>
-
     </div>
 
 @endsection

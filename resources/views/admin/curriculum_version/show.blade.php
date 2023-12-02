@@ -1,15 +1,15 @@
 @extends('layout.admin')
 @section('content')
     @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success ml-2">
             {{ session('success') }}
         </div>
     @elseif(session('danger'))
-        <div class="alert alert-danger">
+        <div class="alert alert-danger ml-2">
             {{ session('danger') }}
         </div>
     @endif
-    <div class="card">
+    <div class="card ml-2">
         <div class="card-header bg-dark">
             <b>{{ $title }}</b>
         </div>
@@ -100,7 +100,8 @@
                 </div>
             </div>
         </div>
-        <hr>
+    </div>
+    <div class="card ml-2">
         <div class="card-header">
             <b>Kurikulum</b>
         </div>
@@ -182,22 +183,21 @@
                 </thead>
                 <tbody>
                 @foreach($curriculum as $data)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $data->type }}</td>
-                    <td>{{ $data->title }}</td>
-                    <td>{{ $data->jpl }}</td>
-                    <td>
-                        <a href="{{ route('admin.curriculum.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->type }}</td>
+                        <td>{{ $data->title }}</td>
+                        <td>{{ $data->jpl }}</td>
+                        <td>
+                            <a href="{{ route('admin.curriculum.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
-        </div>
-        <td class="card-footer mb-5">
+            <a href="{{ route('admin.training.show', ['slug'=>$curriculum_version->training->slug]) }}" class="btn btn-warning mt-3">Back</a>
 
-        </td>
+        </div>
 
     </div>
 

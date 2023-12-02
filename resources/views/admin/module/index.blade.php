@@ -26,22 +26,59 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="post" action="{{ route('admin.training.store') }}">
+                        <form method="post" action="{{ route('admin.module.store') }}">
                             @csrf
                             <div class="modal-body">
-                                <div class="row">
+                                <div class="row mb-1">
                                     <div class="col-md-4">
-                                        <label>Training Name</label>
+                                        <label>Curiculum</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" name="title">
+                                        <select class="form-control" name="curriculum_id" required>
+                                            @foreach($curricula as $data)
+                                                <option value="{{ $data->id }}">{{ $data->title }}</option>
+                                            @endforeach
+
+                                        </select>
                                     </div>
                                 </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
+                                        <label>Module</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="title" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
+                                        <label>JPL</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="jpl" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4">
+                                        <label>Metode</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="metode" required>
+                                            <option value="">----pilih----</option>
+                                            @foreach($methode as $data)
+                                                <option value="{{ $data->id }}">{{ $data->title }}</option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
+
                         </form>
                     </div>
                 </div>
@@ -59,7 +96,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($trainings as $data)
+                @foreach($modules as $data)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>{{ $data->title }}</td>
@@ -67,77 +104,6 @@
                         <td>{{ $data->date_finish }}</td>
                         <td>
                             <a href="{{ route('admin.training.show', ['slug'=>$data->slug]) }}" class="btn btn-sm btn-info">Detail</a>
-                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#update{{$data->slug}}">
-                                Update
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="update{{ $data->slug }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header bg-success">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Update Data</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <form method="post" action="{{ route('admin.training.update') }}">
-                                            @csrf
-                                            @method('PUT')
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <label>Training Name</label>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <input type="hidden" class="form-control" name="slug" value="{{ $data->slug }}">
-                                                        <input type="text" class="form-control" name="title" value="{{ $data->title }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-success">Update</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{$data->slug}}">
-                                Delete
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="delete{{ $data->slug }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header bg-danger">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Update Data</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <form method="post" action="{{ route('admin.training.destroy') }}">
-                                            @csrf
-                                            @method('delete')
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <label>Training Name</label>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <input type="checkbox" class="form-control" name="slug" value="{{ $data->slug }}"><b>Saya setuju menghapus data ini</b>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
                         </td>
                     </tr>
                 @endforeach

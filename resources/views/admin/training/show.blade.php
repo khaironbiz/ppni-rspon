@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('content')
-    <div class="card">
+    <div class="card ml-2">
         <div class="card-header">
             <b>{{ $title }}</b>
         </div>
@@ -86,7 +86,8 @@
                 </div>
             </div>
         </div>
-        <hr>
+    </div>
+    <div class="card ml-2">
         <div class="card-header">
             <b>Versi Kurikulum</b>
         </div>
@@ -136,18 +137,19 @@
                 </thead>
                 <tbody>
                 @foreach($curriculumVersion as $data)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $data->title }}</td>
-                    <td>
-                        <a href="{{ route('admin.curriculum_version.show', ['slug'=>$data->slug]) }}" class="btn btn-sm btn-info">Detail</a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->title }}</td>
+                        <td>
+                            <a href="{{ route('admin.curriculum_version.show', ['slug'=>$data->slug]) }}" class="btn btn-sm btn-info">Detail</a>
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
-        </div>
+            <a href="{{ route('admin.training.index') }}" class="btn btn-warning mt-3">Back</a>
 
+        </div>
     </div>
 
 @endsection

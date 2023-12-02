@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Web\admin;
 use App\Http\Controllers\Controller;
 use App\Models\ClassEvent;
 use App\Models\Event;
+use App\Models\SubjectStudy;
+use App\Models\Training;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -21,12 +23,14 @@ class ClassController extends Controller
         return view('admin.class.index', $data);
     }
     public function create(){
-        $events = Event::all();
+        $events     = Event::all();
+        $trainings  = Training::all();
         $data = [
             'class'         => 'Event',
             'sub_class'     => 'Create Class',
             'title'         => 'Create New Class',
-            'events'        => $events
+            'events'        => $events,
+            'trainings'     => $trainings
         ];
         return view('admin.class.create', $data);
     }
@@ -42,11 +46,13 @@ class ClassController extends Controller
     }
     public function show($slug){
         $class = ClassEvent::where('slug', $slug)->first();
+        $mata_ajar = SubjectStudy::where('class_event_id', $class->id)->get();
         $data = [
             'class'         => 'Event',
             'sub_class'     => 'Class',
             'title'         => 'Show Class Event',
-            'class_event'   => $class
+            'class_event'   => $class,
+            'mata_ajar'     => $mata_ajar
         ];
         return view('admin.class.show', $data);
     }

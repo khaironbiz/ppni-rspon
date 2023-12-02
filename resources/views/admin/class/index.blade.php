@@ -31,8 +31,8 @@
                 @foreach($classEvent as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $data->title }}</td>
                         <td>{{ $data->event->title }}</td>
+                        <td>{{ $data->title }}</td>
                         <td>{{ $data->date_start }}</td>
                         <td>{{ $data->date_finish }}</td>
                         <td>

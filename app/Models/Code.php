@@ -28,4 +28,10 @@ class Code extends Model
     {
         return $this->belongsTo(Code::class, 'parent_id');
     }
+
+    public function module()
+    {
+        return $this->hasMany(Model::class, 'metode');
+    }
+
 }

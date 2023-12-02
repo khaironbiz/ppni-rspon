@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('content')
-    <div class="card">
+    <div class="card ml-2">
         <div class="card-header">
             <b>{{ $title }}</b>
         </div>
@@ -54,6 +54,41 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+    </div>
+    <div class="card ml-2">
+        <div class="card-header">
+            <b>Mata Ajar</b>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Mata Ajar</th>
+                        <th>JPL</th>
+                        <th>Pengampu</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($mata_ajar as $data)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $data->title }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    @endforeach
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="card-footer">
+
         </div>
     </div>
 
