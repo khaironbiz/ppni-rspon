@@ -15,7 +15,9 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('code');
             $table->string('title');
-            $table->foreignIdFor(\App\Models\Code::class)->nullable();
+            $table->uuid('parent_id')->nullable();
+            $table->string('slug');
+            $table->integer('child_number')->nullable();
             $table->timestamps();
         });
     }

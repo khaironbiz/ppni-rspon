@@ -10,10 +10,14 @@
         </div>
     @endif
     <div class="card">
-        <div class="card-header">
+        <div class="card-header bg-info">
+
+        </div>
+
+        <div class="card-body">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                Add New Data
+            <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#staticBackdrop">
+                Add Code
             </button>
 
             <!-- Modal -->
@@ -26,12 +30,20 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="post" action="{{ route('admin.training.store') }}">
+                        <form method="post" action="{{ route('admin.code.store') }}">
                             @csrf
                             <div class="modal-body">
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
+                                        <label>Code</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="code">
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label>Training Name</label>
+                                        <label>Code Title</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="title">
@@ -47,27 +59,25 @@
                 </div>
             </div>
 
-        </div>
-        <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped table-sm">
+            <table id="example1" class="table table-bordered table-striped table-sm mt-2">
                 <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th>Training Name</th>
-                    <th>Curricula</th>
-                    <th>Module</th>
+                    <th>Code</th>
+                    <th>Title</th>
+                    <th>Child Number</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($trainings as $data)
+                @foreach($codes as $data)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
+                        <td>{{ $data->code }}</td>
                         <td>{{ $data->title }}</td>
-                        <td>{{ $data->date_start }}</td>
-                        <td>{{ $data->date_finish }}</td>
+                        <td>{{ $data->child_number }}</td>
                         <td>
-                            <a href="{{ route('admin.training.show', ['slug'=>$data->slug]) }}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('admin.code.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>
                     </tr>
                 @endforeach
