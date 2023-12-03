@@ -7,6 +7,7 @@ use App\Models\Code;
 use App\Models\Curriculum;
 use App\Models\CurriculumVersion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CurriculumController extends Controller
@@ -24,6 +25,7 @@ class CurriculumController extends Controller
     }
     public function store(Request $request){
         $data = $request->all();
+        $data['user_id']= Auth::id();
 //        dd($data);
         $curricula = new Curriculum();
         $create = $curricula->create($data);

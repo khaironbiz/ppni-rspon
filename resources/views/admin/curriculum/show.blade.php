@@ -52,13 +52,21 @@
                             @csrf
                             @method('PUT')
                             <div class="modal-body">
-                                <div class="row">
+                                <div class="row mb-2">
                                     <div class="col-md-4">
                                         <label>Nama Pelajaran</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="hidden" class="form-control" name="id" value="{{ $curriculum->id }}">
                                         <input type="text" class="form-control" name="title" value="{{ $curriculum->title }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4">
+                                        <label>CANVA</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" name="canva"></textarea>
                                     </div>
                                 </div>
                             </div>

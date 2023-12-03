@@ -8,13 +8,13 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-6 align-self-md-center">
                         <div class="image-block">
-                            <img src="https://ppni.or.id/simk/id/image/foto/31720126348.jpg" class="img-fluid" alt="speaker">
+                            <img src="https://ppni.or.id/simk/id/image/foto/31720126348.png" class="img-fluid" alt="speaker">
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-6 align-self-center">
                         <div class="content-block">
                             <div class="name">
-                                <h3>Jonathan Franco</h3>
+                                <h3>{{ $user->nama_depan }}</h3>
                             </div>
                             <div class="profession">
                                 <p>Web Developer</p>

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'])->name('landing.home')->middleware('guest');
+Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'])->name('landing.home');
 
 @include('web/auth.php');
 
@@ -42,5 +42,7 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 @include('web/code.php');
 
 @include('web/landing.php');
+
+@include('web/user.php');
 //landing
 

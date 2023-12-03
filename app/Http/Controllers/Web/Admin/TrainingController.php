@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CurriculumVersion;
 use App\Models\Training;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class TrainingController extends Controller
@@ -44,6 +45,7 @@ class TrainingController extends Controller
     }
     public function store(Request $request){
         $data       = $request->all();
+        $data['user_id']= Auth::id();
         $training   = new Training();
         $create     = $training->create($data);
         if($create){

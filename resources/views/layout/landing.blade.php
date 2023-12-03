@@ -109,10 +109,18 @@
                     <a class="nav-link" href="{{ route('landing.contact') }}">Contact</a>
                 </li>
             </ul>
-            <a href="{{ route('auth.login') }}" class="ticket">
+            @if(\Illuminate\Support\Facades\Auth::check())
+                <a href="{{ route('login') }}" class="ticket">
 
-                <span>Login</span>
-            </a>
+                    <span>Account</span>
+                </a>
+            @else
+                <a href="{{ route('login') }}" class="ticket">
+
+                    <span>Login</span>
+                </a>
+            @endif
+
         </div>
     </div>
 </nav>

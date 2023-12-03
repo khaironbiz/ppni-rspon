@@ -21,8 +21,8 @@
                 <form action="" method="post">
                     @csrf
                     <div class="mb-3">
-                        <input type="text" class="form-control" name="username" placeholder="Email" value="{{ old('username') }}">
-                        @error('username')
+                        <input type="text" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}">
+                        @error('email')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
@@ -49,6 +49,7 @@
                 </form>
                     <hr>
                     <p class="mb-0"><a href="{{ route('auth.forgot') }}">I forgot my password</a></p>
+                    <p class="mb-0"><a href="{{ route('auth.register') }}">Register</a></p>
                     <p class="mb-0"><a href="{{ route('landing.home') }}">Home Page</a></p>
             </div>
 

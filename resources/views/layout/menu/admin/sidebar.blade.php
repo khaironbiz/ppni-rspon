@@ -8,8 +8,11 @@
                 <img src="https://ppni.or.id/simk/id/image/foto/31720126348.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
+                @if(auth()->check())
+                    <a href="#" class="d-block">{{ \Illuminate\Support\Facades\Auth::user()['nama_depan'] }}</a>
+                @endif
 
-                <a href="#" class="d-block">Nama</a>
+
             </div>
         </div>
 
@@ -64,7 +67,7 @@
 
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('auth.logout') }}" class="nav-link">
 
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p>Logout</p>

@@ -55,10 +55,11 @@
                     @enderror
                 </div>
                 <div class="mb-1">
-                    <select class="form-control" name="gender">
+                    <select class="form-control" name="gender" required>
                         <option value="">Gender</option>
-                        <option value="male">Laki-laki</option>
-                        <option value="female">Perempuan</option>
+                        @foreach($gender as $data)
+                            <option value="{{ $data->id }}">{{ $data->title }}</option>
+                        @endforeach
                     </select>
                     @error('gender')
                     <small class="text-danger">{{ $message }}</small>
@@ -87,7 +88,7 @@
                 </div>
             </form>
 
-            <a href="{{ route('auth.login') }}" class="text-center">I already have a membership</a>
+            <a href="{{ route('login') }}" class="text-center">I already have a membership</a>
         </div>
 
     </div>

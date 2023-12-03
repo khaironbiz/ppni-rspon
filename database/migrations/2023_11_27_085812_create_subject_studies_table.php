@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->text('canva');
             $table->string('slug');
+            $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->timestamps();
         });
     }

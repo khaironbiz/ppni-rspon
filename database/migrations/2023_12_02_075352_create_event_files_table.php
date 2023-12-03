@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('mimeType');
             $table->integer('size');
             $table->string('url');
+            $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->timestamps();
         });
     }

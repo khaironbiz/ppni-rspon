@@ -7,6 +7,7 @@ use App\Models\Curriculum;
 use App\Models\CurriculumVersion;
 use App\Models\Training;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CurriculumVersionController extends Controller
@@ -37,6 +38,7 @@ class CurriculumVersionController extends Controller
     }
     public function store(Request $request){
         $data       = $request->all();
+        $data['user_id']= Auth::id();
         $curricumum_version    = new CurriculumVersion();
         $create     = $curricumum_version->create($data);
         if($create){

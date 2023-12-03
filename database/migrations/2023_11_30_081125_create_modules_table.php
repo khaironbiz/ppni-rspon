@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('jpl');
             $table->string('metode');
             $table->string('slug');
+            $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->timestamps();
         });
     }

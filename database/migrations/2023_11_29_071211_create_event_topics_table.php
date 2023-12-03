@@ -24,6 +24,7 @@ return new class extends Migration
             $table->bigInteger('created_by')->default(1);
             $table->string('slug');
             $table->string('canva');
+            $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->timestamps();
         });
     }

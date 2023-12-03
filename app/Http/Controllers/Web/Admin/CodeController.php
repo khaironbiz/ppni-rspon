@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Code;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CodeController extends Controller
@@ -48,6 +49,7 @@ class CodeController extends Controller
     public function store(Request $request){
         $code = new Code();
         $data   = $request->all();
+        $data['user_id'] = Auth::id();
         $create = $code->create($data);
         if($create){
             Session::flash('success', 'Data sukses dibuat');

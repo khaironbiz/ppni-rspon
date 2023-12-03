@@ -7,6 +7,7 @@ use App\Models\Code;
 use App\Models\Curriculum;
 use App\Models\Module;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class ModuleController extends Controller
@@ -44,6 +45,7 @@ class ModuleController extends Controller
     public function store(Request $request){
         $module = new Module();
         $data   = $request->all();
+        $data['user_id']= Auth::id();
 //        dd($data);
         $create = $module->create($data);
         if($create){

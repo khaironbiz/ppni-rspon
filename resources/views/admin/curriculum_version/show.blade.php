@@ -161,6 +161,14 @@
                                         <input type="number" class="form-control" name="jpl">
                                     </div>
                                 </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4">
+                                        <label>CANVA</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" name="canva"></textarea>
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

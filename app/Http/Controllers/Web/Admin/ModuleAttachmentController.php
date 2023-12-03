@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\File;
 use App\Models\ModuleAttachment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -39,6 +40,7 @@ class ModuleAttachmentController extends Controller
     public function store(Request $request){
         $attachment = new ModuleAttachment();
         $data       = $request->all();
+        $data['user_id']= Auth::id();
         $create     = $attachment->create($data);
         if($create){
             Session::flash('success', 'Berhasil membuat data baru');
@@ -49,7 +51,7 @@ class ModuleAttachmentController extends Controller
     }
     public function uploadFile(Request $request)
     {
-        $user_id = 123;
+        $user_id = Auth::id();
         $file = $request->file('file_name');
         $result     = Storage::disk('s3')->putFileAs('latihan', $file, $file->hashName(),'public');
         $url        = Storage::disk('s3')->url($result);
