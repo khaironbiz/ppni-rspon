@@ -41,7 +41,8 @@
                 Update
             </button>
             <!-- Modal -->
-            <div class="modal fade" id="update" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="update" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-success">
@@ -60,7 +61,8 @@
                                     </div>
                                     <div class="col-md-8">
                                         <input type="hidden" class="form-control" name="id" value="{{ $module->id }}">
-                                        <input type="text" class="form-control" name="title" value="{{ $module->title }}">
+                                        <input type="text" class="form-control" name="title"
+                                               value="{{ $module->title }}">
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +79,8 @@
                 Delete
             </button>
             <!-- Modal -->
-            <div class="modal fade" id="delete" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="delete" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header bg-black">
@@ -90,7 +93,8 @@
                             @csrf
                             @method('DELETE')
                             <div class="modal-body">
-                                <input type="checkbox" required value="{{ $module->id }}" name="id"> Saya Setuju menghapus data ini
+                                <input type="checkbox" required value="{{ $module->id }}" name="id"> Saya Setuju
+                                menghapus data ini
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -109,71 +113,9 @@
             <b>Attachment</b>
         </div>
         <div class="card-body">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addData">
-                Add Data
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="addData" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary">
-                            <h5 class="modal-title" id="staticBackdropLabel">Tambah data kurikulum</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form method="post" action="{{ route('admin.module.store') }}">
-                            @csrf
-                            <div class="modal-body">
-                                <div class="row mb-2">
-                                    <div class="col-md-4">
-                                        <label>Kurikulum</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <select class="form-control" name="curriculum_id">
-                                            <option value=""></option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="col-md-4">
-                                        <label>Jenis Materi</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <select class="form-control" name="metode" required>
-                                            <option value="">------</option>
-{{--                                            @foreach($methode as $data)--}}
-{{--                                                <option value="{{ $data->id }}">{{ $data->title }}</option>--}}
-{{--                                            @endforeach--}}
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="col-md-4">
-                                        <label>Nama Pelajaran</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <input type="text" class="form-control" name="title">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-md-4">
-                                        <label>JPL</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <input type="number" class="form-control" name="jpl">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            @include('admin.module.modal.new_canva')
+            @include('admin.module.modal.new_youtube')
+            @include('admin.module.modal.file')
 
             <table class="table table-sm">
                 <thead>
@@ -187,18 +129,32 @@
                 </thead>
                 <tbody>
                 @foreach($attachment as $data)
+                    @php
+                    $filename= "AGmdlOulSVXtGhnCHU9OQNMbtKpy8HDleza2EVMC.pdf";
+                    @endphp
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->id }}</td>
-                        <td>{{ $data->title }}</td>
+                        <td>{{ $data->file_type }}</td>
                         <td>{{ $data->jpl }}</td>
                         <td>
-                            <a href="{{ route('admin.module.show',['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
+                            @if($data->file_type == 'file')
+                                <a href="{{ route('admin.module_attachment.download',['id'=>$data->id]) }}"
+                                   class="btn btn-sm btn-info" target="_blank">Unduh</a>
+                            @else
+                                <a href="{{ route('admin.module_attachment.show',['id'=>$data->id]) }}"
+                                   class="btn btn-sm btn-info">Show</a>
+                            @endif
+
+                            @include('admin.module.modal.delete')
+
+
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+            <a href="{{ route('admin.curriculum.show', ['id'=>$module->curriculum->id]) }}" class="btn btn-warning mt-3">Back</a>
         </div>
     </div>
 

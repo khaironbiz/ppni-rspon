@@ -8,15 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class ModuleAttachment extends Model
+class File extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
     use HasFactory;
     use HasUlids;
-
-
-    public function module()
+    public function class()
     {
-        return $this->belongsTo(Module::class,'module_id');
+        return $this->hasMany(ClassEvent::class);
     }
 }

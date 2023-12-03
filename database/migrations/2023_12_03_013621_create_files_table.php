@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-        Schema::create('event_files', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignIdFor(\App\Models\EventTopic::class);
-            $table->string('name');
-            $table->string('extention');
+            $table->foreignIdFor(\App\Models\User::class);
             $table->string('mimeType');
-            $table->integer('size');
-            $table->string('url');
+            $table->text('file_name');
             $table->timestamps();
         });
     }
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('event_files');
+        Schema::dropIfExists('files');
     }
 };
