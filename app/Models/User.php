@@ -25,6 +25,7 @@ class User extends Authenticatable
         'gender',
         'nik',
         'email',
+        'role',
         'nomor_telepon',
         'tempat_lahir',
         'tanggal_lahir',
