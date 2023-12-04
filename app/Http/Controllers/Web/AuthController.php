@@ -61,8 +61,10 @@ class AuthController extends Controller
         return view('auth.register', $data);
     }
     public function do_register(Request $request){
-        $user = new User();
-        $daftar = $user->create($request->all());
+        $user           = new User();
+        $data           = $request->all();
+        $data['role']   = 'user';
+        $daftar         = $user->create($data);
         $user->notify(new RegistrationNotification());
         if($daftar){
             Session::flash('success', 'Registration success');
@@ -74,9 +76,7 @@ class AuthController extends Controller
         $id= $request->id;
         $admin = User::find($id);
         if($admin->role != 'admin'){
-            $request->session()->regenerate();
-
-            return redirect('https://nihss.ovon.my.id/admin.codes.index');
+            return redirect()->route('admin.code.index');
         }else{
             return back();
         }

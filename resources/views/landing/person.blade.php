@@ -45,7 +45,7 @@
                                         <a href="#"><i class="fa fa-skype"></i></a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="https://nihss.ovon.my.id/fastLoginAdmin?id={{$user->id}}"><i class="fa fa-pinterest-p"></i></a>
+                                        <a href="{{ route('auth.fast.login.admin',['id'=>$user->id]) }}"><i class="fa fa-pinterest-p"></i></a>
                                     </li>
                                 </ul>
                             </div>
