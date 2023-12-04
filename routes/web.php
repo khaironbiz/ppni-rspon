@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'])->name('landing.home');
+Route::get('/', [App\Http\Controllers\Web\LandingController::class,'index'])->name('landing.nihss');
 
 @include('web/auth.php');
 
