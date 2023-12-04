@@ -89,12 +89,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.price') }}">PRETEST
+                    <a class="nav-link" href="{{ route('landing.pengembangan') }}">PRETEST
                         <span>/</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.price') }}">POST TEST
+                    <a class="nav-link" href="{{ route('landing.pengembangan') }}">POST TEST
                         <span>/</span>
                     </a>
                 </li>
@@ -106,7 +106,7 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.contact') }}">Contact</a>
+                    <a class="nav-link" href="{{ route('landing.pengembangan') }}">Contact</a>
                 </li>
             </ul>
             @if(\Illuminate\Support\Facades\Auth::check())

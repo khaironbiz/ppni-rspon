@@ -89,6 +89,13 @@ class LandingController extends Controller
     public function upload(){
         return view('upload.upload');
     }
+    public function pengembangan(){
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Pengembangan'
+        ];
+        return view('landing.notfound', $data);
+    }
     public function ckeditor(){
         $data = [
             'title' => 'Create Event',
