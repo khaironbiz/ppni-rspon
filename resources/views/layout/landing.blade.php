@@ -187,7 +187,7 @@
         <div class="row">
             <div class="col-md-8 align-self-center">
                 <div class="copyright-text">
-                    <p><a href="{{ route('landing.home') }}">DPK PPNI RS Pusat Otak Nasional Jakarta</a> &copy; 2016, Developed by <b class="text-danger">Khairon</b></p>
+                    <p><a href="{{ route('landing.home') }}">E MODULE NIHSS</a> &copy; 2016, Developed by <b class="text-danger">Khairon</b></p>
                 </div>
             </div>
             <div class="col-md-4">
