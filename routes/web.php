@@ -47,5 +47,7 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 @include('web/landing.php');
 
 @include('web/user.php');
+
+@include('web/profile.php');
 //landing
 
