@@ -14,7 +14,7 @@
                     <div class="col-lg-7 col-md-6 align-self-center">
                         <div class="content-block">
                             <div class="name">
-                                <h3>{{ $user->nama_depan }}</h3>
+                                <h3>{{ $user->nama_depan }} {{ $user->nama_belakang }}</h3>
                             </div>
                             <div class="profession">
                                 <p>Web Developer</p>
@@ -117,7 +117,10 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
+                    <a href="{{ route('auth.logout') }}" class="btn btn-main-md">Logout</a>
+
                 </div>
             </div>
         </div>
