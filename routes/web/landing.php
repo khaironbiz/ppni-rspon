@@ -14,6 +14,6 @@ Route::get('/text-area', [LandingController::class, 'text'])->middleware('guest'
 Route::get('/crop-image-upload', [LandingController::class, 'upload'])->name('landing.upload')->middleware('guest');
 Route::post('/crop-image-upload-ajax', [LandingController::class, 'crop'])->name('landing.upload.crop')->middleware('guest');
 
-Route::get('/nihss', [LandingController::class, 'index'])->name('landing.nihss');
+
 
 Route::get('/admin/event/create', [LandingController::class, 'ckeditor'])->name('admin.events.create')->middleware('guest');

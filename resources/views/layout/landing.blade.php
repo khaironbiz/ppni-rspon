@@ -84,7 +84,7 @@
 {{--                    </a>--}}
 {{--                </li>--}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.nihss') }}">HOME
+                    <a class="nav-link" href="{{ route('landing.home') }}">HOME
                         <span>/</span>
                     </a>
                 </li>
