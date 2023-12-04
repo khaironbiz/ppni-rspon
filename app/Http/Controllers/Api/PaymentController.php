@@ -45,11 +45,11 @@ class PaymentController extends Controller
     }
     //create
     public function store(Request $request){
-        $id_duitku          = 2;
+        $id_duitku          = 1;
         $duitku             = Duitku::find($id_duitku);
         $invoice_number     = $request->invoice_number;
         $payment_method     = $request->payment_method;
-
+//        dd($duitku);
         if(empty($duitku)){
             $status_code    = 404;
             $message        = "Wrong ID Payment Gateway";
@@ -114,7 +114,7 @@ class PaymentController extends Controller
             $item2 = array(
                 'name' => 'Test Item 2',
                 'price' => 30000,
-                'quantity' => 3);
+                'quantity' => 1);
 
             $itemDetails = array(
                 $item1, $item2
@@ -139,7 +139,8 @@ class PaymentController extends Controller
                 'signature'         => $signature,
                 'expiryPeriod'      => $expiryPeriod
             );
-            $url = 'https://sandbox.duitku.com/webapi/api/merchant/v2/inquiry'; // Sandbox
+            $base_url = $duitku->base_url;
+            $url = $base_url.'/webapi/api/merchant/v2/inquiry'; // Sandbox
             // $url = 'https://passport.duitku.com/webapi/api/merchant/v2/inquiry'; // Production
             $method = "POST";
             $create = $this->duitku($params, $url, $method);
