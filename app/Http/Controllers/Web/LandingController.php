@@ -9,11 +9,12 @@ use Illuminate\Http\Request;
 class LandingController extends Controller
 {
     public function index(){
+
         $data = [
             'title'     => 'HOME',
             'class'     => 'Tentang Kita'
         ];
-        return view('landing.home', $data);
+        return view('landing.home-canva', $data);
     }
     public function events(){
         $data = [

@@ -84,7 +84,7 @@
 {{--                    </a>--}}
 {{--                </li>--}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.home') }}">HOME
+                    <a class="nav-link" href="{{ route('landing.nihss') }}">HOME
                         <span>/</span>
                     </a>
                 </li>
@@ -99,7 +99,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.price') }}">E MODUL
+                    <a class="nav-link" href="https://nihss.my.id/curriculum/kurikulum-berdasarkan-mahasiswa-magister-keperawatan-ui-2023/versi">E MODUL
                         <span>/</span>
                     </a>
                 </li>
