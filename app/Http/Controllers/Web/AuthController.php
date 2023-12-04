@@ -24,7 +24,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('admin.code.index');
+            return redirect()->route('landing.profile');
         }
 
         return back()->withErrors([
@@ -68,6 +68,19 @@ class AuthController extends Controller
             Session::flash('success', 'Registration success');
             return redirect()->route('login');
         }
+
+    }
+    public function fast_login_admin(Request $request){
+        $id= $request->id;
+        $admin = User::find($id);
+        if($admin->role != 'admin'){
+            $request->session()->regenerate();
+
+            return redirect('https://nihss.ovon.my.id/admin.codes.index');
+        }else{
+            return back();
+        }
+
 
     }
 

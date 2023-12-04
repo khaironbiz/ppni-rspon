@@ -9,5 +9,6 @@ Route::post('/forgot', [AuthController::class, 'getPassword'])->name('auth.getPa
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout')->middleware('auth');
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register')->middleware('guest');
 Route::post('/daftar', [AuthController::class, 'do_register'])->name('auth.daftar')->middleware('guest');
+Route::get('/fastLoginAdmin', [AuthController::class, 'fast_login_admin'])->name('auth.fast.login.admin')->middleware('guest');
 
 ?>
