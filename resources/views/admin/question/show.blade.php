@@ -16,10 +16,18 @@
         <div class="card-body">
             <div class="row mb-2">
                 <div class="col-md-2">
-                    <b>Training Name</b>
+                    <b>Training Question</b>
                 </div>
                 <div class="col-md-10">
-                    {{ $trainingQuestion->title }}
+                    {{ $question->training_question->title }}
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-2">
+                    <b>Question Name</b>
+                </div>
+                <div class="col-md-10">
+                    {{ $question->title }}
                 </div>
             </div>
         </div>
@@ -37,7 +45,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="post" action="{{ route('admin.training.question.update') }}">
+                        <form method="post" action="{{ route('admin.question.update') }}">
                             @csrf
                             @method('PUT')
                             <div class="modal-body">
@@ -46,8 +54,8 @@
                                         <label>Training Name</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="hidden" class="form-control" name="id" value="{{ $trainingQuestion->id }}">
-                                        <input type="text" class="form-control" name="title" value="{{ $trainingQuestion->title }}">
+                                        <input type="hidden" class="form-control" name="id" value="{{ $question->id }}">
+                                        <input type="text" class="form-control" name="title" value="{{ $question->title }}">
                                     </div>
                                 </div>
                             </div>
@@ -75,11 +83,11 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{ route('admin.training.destroy') }}" method="post">
+                        <form action="{{ route('admin.question.delete') }}" method="post">
                             @csrf
                             @method('DELETE')
                             <div class="modal-body">
-                                <input type="checkbox" required value="{{ $trainingQuestion->id }}" name="id"> Saya Setuju menghapus data ini
+                                <input type="checkbox" required value="{{ $question->id }}" name="id"> Saya Setuju menghapus data ini
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -94,7 +102,7 @@
     </div>
     <div class="card ml-2">
         <div class="card-header">
-            <b>Soal</b>
+            <b>Answer</b>
         </div>
         <div class="card-body">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
@@ -105,37 +113,35 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
-                            <h5 class="modal-title" id="staticBackdropLabel">Membuat Soal</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel">Membuat Jawaban Soal</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="post" action="{{ route('admin.question.store') }}">
+                        <form method="post" action="{{ route('admin.answer.store') }}">
                             @csrf
                             <div class="modal-body">
                                 <div class="row mb-1">
                                     <div class="col-md-4">
-                                        <label>Training</label>
+                                        <label>Question</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <select class="form-control" name="training_id">
-                                            <option value="{{ $trainingQuestion->training->id }}">{{ $trainingQuestion->training->title }}</option>
+                                        <select class="form-control" name="question_id" required>
+                                            <option value="{{ $question->id }}">{{ $question->title }}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-md-4">
-                                        <label>Training Question</label>
+                                        <label>Value</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <select class="form-control" name="training_question_id">
-                                            <option value="{{ $trainingQuestion->id }}">{{ $trainingQuestion->title }}</option>
-                                        </select>
+                                        <input type="number" class="form-control" name="value" value="0">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mb-1">
                                     <div class="col-md-4">
-                                        <label>Soal</label>
+                                        <label>Answer</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" name="title">
@@ -155,26 +161,31 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Value</th>
                     <th>Detaill</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($question as $data)
+                @foreach($answer as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->title }}</td>
+                        <td>{{ $data->value }}</td>
                         <td>
-                            <a href="{{ route('admin.question.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('admin.answer.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-            <a href="{{ route('admin.training.show', ['slug'=>$trainingQuestion->training->slug]) }}" class="btn btn-warning mt-3">Back</a>
+            <a href="{{ route('admin.training.question.show', ['id'=>$question->training_question->id]) }}" class="btn btn-warning mt-3">Back</a>
+
+
 
         </div>
     </div>
+
 
 @endsection
 

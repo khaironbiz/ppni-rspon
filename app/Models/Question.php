@@ -16,7 +16,7 @@ class Question extends Model
 
     public function training_question()
     {
-        return $this->belongsTo(Code::class, 'training_question_id');
+        return $this->belongsTo(TrainingQuestion::class,'training_question_id');
     }
     public function answer()
     {

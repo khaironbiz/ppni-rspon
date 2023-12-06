@@ -15,7 +15,15 @@ class QuestionController extends Controller
     }
     public function show($id){
         $question = Question::find($id);
-        dd($question);
+        $answer = $question->answer()->get();
+        $data = [
+            'class'             => 'Training Question',
+            'sub_class'         => 'Index',
+            'title'             => 'Training Question All',
+            'question'          => $question,
+            'answer'            => $answer
+        ];
+        return view('admin.question.show', $data);
     }
     public function store(Request $request){
         $data = $request->all();
@@ -28,12 +36,31 @@ class QuestionController extends Controller
         }else{
             Session::flash('danger', 'New training created');
         }
-//        return redirect()->back();
+        return redirect()->back();
     }
     public function update(Request $request){
+        $data = $request->all();
+        $question = Question::find($request->id);
+//        dd($data);
+        $update = $question->update($data);
+        if($update ){
+            Session::flash('success', 'Soal berhasil diupdate');
+        }else{
+            Session::flash('danger', 'Soal gagal diupdate');
+        }
+        return redirect()->back();
 
     }
     public function destroy(Request $request){
-
+        $data = $request->all();
+//        dd($data);
+        $question = Question::find($request->id);
+        $delete= $question->delete();
+        if($delete ){
+            Session::flash('success', 'Soal berhasil dihapus');
+        }else{
+            Session::flash('danger', 'Soal gagal dihapus');
+        }
+        return redirect()->route('admin.training.question.show', ['id'=>$question->training_question->id]);
     }
 }

@@ -27,7 +27,8 @@ class TrainingQuestionController extends Controller
     }
     public function show($id){
         $training_question = TrainingQuestion::find($id);
-        $question = Question::all();
+        $question = $training_question->question()->get();
+//        dd($question);
         $data = [
             'class'             => 'Training Question',
             'sub_class'         => 'Index',

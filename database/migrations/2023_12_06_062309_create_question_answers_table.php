@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignIdFor(\App\Models\Question::class);
             $table->string('title')->nullable();
+            $table->integer('value')->nullable();
             $table->timestamps();
         });
     }
