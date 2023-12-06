@@ -21,7 +21,9 @@ class ProfileController extends Controller
 
     }
     public function index(){
+
         $user = Auth::user();
+//        dd($user->gender_code);
         $data = [
             'title'     => 'USER',
             'class'     => 'PROFILE',

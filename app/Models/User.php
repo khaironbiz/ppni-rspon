@@ -52,4 +52,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function gender_code()
+    {
+        return $this->belongsTo(Code::class, 'gender');
+    }
 }

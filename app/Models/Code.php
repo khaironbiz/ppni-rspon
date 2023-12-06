@@ -33,5 +33,9 @@ class Code extends Model
     {
         return $this->hasMany(Model::class, 'metode');
     }
+    public function gender_user()
+    {
+        return $this->hasMany(User::class, 'gender');
+    }
 
 }
