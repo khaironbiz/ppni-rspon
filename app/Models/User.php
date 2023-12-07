@@ -56,4 +56,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Code::class, 'gender');
     }
+    public function task()
+    {
+        return $this->hasMany(Task::class, 'teacher_id');
+    }
 }

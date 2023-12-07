@@ -7,9 +7,15 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
+                    @if($version->training->title == "Pengkajian NIHSS")
                     <h4>Pada Bagian E-Modul Ini berisi materi pembelajaran terkait 11 Elemen dari NIHSS.
                         Anda Dapat memilih Fitur Elemen yang ingin Anda pelajari.</h4>
                     <h5><span class="alternate">Selamat Belajar</span> </h5>
+                    @else
+                        <h4>Pada Bagian E-Modul Ini berisi materi pembelajaran terkait {{ $version->training->title }}.
+                            Anda Dapat memilih Fitur Elemen yang ingin Anda pelajari.</h4>
+                        <h5><span class="alternate">Selamat Belajar</span> </h5>
+                    @endif
                 </div>
 
                 <div class="schedule-contents bg-schedule">

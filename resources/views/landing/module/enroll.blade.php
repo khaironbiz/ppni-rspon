@@ -12,24 +12,15 @@
                 <div class="schedule-contents bg-schedule">
                     <div class="row">
                         @foreach($enroll as $data)
-                            <div class="col-md-4">
-                                    <?= $data->class->canva_url ?>
+                            <div class="col-md-4"><?= $data->class->canva_url ?>
                                 <a href="{{ route('curriculum.show',['id'=>$data->id]) }}">
-                                    <div class="card mt-auto">
+                                    <div class="card">
                                         <div class="card-header">
                                             <b>{{ $data->training->title }}</b>
                                         </div>
-
                                     </div>
-                                    
                                 </a>
-
-
-
-
-
                             </div>
-
                         @endforeach
                     </div>
                 </div>

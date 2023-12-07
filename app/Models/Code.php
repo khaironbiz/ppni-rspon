@@ -37,5 +37,9 @@ class Code extends Model
     {
         return $this->hasMany(User::class, 'gender');
     }
+    public function jenis_tugas()
+    {
+        return $this->hasMany(Task::class, 'jenis_tugas');
+    }
 
 }

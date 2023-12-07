@@ -33,4 +33,8 @@ class ClassEvent extends Model
     {
         return $this->hasMany(TrainingEnroll::class, 'class_event_id');
     }
+    public function task()
+    {
+        return $this->hasMany(Task::class,'class_event_id');
+    }
 }

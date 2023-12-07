@@ -18,19 +18,19 @@ class CurriculumController extends Controller
         ])->get();
         $data = [
             'title'         => 'Training',
-            'class'         => 'Enroll',
+            'class'         => 'E-Module',
             'enroll'        => $enroll
         ];
         return view('landing.module/enroll', $data);
     }
     public function show($id){
-        $enroll = TrainingEnroll::find($id);
-        $training = $enroll->training;
+        $enroll             = TrainingEnroll::find($id);
+        $training           = $enroll->training;
         $curriculum_version = $training->curriculumVersion()->first();
-        $curriculums = $curriculum_version->curriculum()->get();
+        $curriculums        = $curriculum_version->curriculum()->get();
 //        dd($curriculum_version);
         $data = [
-            'title'         => 'NIHSS',
+            'title'         => $training->title,
             'class'         => 'E-Module',
             'version'       => $curriculum_version,
             'curriculums'   => $curriculums

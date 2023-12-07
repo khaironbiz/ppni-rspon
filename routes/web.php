@@ -52,6 +52,8 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 
 @include('web/answer.php');
 
+@include('web/task.php');
+
 @include('web/landing.php');
 
 @include('web/user.php');
