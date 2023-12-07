@@ -15,7 +15,7 @@
                             </div>
                             <div class="post-content">
                                 <div class="date">
-                                    <h4>20<span>May</span></h4>
+                                    <h4>{{ date('d', strtotime($data->date_start)) }}<span>{{ date('M', strtotime($data->date_start)) }}</span></h4>
                                 </div>
                                 <div class="post-title">
                                     <h2><a href="news-single.html">{{ $data->title }}</a></h2>
@@ -41,6 +41,7 @@
                     </div>
                 @endforeach
 
+                @if($class_events->count() >=10)
 
                 <div class="col-12 text-center">
                     <!-- Pagination -->
@@ -64,6 +65,9 @@
                         </ul>
                     </nav>
                 </div>
+                    @endif
+
+
             </div>
         </div>
     </section>

@@ -10,6 +10,7 @@
                         <div class="image-block">
                             <img src="{{ $user->foto }}" class="img-fluid" alt="speaker">
                         </div>
+
                         <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#staticBackdrop">
                             Update Foto
                         </button>

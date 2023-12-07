@@ -2,12 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-//landing
-Route::get('/class', [App\Http\Controllers\Web\Landing\ClassController::class,'index'])->name('landing.class.index')->middleware('guest');
-Route::get('/class/{slug}/show', [App\Http\Controllers\Web\Landing\ClassController::class,'show'])->name('landing.class.show')->middleware('guest');
 
 
 Route::middleware(['auth'])->group(function () {
+    //landing
+    Route::get('/class', [App\Http\Controllers\Web\Landing\ClassController::class,'index'])->name('landing.class.index');
+    Route::get('/class/{slug}/show', [App\Http\Controllers\Web\Landing\ClassController::class,'show'])->name('landing.class.show');
+
     //admin
     Route::get('/admin/classes', [\App\Http\Controllers\Web\Admin\ClassController::class,'index'])->name('admin.class.index');
     Route::get('/admin/class', [\App\Http\Controllers\Web\Admin\ClassController::class,'create'])->name('admin.class.create');

@@ -99,7 +99,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://nihss.my.id/curriculum/kurikulum-berdasarkan-mahasiswa-magister-keperawatan-ui-2023/versi">E MODUL
+                    <a class="nav-link" href="{{ route('curriculum.index') }}">E MODUL
                         <span>/</span>
                     </a>
                 </li>

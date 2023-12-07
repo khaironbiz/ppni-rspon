@@ -1,7 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/trainings', [\App\Http\Controllers\Web\Admin\TrainingController::class,'index'])->name('admin.training.index');
     Route::get('/admin/training', [\App\Http\Controllers\Web\Admin\TrainingController::class,'create'])->name('admin.training.create');

@@ -29,4 +29,8 @@ class ClassEvent extends Model
     {
         return $this->hasMany(SubjectStudy::class, 'class_event_id');
     }
+    public function enrollment()
+    {
+        return $this->hasMany(TrainingEnroll::class, 'class_event_id');
+    }
 }

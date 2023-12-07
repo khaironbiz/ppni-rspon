@@ -7,9 +7,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h3>Pada Bagian E-Modul Ini berisi materi pembelajaran terkait 11 Elemen dari NIHSS.
-                        Anda Dapat memilih Fitur Elemen yang ingin Anda pelajari.</h3>
-                    <h3><span class="alternate">Selamat Belajar</span> </h3>
+                    <h4>Pada Bagian E-Modul Ini berisi materi pembelajaran terkait 11 Elemen dari NIHSS.
+                        Anda Dapat memilih Fitur Elemen yang ingin Anda pelajari.</h4>
+                    <h5><span class="alternate">Selamat Belajar</span> </h5>
                 </div>
 
                 <div class="schedule-contents bg-schedule">
