@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Curriculum;
+use App\Models\CurriculumVersion;
 use App\Models\Question;
 use App\Models\Training;
 use App\Models\TrainingQuestion;
@@ -27,14 +29,17 @@ class TrainingQuestionController extends Controller
     }
     public function show($id){
         $training_question = TrainingQuestion::find($id);
-        $question = $training_question->question()->get();
-//        dd($question);
+        $question       = $training_question->question()->get();
+        $curriculum_version     = CurriculumVersion::where('training_id', $training_question->training_id)->first();
+        $curriculum     = Curriculum::where('curriculum_version_id', $curriculum_version->id)->get();
+//        dd($curriculum);
         $data = [
             'class'             => 'Training Question',
             'sub_class'         => 'Index',
             'title'             => 'Training Question All',
             'trainingQuestion'  => $training_question,
-            'question'          => $question
+            'question'          => $question,
+            'curriculum'        => $curriculum
         ];
         return view('admin.training_question.show', $data);
 

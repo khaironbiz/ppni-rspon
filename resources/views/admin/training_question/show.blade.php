@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-md-4">
-                                        <label>Training Question</label>
+                                        <label>Tipe Soal</label>
                                     </div>
                                     <div class="col-md-8">
                                         <select class="form-control" name="training_question_id">
@@ -133,12 +133,33 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
+                                        <label>Materi Terkait</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="curriculum_id" required>
+                                            <option value="">---pilih---</option>
+                                            @foreach($curriculum as $data )
+                                            <option value="{{ $data->id }}">{{ $data->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
+                                        <label>Youtube</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="youtube_id_video">
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label>Soal</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" name="title">
+                                        <textarea class="form-control" name="title" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -156,6 +177,7 @@
                 <tr>
                     <th>#</th>
                     <th>Question</th>
+                    <th>Video</th>
                     <th>Detaill</th>
                 </tr>
                 </thead>
@@ -164,6 +186,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->title }}</td>
+                        <td>{{ $data->youtube_id_video }}</td>
                         <td>
                             <a href="{{ route('admin.question.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>

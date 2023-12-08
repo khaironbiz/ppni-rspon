@@ -21,12 +21,16 @@ class Task extends Model
     {
         return $this->hasMany(TaskAnswer::class);
     }
-    public function code()
+    public function jenis_tugas_code()
     {
         return $this->belongsTo(Code::class,'jenis_tugas');
     }
     public function user()
     {
         return $this->belongsTo(User::class,'teacher_id');
+    }
+    public function training()
+    {
+        return $this->belongsTo(Training::class,'training_id');
     }
 }

@@ -89,7 +89,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.pengembangan') }}">PRETEST
+                    <a class="nav-link" href="{{ route('landing.task.enroll') }}">PRETEST
                         <span>/</span>
                     </a>
                 </li>

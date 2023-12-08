@@ -14,22 +14,55 @@
             <b>{{ $title }}</b>
         </div>
         <div class="card-body">
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Training Question</b>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>Tipe Soal</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $question->training_question->title }}
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>Video</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $question->youtube_id_video }}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>Question</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $question->title }}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>Jawaban Benar</b>
+                        </div>
+                        <div class="col-md-10">
+                            <select class="form-control">
+                                <option>Belum ada jawaban</option>
+                                @foreach($answer as $data)
+                                    <option @if($data->id == $question-> id_jawaban) {{ "selected" }}@endif>{{ $data->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-10">
-                    {{ $question->training_question->title }}
-                </div>
+                @if(!empty($question->youtube_id_video))
+                    <div class="col-md-6">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$question->youtube_id_video}}?si=rMWbKB9H6wajujSs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                @endif
+
             </div>
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Question Name</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $question->title }}
-                </div>
-            </div>
+
         </div>
         <div class="card-footer">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#update">
@@ -49,13 +82,35 @@
                             @csrf
                             @method('PUT')
                             <div class="modal-body">
-                                <div class="row">
+                                <div class="row mb-1">
                                     <div class="col-md-4">
-                                        <label>Training Name</label>
+                                        <label>Question</label>
                                     </div>
                                     <div class="col-md-8">
                                         <input type="hidden" class="form-control" name="id" value="{{ $question->id }}">
                                         <input type="text" class="form-control" name="title" value="{{ $question->title }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
+                                        <label>Youtube</label>
+                                    </div>
+                                    <div class="col-md-8">
+
+                                        <input type="text" class="form-control" name="youtube_id_video" value="{{ $question->youtube_id_video }}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Answer</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="id_jawaban" required>
+                                            <option value="">----pilih----</option>
+                                            @foreach($answer as $data)
+                                                <option value="{{ $data->id }}" @if($data->id == $question->id_jawaban) {{ "selected" }}@endif>{{ $data->title }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>

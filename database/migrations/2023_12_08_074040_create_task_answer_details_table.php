@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('task_answer_details', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignIdFor(\App\Models\TrainingQuestion::class);
-            $table->text('title')->nullable();
-            $table->string('youtube_id_video')->nullable();
             $table->foreignIdFor(\App\Models\User::class);
+            $table->foreignIdFor(\App\Models\TaskAnswer::class);
+            $table->foreignIdFor(\App\Models\Question::class);
+            $table->text('description')->nullable();
+            $table->string('youtube_id_video')->nullable();
             $table->uuid('id_jawaban')->nullable();
             $table->timestamps();
         });
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('task_answer_details');
     }
 };

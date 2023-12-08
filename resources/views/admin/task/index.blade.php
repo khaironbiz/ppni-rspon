@@ -119,7 +119,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->class->title }}</td>
-                        <td>{{ $data->code->title }}</td>
+                        <td>{{ $data->jenis_tugas_code->title }}</td>
                         <td>{{ $data->user->nama_depan }} {{ $data->user->nama_belakang }}</td>
                         <td>{{ $data->date_start }} - {{ $data->date_finish }}</td>
                         <td>

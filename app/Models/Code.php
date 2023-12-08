@@ -41,5 +41,13 @@ class Code extends Model
     {
         return $this->hasMany(Task::class, 'jenis_tugas');
     }
+    public function pekerjaan()
+    {
+        return $this->hasMany(User::class, 'pekerjaan');
+    }
+    public function agama()
+    {
+        return $this->hasMany(User::class, 'agama');
+    }
 
 }
