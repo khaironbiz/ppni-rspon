@@ -15,6 +15,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('curriculums', [\App\Http\Controllers\Web\Landing\CurriculumController::class,'index'])->name('curriculum.index');
     Route::get('curriculum/{id}/show', [\App\Http\Controllers\Web\Landing\CurriculumController::class,'show'])->name('curriculum.show');
     Route::get('curriculum/{slug}/versi', [\App\Http\Controllers\Web\Landing\CurriculumController::class,'versi'])->name('curriculum.versi');
-    Route::get('curriculum/{slug}/canva', [\App\Http\Controllers\Web\Landing\CurriculumController::class,'canva'])->name('curriculum.canva');
+    Route::get('curriculum/{slug}/canva/{enroll_id}', [\App\Http\Controllers\Web\Landing\CurriculumController::class,'canva'])->name('curriculum.canva');
 
 });

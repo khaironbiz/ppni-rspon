@@ -20,6 +20,26 @@ class ClassController extends Controller
         ];
         return view('landing.event_class.index', $data);
     }
+    public function mine(){
+        $enroll = TrainingEnroll::where('user_id',Auth::id())->get();
+//        dd($enroll);
+        $data = [
+            'title'     => 'HOME',
+            'class'     => 'Events',
+            'enrolls'   => $enroll
+        ];
+        return view('landing.enrolls.index', $data);
+    }
+    public function show_enroll($id){
+        $training_enroll = TrainingEnroll::find($id);
+//        dd($training_enroll);
+        $data = [
+            'title'             => 'HOME',
+            'class'             => 'Events',
+            'training_enroll'   => $training_enroll
+        ];
+        return view('landing.enrolls.show', $data);
+    }
     public function show($slug){
         $class = ClassEvent::where('slug', $slug)->first();
         $training_enroll = TrainingEnroll::where([

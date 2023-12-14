@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group(function () {
     //landing
     Route::get('/class', [App\Http\Controllers\Web\Landing\ClassController::class,'index'])->name('landing.class.index');
+    Route::get('/MyClass', [App\Http\Controllers\Web\Landing\ClassController::class,'mine'])->name('landing.class.mine');
+    Route::get('/enroll/{id}/show', [App\Http\Controllers\Web\Landing\ClassController::class,'show_enroll'])->name('landing.class.mine.show');
     Route::get('/class/{slug}/show', [App\Http\Controllers\Web\Landing\ClassController::class,'show'])->name('landing.class.show');
 
     //admin

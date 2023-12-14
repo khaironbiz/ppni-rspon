@@ -2,10 +2,10 @@
 @extends('layout.landing')
 @section('content')
     <section class="section schedule">
-        <div class="container">
-
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
+                @include('landing.enrolls.side_menu')
+                <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="section-title">
                         <h4>{{ $task->description }}</h4>
                         <h5><span class="alternate">Selamat Mengerjakan</span> </h5>
@@ -20,7 +20,7 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header bg-gray">
-                                            <a href="{{ route('landing.task.show_soal', ['id'=>$data->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
+                                            <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
 
                                         </div>
 

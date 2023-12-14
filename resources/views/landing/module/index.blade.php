@@ -2,10 +2,11 @@
 @extends('layout.landing')
 @section('content')
     <section class="section schedule">
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="row">
-            <div class="col-12">
+            @include('landing.enrolls.side_menu')
+            <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="section-title">
                     @if($version->training->title == "Pengkajian NIHSS")
                     <h4>Pada Bagian E-Modul Ini berisi materi pembelajaran terkait 11 Elemen dari NIHSS.
@@ -33,7 +34,7 @@
                                         <div class="block">
                                             <!-- time -->
                                             <div class="w-75">
-                                                <a href="{{ route('curriculum.canva',['slug'=>$data->slug]) }}" class="text-black"><b>{{ $loop->iteration }} . {{ $data->title }}</b></a>
+                                                <a href="{{ route('curriculum.canva',['slug'=>$data->slug,'enroll_id'=>$training_enroll->id]) }}" class="text-black"><b>{{ $data->title }}</b></a>
                                             </div>
 
                                             <div class="venue"></div>

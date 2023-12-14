@@ -33,7 +33,8 @@ class CurriculumController extends Controller
             'title'         => $training->title,
             'class'         => 'E-Module',
             'version'       => $curriculum_version,
-            'curriculums'   => $curriculums
+            'curriculums'   => $curriculums,
+            'training_enroll'   => $enroll
         ];
         return view('landing.module/index', $data);
     }
@@ -49,14 +50,15 @@ class CurriculumController extends Controller
         ];
         return view('landing.module/index', $data);
     }
-    public function canva($slug){
-
+    public function canva($slug, $enroll_id){
+        $enroll             = TrainingEnroll::find($enroll_id);
         $curriculum = Curriculum::where('slug', $slug)->first();
 //        dd($curriculum);
         $data = [
             'title'         => 'NIHSS',
             'class'         => 'E-Module',
-            'curriculum'   => $curriculum
+            'curriculum'   => $curriculum,
+            'training_enroll'   => $enroll
         ];
         return view('landing.module/canva', $data);
     }

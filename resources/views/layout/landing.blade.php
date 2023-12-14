@@ -89,22 +89,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.task.enroll') }}">PRETEST
+                    <a class="nav-link" href="{{ route('landing.class.index') }}">CLASS
                         <span>/</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.pengembangan') }}">POST TEST
+                    <a class="nav-link" href="{{ route('landing.class.mine') }}">MY CLASS
                         <span>/</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('curriculum.index') }}">E MODUL
-                        <span>/</span>
-                    </a>
-                </li>
-
-
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('landing.pengembangan') }}">Contact</a>
                 </li>

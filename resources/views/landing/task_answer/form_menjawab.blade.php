@@ -2,19 +2,16 @@
 @extends('layout.landing')
 @section('content')
     <section class="section schedule">
-        <div class="container">
-
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
+                @include('landing.enrolls.side_menu')
+                <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="section-title">
                         <h4>Jawablah pertanyaan dibawah ini</h4>
-
                     </div>
-
                     <div class="schedule-contents bg-schedule">
                         <form action="" method="">
                             <div class="row">
-
                                     @csrf
                                     @if(!empty($question->youtube_id_video))
                                         <div class="col-md-6">
@@ -29,8 +26,10 @@
                                             <input type="radio" value="{{ $list->id }}" name="id_jawaban"> {{ $list->title }} <br>
                                         @endforeach
                                     </div>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-danger">Back</button>
                                     <button type="submit" class="btn btn-primary">Submit</button>
-
+                                </div>
 
                             </div>
                         </form>
