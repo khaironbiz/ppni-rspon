@@ -13,14 +13,13 @@
                     </div>
 
                     <div class="schedule-contents bg-schedule">
-                        @if($task->task_answer()->count() < 1)
                         <div class="row">
 
                             @foreach($question as $data)
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-header bg-gray">
-                                            <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
+                                            <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id, 'task_answer_id'=> $task_answer->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
 
                                         </div>
 
@@ -28,7 +27,6 @@
                                 </div>
                             @endforeach
                         </div>
-                        @endif
                     </div>
 
                 </div>
