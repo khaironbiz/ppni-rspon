@@ -17,10 +17,13 @@
 
                             @foreach($question as $data)
                                 <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="card-header bg-gray">
-                                            <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id, 'task_answer_id'=> $task_answer->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
-
+                                    <div class="card mt-2">
+                                        <div class="card-header @if($data->id_jawaban !=null) {{ "bg-success" }} @else {{ "bg-gray" }} @endif ">
+                                            @if($data->id_jawaban !=null)
+                                                <button class="btn btn-success"><b>{{ $data->curriculum->title }}</b></button>
+                                            @else
+                                                <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
+                                            @endif
                                         </div>
 
                                     </div>

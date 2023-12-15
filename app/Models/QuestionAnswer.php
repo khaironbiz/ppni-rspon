@@ -18,4 +18,8 @@ class QuestionAnswer extends Model
     {
         return $this->belongsTo(Question::class, 'question_id');
     }
+    public function task_answer_detail()
+    {
+        return $this->belongsTo(TaskAnswerDetail::class, 'question_id');
+    }
 }

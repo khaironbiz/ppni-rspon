@@ -26,5 +26,9 @@ class Question extends Model
     {
         return $this->belongsTo(Curriculum::class,'curriculum_id');
     }
+    public function task_answer_detail()
+    {
+        return $this->hasMany(TaskAnswerDetail::class,'question_id');
+    }
 
 }

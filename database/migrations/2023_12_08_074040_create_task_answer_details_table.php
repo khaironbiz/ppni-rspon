@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('youtube_id_video')->nullable();
             $table->uuid('id_jawaban')->nullable();
+            $table->boolean('correct')->nullable();
             $table->timestamps();
         });
     }
