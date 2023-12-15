@@ -17,7 +17,12 @@
                         <!-- Article -->
                         <article class="blog-post single">
                             <div class="post-thumb">
-                                <?= $class_event->canva_url?>
+                                @if($class_event->file != null)
+                                    <img src="{{ $class_event->file }}" alt="post-image" class="img-fluid">
+                                @else
+                                        <?= $class_event->canva_url?>
+                                @endif
+
                             </div>
                             <div class="post-content">
                                 <div class="post-title">

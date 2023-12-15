@@ -10,8 +10,12 @@
                     <div class="col-lg-4 col-md-6 col-sm-8">
                         <div class="blog-post">
                             <div class="post-thumb">
-                                <a href="">
-                                    <img src="assets/theme/images/news/post-thumb-two.jpg" alt="post-image" class="img-fluid">
+                                <a href="{{ route('landing.class.mine.show',['id'=>$data->id]) }}">
+                                    @if($data->class->file != null)
+                                        <img src="{{ $data->class->file }}" alt="post-image" class="img-fluid">
+                                    @else
+                                        <img src="assets/theme/images/news/post-thumb-two.jpg" alt="post-image" class="img-fluid">
+                                    @endif
                                 </a>
                             </div>
                             <div class="post-content">
