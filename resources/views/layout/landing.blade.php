@@ -99,7 +99,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.pengembangan') }}">Contact</a>
+                    <a class="nav-link" href="{{ route('landing.contact') }}">Contact</a>
                 </li>
             </ul>
             @if(\Illuminate\Support\Facades\Auth::check())
