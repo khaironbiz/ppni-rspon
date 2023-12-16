@@ -13,7 +13,9 @@ use App\Models\TaskAnswerDetail;
 use App\Models\Training;
 use App\Models\TrainingEnroll;
 use App\Models\TrainingQuestion;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class TaskAnswerController extends Controller
 {
@@ -56,6 +58,7 @@ class TaskAnswerController extends Controller
             $create_answer  = new TaskAnswer();
             $create = $create_answer->create($data);
 
+            $data_task_answer = $task_answer->first();
 //            dd($task_answer->first());
             foreach ($question as $q){
                 $task_answer_detail = new TaskAnswerDetail();
@@ -69,12 +72,10 @@ class TaskAnswerController extends Controller
                 ];
                 $create_answer = $task_answer_detail->create($data);
             }
-
-
         }
 //        dd($data_task_answer);
+        $list_task_answer_detail = TaskAnswerDetail::where('task_answer_id',$data_task_answer->id)->get();
         if($data_task_answer->nilai == null){
-            $list_task_answer_detail = TaskAnswerDetail::where('task_answer_id',$data_task_answer->id)->get();
 //            dd($list_task_answer_detail);
             $data = [
                 'title'             => 'Training',
@@ -86,53 +87,98 @@ class TaskAnswerController extends Controller
             ];
 //        dd($data);
             return view('landing.task_answer.task', $data);
+        }else{
+            $data = [
+                'title'             => 'Training',
+                'class'             => 'Pre Test',
+                'task'              => $task,
+                'task_answer'       => $task_answer->first(),
+                'question'          => $list_task_answer_detail,
+                'training_enroll'   => $enroll
+            ];
+//        dd($data);
+            return view('landing.task_answer.task_hasil', $data);
 
         }
 
 
     }
     public function posttest($id){
-        $enroll = TrainingEnroll::find($id);
-        $posttest = Code::where('code', 'post-test')->first();
-        $task = Task::where([
-            'training_id'   => $enroll->training_id,
-            'jenis_tugas'   => $posttest->id
-        ])->first();
-        $task_answer = TaskAnswer::where([
-            'task_id'       => $task->id,
-            'jenis_tugas'   => $posttest->id
-        ]);
-        if($task_answer->count() < 1){
+    $enroll     = TrainingEnroll::find($id);
+    $pretest    = Code::where('code', 'post-test')->first();
+//    dd($pretest);
+    $task       = Task::where([
+        'training_id'   => $enroll->training_id,
+        'jenis_tugas'   => $pretest->id
+    ])->first();
+//    dd($task);
+    $task_answer = TaskAnswer::where([
+        'task_id'       => $task->id,
+        'jenis_tugas'   => $pretest->id
+    ]);
+//    dd($task_answer->first());
+    $training_question  = TrainingQuestion::where('training_id', $enroll->training_id)->first();
+    $question           = Question::where('training_question_id', $training_question->id)->get();
+    $data_task_answer   = $task_answer->first();
+//    dd($question);
+    if($task_answer->count() < 1){
+        $data = [
+            'task_id'           => $task->id,
+            'training_id'       => $enroll->training_id,
+            'class_event_id'    => $task->class_event_id,
+            'student_id'        => Auth::id(),
+            'jenis_tugas'       => $pretest->id,
+            'date_start'        => date('Y-m-d H:i:s')
+        ];
+        $create_answer  = new TaskAnswer();
+        $create = $create_answer->create($data);
+
+        $data_task_answer   = $task_answer->first();
+
+//            dd($task_answer->first());
+        foreach ($question as $q){
+            $task_answer_detail = new TaskAnswerDetail();
             $data = [
-                'task_id'           => $task->id,
-                'training_id'       => $enroll->training_id,
-                'class_event_id'    => $task->class_event_id,
-                'student_id'        => Auth::id(),
-                'jenis_tugas'       => $posttest->id,
-                'date_start'        => date('Y-m-d')
+                'user_id'           => Auth::id(),
+                'task_answer_id'    => $data_task_answer->id,
+                'question_id'       => $q->id,
+                'description'       => $q->description,
+                'youtube_id_video'  => $q->youtube_id_video,
+                'curriculum_id'     => $q->curriculum_id,
             ];
-            $create_answer  = new TaskAnswer();
-            $create = $create_answer->create($data);
-            $new_lembar_jawaban = $task_answer->first();
-            if ($create){
-                redirect()->route('landing.task.pretest.soal',['task_answer_id'=>$new_lembar_jawaban->id, 'enroll_id'=>$id]);
-            }
+            $create_answer = $task_answer_detail->create($data);
         }
-//        dd($task_answer->first());
-        $training_question = TrainingQuestion::where('training_id', $enroll->training_id)->first();
-        $question = Question::where('training_question_id', $training_question->id)->get();
-//        dd($pretest);
+    }
+        $list_task_answer_detail = TaskAnswerDetail::where('task_answer_id',$data_task_answer->id)->get();
+//        dd($data_task_answer);
+    if($data_task_answer->status == "open"){
+
+//            dd($list_task_answer_detail);
         $data = [
             'title'             => 'Training',
             'class'             => 'Post Test',
             'task'              => $task,
             'task_answer'       => $task_answer->first(),
-            'question'          => $question,
+            'question'          => $list_task_answer_detail,
             'training_enroll'   => $enroll
         ];
-//        return view('landing.task_answer.task', $data);
-
+//        dd($data);
+        return view('landing.task_answer.task', $data);
+    }else{
+        $data = [
+            'title'             => 'Training',
+            'class'             => 'Post Test',
+            'task'              => $task,
+            'task_answer'       => $task_answer->first(),
+            'question'          => $list_task_answer_detail,
+            'training_enroll'   => $enroll
+        ];
+//        dd($data);
+        return view('landing.task_answer.task_hasil', $data);
     }
+
+
+}
     public function list_soal($task_answer_id, $enroll_id)
     {
         $task_answer = TaskAnswer::find($task_answer_id);
@@ -177,7 +223,36 @@ class TaskAnswerController extends Controller
         ];
         return view('landing.task_answer.form_menjawab', $data);
     }
-    public function class(){
+    public function task_finish(Request $request){
+        $enroll_id      = $request->enroll_id;
+        $task_answer_id = $request->task_answer_id;
+        $enroll = TrainingEnroll::find($enroll_id);
+        $task_answer = TaskAnswer::find($task_answer_id);
+        $count_true = TaskAnswerDetail::where([
+                'task_answer_id'    => $task_answer_id,
+                'correct'           => true
+        ])->count();
+        $data = [
+            'enroll_id'     => $enroll_id,
+            'task_answer_id'=> $task_answer_id,
+            'enroll'        => $enroll,
+            'task_answer'   => $task_answer,
+            'true'          => $count_true
+        ];
+//        dd($data);
+        if($task_answer->status == "open"){
+            $update = $task_answer->update([
+                'status'        => 'close',
+                'nilai'         => $count_true,
+                'date_finish'   => date('Y-m-d H:i:s')
+            ]);
+            if($update){
+                Session::flash('success', 'Data sukses dibuat');
+            }else{
+                Session::flash('danger', 'Data gagal dibuat');
+            }
+            return redirect()->back();
+        }
 
     }
 }

@@ -7,28 +7,57 @@
                 @include('landing.enrolls.side_menu')
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="section-title">
-                        <h4>{{ $task->description }}</h4>
-                        <h5><span class="alternate">Selamat Mengerjakan</span> </h5>
-                        <h4>{{ $task->jenis_tugas_code->title }}</h4>
+                        <h4>Hasil {{ $task->jenis_tugas_code->title }}</h4>
                     </div>
 
                     <div class="schedule-contents bg-schedule">
                         <div class="row">
-
-                            @foreach($question as $data)
-                                <div class="col-md-6">
-                                    <div class="card mt-2">
-                                        <div class="card-header @if($data->id_jawaban !=null) {{ "bg-success" }} @else {{ "bg-gray" }} @endif ">
-                                            @if($data->id_jawaban !=null)
-                                                <button class="btn btn-success"><b>{{ $data->curriculum->title }}</b></button>
-                                            @else
-                                                <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
-                                            @endif
-                                        </div>
-
-                                    </div>
-                                </div>
-                            @endforeach
+                            <div class="col-md-4">
+                                <b>Nama Kegiatan</b>
+                            </div>
+                            <div class="col-md-4">
+                                <b>{{ $training_enroll->training->title }}</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b>Jenis Tugas</b>
+                            </div>
+                            <div class="col-md-4">
+                                <b>{{ $task->jenis_tugas_code->title }}</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b>Waktu Mulai</b>
+                            </div>
+                            <div class="col-md-4">
+                                <b>{{ $task_answer->date_start }}</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b>Waktu Selesai</b>
+                            </div>
+                            <div class="col-md-4">
+                                <b>{{ $task_answer->date_finish }}</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b>Nilai</b>
+                            </div>
+                            <div class="col-md-4">
+                                <b>{{ $task_answer->nilai }}</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <b>Detail</b>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="" class="btn btn-sm btn-info">Detail</a>
+                            </div>
                         </div>
                     </div>
                     @if($task_answer->status == "open")
