@@ -10,15 +10,21 @@
                         <div class="blog-post">
                             <div class="post-thumb">
                                 <a href="{{  route('landing.class.show', ['slug'=>$data->slug]) }}">
-                                    <img src="assets/theme/images/news/post-thumb-two.jpg" alt="post-image" class="img-fluid">
+                                    @if($data->file != null)
+                                        <img src="{{ $data->file }}" alt="post-image" class="img-fluid">
+                                    @else
+                                        <img src="assets/theme/images/news/post-thumb-two.jpg" alt="post-image" class="img-fluid">
+                                    @endif
+
+
                                 </a>
                             </div>
                             <div class="post-content">
                                 <div class="date">
-                                    <h4>20<span>May</span></h4>
+                                    <h4>{{ date('d', strtotime($data->date_start)) }}<span>{{ date('M', strtotime($data->date_start)) }}</span></h4>
                                 </div>
                                 <div class="post-title">
-                                    <h2><a href="news-single.html">{{ $data->title }}</a></h2>
+                                    <h2><a href="{{  route('landing.class.show', ['slug'=>$data->slug]) }}">{{ $data->title }}</a></h2>
                                 </div>
                                 <div class="post-meta">
                                     <ul class="list-inline">
@@ -41,6 +47,7 @@
                     </div>
                 @endforeach
 
+                @if($class_events->count() >=10)
 
                 <div class="col-12 text-center">
                     <!-- Pagination -->
@@ -64,6 +71,9 @@
                         </ul>
                     </nav>
                 </div>
+                    @endif
+
+
             </div>
         </div>
     </section>

@@ -33,5 +33,21 @@ class Code extends Model
     {
         return $this->hasMany(Model::class, 'metode');
     }
+    public function gender_user()
+    {
+        return $this->hasMany(User::class, 'gender');
+    }
+    public function jenis_tugas()
+    {
+        return $this->hasMany(Task::class, 'jenis_tugas');
+    }
+    public function pekerjaan()
+    {
+        return $this->hasMany(User::class, 'pekerjaan');
+    }
+    public function agama()
+    {
+        return $this->hasMany(User::class, 'agama');
+    }
 
 }

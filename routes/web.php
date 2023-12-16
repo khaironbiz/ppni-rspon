@@ -44,8 +44,24 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 
 @include('web/code.php');
 
+@include('web/training_question.php');
+
+@include('web/training_enroll.php');
+
+@include('web/question.php');
+
+@include('web/answer.php');
+
+@include('web/task.php');
+
+@include('web/task_answer.php');
+
+@include('web/task_answer_detail.php');
+
 @include('web/landing.php');
 
 @include('web/user.php');
+
+@include('web/profile.php');
 //landing
 

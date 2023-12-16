@@ -89,24 +89,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.pengembangan') }}">PRETEST
+                    <a class="nav-link" href="{{ route('landing.class.index') }}">CLASS
                         <span>/</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.pengembangan') }}">POST TEST
+                    <a class="nav-link" href="{{ route('landing.class.mine') }}">MY CLASS
                         <span>/</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://nihss.my.id/curriculum/kurikulum-berdasarkan-mahasiswa-magister-keperawatan-ui-2023/versi">E MODUL
-                        <span>/</span>
-                    </a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.pengembangan') }}">Contact</a>
+                    <a class="nav-link" href="{{ route('landing.contact') }}">Contact</a>
                 </li>
             </ul>
             @if(\Illuminate\Support\Facades\Auth::check())

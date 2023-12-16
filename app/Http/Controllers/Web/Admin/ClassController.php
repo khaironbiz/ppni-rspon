@@ -9,6 +9,7 @@ use App\Models\SubjectStudy;
 use App\Models\Training;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class ClassController extends Controller
 {
@@ -67,9 +68,26 @@ class ClassController extends Controller
         return view('admin.class.edit', $data);
     }
     public function update(Request $request){
+//        dd($request->file('file'));
+        $file       = $request->file('file');
         $data_request = $request->all();
         $class_slug = $request->class_slug;
         $class      = ClassEvent::where('slug', $class_slug)->first();
+        if(!empty($request->file('file'))){
+            $file       = $request->file('file');
+            $result     = Storage::disk('s3')->putFileAs('latihan', $file, $file->hashName(),'public');
+            $url        = Storage::disk('s3')->url($result);
+            $data_file  = [
+                'file_name' => $file->hashName(),
+                'extention' => $file->getClientOriginalExtension(),
+                'file_type' => $file->getType(),
+                'size'      => $file->getSize(),
+                'url'       => url($url)
+            ];
+
+            $data_request['file']=  url($url);
+        }
+
         $update     = $class->update($data_request);
         if(empty($class)){
             Session::flash('danger', 'Wrong slug class');

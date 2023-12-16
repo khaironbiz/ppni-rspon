@@ -30,7 +30,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<div class="wrapper mr-2">
 
     @include('layout.menu.admin.navbar')
     <!-- /.navbar -->

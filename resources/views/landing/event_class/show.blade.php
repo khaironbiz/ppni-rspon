@@ -4,11 +4,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-col-md-12 mx-auto">
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @elseif(session('danger'))
+                        <div class="alert alert-danger">
+                            {{ session('danger') }}
+                        </div>
+                    @endif
                     <div class="block">
                         <!-- Article -->
                         <article class="blog-post single">
                             <div class="post-thumb">
-                                <?= $class_event->canva_url?>
+                                @if($class_event->file != null)
+                                    <img src="{{ $class_event->file }}" alt="post-image" class="img-fluid">
+                                @else
+                                        <?= $class_event->canva_url?>
+                                @endif
+
                             </div>
                             <div class="post-content">
                                 <div class="post-title">
@@ -32,7 +46,6 @@
                                 </div>
                                 <div class="post-details">
                                     <?= $class_event->description?>
-
                                     <div class="share-block">
                                         <div class="tag">
                                             <p>
@@ -73,19 +86,49 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    @if(empty($training_enroll))
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                            Daftar Disini
+                                        </button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-warning">
+                                                        <h5 class="modal-title" id="staticBackdropLabel">Enroll {{ $class_event->title }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form action="{{ route('landing.training.enroll.store') }}" method="post">
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            <input type="checkbox" name="id" value="{{ $class_event->id }}"> Saya setuju daftar pelatihan ini
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Daftar</button>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @elseif($training_enroll->status == 'pending')
+                                        <a href="" class="btn btn-info">Pending Order</a>
+                                    @else
+                                        <button class="btn btn-danger">Enrolled</button>
+                                    @endif
                                 </div>
                             </div>
                         </article>
-
+                        <a href="{{ route('landing.class.index') }}" class="btn btn-main-md">Back</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
-
-
 @endsection
 
 

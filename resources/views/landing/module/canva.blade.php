@@ -11,7 +11,7 @@
                     <?= $curriculum->canva ?>
                 </div>
                 <div class="download-button text-center">
-                    <a href="{{ route('curriculum.versi',['slug'=>$curriculum->curriculum_version->slug]) }}" class="btn btn-main-md">Back</a>
+                    <a href="{{ route('curriculum.show',['id'=>$training_enroll->id]) }}" class="btn btn-main-md">Back</a>
                 </div>
             </div>
         </div>

@@ -66,7 +66,7 @@
                                         <label>CANVA</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <textarea class="form-control" name="canva"></textarea>
+                                        <textarea class="form-control" name="canva">{{ $curriculum->canva }}</textarea>
                                     </div>
                                 </div>
                             </div>

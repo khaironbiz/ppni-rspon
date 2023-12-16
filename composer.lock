@@ -289,6 +289,7 @@
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
+<<<<<<< HEAD
             "version": "3.1.0",
             "source": {
                 "type": "git",
@@ -299,6 +300,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/CarbonPHP/carbon-doctrine-types/zipball/a31d3358a2a5d6ae947df1691d1f321418a5f3d5",
                 "reference": "a31d3358a2a5d6ae947df1691d1f321418a5f3d5",
+=======
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CarbonPHP/carbon-doctrine-types.git",
+                "reference": "49856fbc09fe91b5433381faec60e3620ad364ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon-doctrine-types/zipball/49856fbc09fe91b5433381faec60e3620ad364ad",
+                "reference": "49856fbc09fe91b5433381faec60e3620ad364ad",
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
                 "shasum": ""
             },
             "require": {
@@ -338,7 +351,11 @@
             ],
             "support": {
                 "issues": "https://github.com/CarbonPHP/carbon-doctrine-types/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/3.1.0"
+=======
+                "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/3.0.0"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
             },
             "funding": [
                 {
@@ -354,7 +371,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-12-10T15:33:53+00:00"
+=======
+            "time": "2023-10-01T14:36:55+00:00"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
         },
         {
             "name": "defuse/php-encryption",
@@ -1403,6 +1424,7 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v10.37.3",
             "source": {
                 "type": "git",
@@ -1413,6 +1435,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/996375dd61f8c6e4ac262b57ed485655d71fcbdc",
                 "reference": "996375dd61f8c6e4ac262b57ed485655d71fcbdc",
+=======
+            "version": "v10.34.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "c581caa233e380610b34cc491490bfa147a3b62b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c581caa233e380610b34cc491490bfa147a3b62b",
+                "reference": "c581caa233e380610b34cc491490bfa147a3b62b",
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
                 "shasum": ""
             },
             "require": {
@@ -1601,7 +1635,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
             "time": "2023-12-13T20:10:58+00:00"
+=======
+            "time": "2023-11-28T19:06:27+00:00"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
         },
         {
             "name": "laravel/passport",
@@ -2314,6 +2352,7 @@
         },
         {
             "name": "league/flysystem",
+<<<<<<< HEAD
             "version": "3.23.0",
             "source": {
                 "type": "git",
@@ -2324,6 +2363,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/d4ad81e2b67396e33dc9d7e54ec74ccf73151dcc",
                 "reference": "d4ad81e2b67396e33dc9d7e54ec74ccf73151dcc",
+=======
+            "version": "3.22.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "d18526ee587f265f091f47bb83f1d9a001ef6f36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/d18526ee587f265f091f47bb83f1d9a001ef6f36",
+                "reference": "d18526ee587f265f091f47bb83f1d9a001ef6f36",
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
                 "shasum": ""
             },
             "require": {
@@ -2388,7 +2439,11 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/thephpleague/flysystem/tree/3.23.0"
+=======
+                "source": "https://github.com/thephpleague/flysystem/tree/3.22.0"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
             },
             "funding": [
                 {
@@ -2400,7 +2455,11 @@
                     "type": "github"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-12-04T10:16:17+00:00"
+=======
+            "time": "2023-12-03T18:35:53+00:00"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -2470,6 +2529,7 @@
         },
         {
             "name": "league/flysystem-local",
+<<<<<<< HEAD
             "version": "3.23.0",
             "source": {
                 "type": "git",
@@ -2480,6 +2540,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/5cf046ba5f059460e86a997c504dd781a39a109b",
                 "reference": "5cf046ba5f059460e86a997c504dd781a39a109b",
+=======
+            "version": "3.22.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem-local.git",
+                "reference": "42dfb4eaafc4accd248180f0dd66f17073b40c4c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/42dfb4eaafc4accd248180f0dd66f17073b40c4c",
+                "reference": "42dfb4eaafc4accd248180f0dd66f17073b40c4c",
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
                 "shasum": ""
             },
             "require": {
@@ -2514,7 +2586,11 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem-local/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/thephpleague/flysystem-local/tree/3.23.0"
+=======
+                "source": "https://github.com/thephpleague/flysystem-local/tree/3.22.0"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
             },
             "funding": [
                 {
@@ -2526,7 +2602,11 @@
                     "type": "github"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-12-04T10:14:46+00:00"
+=======
+            "time": "2023-11-18T20:52:53+00:00"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
         },
         {
             "name": "league/mime-type-detection",
@@ -3015,6 +3095,7 @@
         },
         {
             "name": "nesbot/carbon",
+<<<<<<< HEAD
             "version": "2.72.1",
             "source": {
                 "type": "git",
@@ -3025,6 +3106,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2b3b3db0a2d0556a177392ff1a3bf5608fa09f78",
                 "reference": "2b3b3db0a2d0556a177392ff1a3bf5608fa09f78",
+=======
+            "version": "2.72.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/briannesbitt/Carbon.git",
+                "reference": "a6885fcbad2ec4360b0e200ee0da7d9b7c90786b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/a6885fcbad2ec4360b0e200ee0da7d9b7c90786b",
+                "reference": "a6885fcbad2ec4360b0e200ee0da7d9b7c90786b",
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
                 "shasum": ""
             },
             "require": {
@@ -3118,7 +3211,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-12-08T23:47:49+00:00"
+=======
+            "time": "2023-11-28T10:13:25+00:00"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
         },
         {
             "name": "nette/schema",
@@ -7441,6 +7538,7 @@
         },
         {
             "name": "laravel/sail",
+<<<<<<< HEAD
             "version": "v1.26.3",
             "source": {
                 "type": "git",
@@ -7451,6 +7549,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sail/zipball/fa1ad5fbb03686dfc752bfd1861d86091cc1c32d",
                 "reference": "fa1ad5fbb03686dfc752bfd1861d86091cc1c32d",
+=======
+            "version": "v1.26.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/sail.git",
+                "reference": "c0177786b1cd05b687b0fa11364aeeecb42cd3d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/c0177786b1cd05b687b0fa11364aeeecb42cd3d8",
+                "reference": "c0177786b1cd05b687b0fa11364aeeecb42cd3d8",
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
                 "shasum": ""
             },
             "require": {
@@ -7502,7 +7612,11 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
+<<<<<<< HEAD
             "time": "2023-12-02T18:26:39+00:00"
+=======
+            "time": "2023-11-27T14:46:06+00:00"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
         },
         {
             "name": "mockery/mockery",
@@ -8176,6 +8290,7 @@
         },
         {
             "name": "phpunit/phpunit",
+<<<<<<< HEAD
             "version": "10.5.3",
             "source": {
                 "type": "git",
@@ -8186,6 +8301,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6fce887c71076a73f32fd3e0774a6833fc5c7f19",
                 "reference": "6fce887c71076a73f32fd3e0774a6833fc5c7f19",
+=======
+            "version": "10.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpunit.git",
+                "reference": "d5d9dca6a902d05b34c4bcbc7c1636ce1dc25408"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d5d9dca6a902d05b34c4bcbc7c1636ce1dc25408",
+                "reference": "d5d9dca6a902d05b34c4bcbc7c1636ce1dc25408",
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
                 "shasum": ""
             },
             "require": {
@@ -8257,7 +8384,11 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
+<<<<<<< HEAD
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.3"
+=======
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.1"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
             },
             "funding": [
                 {
@@ -8273,7 +8404,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-12-13T07:25:23+00:00"
+=======
+            "time": "2023-12-01T16:57:05+00:00"
+>>>>>>> a1d90cd99923e6ea0d4d34641182f3684f54b93e
         },
         {
             "name": "sebastian/cli-parser",

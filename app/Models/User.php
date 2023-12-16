@@ -19,18 +19,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'nama_depan',
-        'nama_belakang',
-        'gender',
-        'nik',
-        'email',
-        'role',
-        'nomor_telepon',
-        'tempat_lahir',
-        'tanggal_lahir',
-        'password',
-    ];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -51,4 +40,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function gender_code()
+    {
+        return $this->belongsTo(Code::class, 'gender');
+    }
+    public function pendidikan_code()
+    {
+        return $this->belongsTo(Code::class, 'pendidikan');
+    }
+    public function status_pernikahan_code()
+    {
+        return $this->belongsTo(Code::class, 'status_pernikahan');
+    }
+    public function agama_code()
+    {
+        return $this->belongsTo(Code::class, 'agama');
+    }
+    public function pekerjaan_code()
+    {
+        return $this->belongsTo(Code::class, 'pekerjaan');
+    }
+    public function task()
+    {
+        return $this->hasMany(Task::class, 'teacher_id');
+    }
 }
