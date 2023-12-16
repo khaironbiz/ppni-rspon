@@ -49,8 +49,9 @@
                                     @csrf
                                     @method('PUT')
                                     <div class="modal-body">
-                                        <input type="text" value="{{ $training_enroll->id }}" name="enroll_id" class="form-control">
-                                        <input type="text" value="{{ $task_answer->id }}" name="task_answer_id" class="form-control">
+                                        <input type="checkbox" required> Saya Setuju mengumpulkan jawaban ini
+                                        <input type="hidden" value="{{ $training_enroll->id }}" name="enroll_id" class="form-control">
+                                        <input type="hidden" value="{{ $task_answer->id }}" name="task_answer_id" class="form-control">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
