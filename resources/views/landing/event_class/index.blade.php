@@ -4,7 +4,9 @@
     <section class="news section">
         <div class="container">
             <div class="row justify-content-center mt-30">
-
+                @if($class_events->count()<1)
+                    <a href="{{ route('landing.class.index') }}" class="btn btn-primary">Enroll Here</a>
+                @endif
                 @foreach($class_events as $data)
                     <div class="col-lg-4 col-md-6 col-sm-8">
                         <div class="blog-post">

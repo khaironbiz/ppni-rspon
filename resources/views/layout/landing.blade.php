@@ -98,6 +98,18 @@
                         <span>/</span>
                     </a>
                 </li>
+                @if(isset($training_enroll))
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('landing.task.pretest',['id'=>$training_enroll->id]) }}">Pre Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('landing.task.posttest',['id'=>$training_enroll->id]) }}">Post Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('curriculum.show',['id'=>$training_enroll->id]) }}">Module</a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('landing.contact') }}">Contact</a>
                 </li>
