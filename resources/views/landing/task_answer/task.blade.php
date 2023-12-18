@@ -20,7 +20,7 @@
                                     <div class="card mt-2">
                                         <div class="card-header @if($data->id_jawaban != null) {{ "bg-success" }} @else {{ "bg-gray" }} @endif ">
                                             @if($data->id_jawaban !=null)
-                                                <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
+                                                <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id]) }}" class="btn btn-success-md"><b>{{ $data->curriculum->title }}</b></a>
 
                                             @else
                                                 <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
