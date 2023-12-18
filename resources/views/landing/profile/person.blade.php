@@ -88,7 +88,7 @@
                                                 <div class="col-md-6">
                                                     <label class="form-label">Agama</label>
                                                     <select class="form-select form-select-lg" name="agama" required>
-                                                        <option value="">----pilih------</option>
+                                                        <option value="" class="form-control">----pilih------</option>
                                                         @foreach($agama as $data)
                                                         <option value="{{ $data->id }}" @if($user->agama === $data->id){{ "selected" }}@endif>{{ $data->title }}</option>
                                                         @endforeach
