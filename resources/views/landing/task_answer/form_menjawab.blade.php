@@ -17,7 +17,7 @@
                                 @method('PUT')
                                     @if(!empty($task_answer_detail->youtube_id_video))
                                         <div class="col-md-6">
-                                            <iframe class="w-100" height="315" src="https://www.youtube.com/embed/{{ $task_answer_detail->youtube_id_video }}?si=rMWbKB9H6wajujSs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                            <iframe class="w-100" height="315" src="https://www.youtube.com/embed/{{ $task_answer_detail->youtube_id_video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                         </div>
                                     @endif
 
