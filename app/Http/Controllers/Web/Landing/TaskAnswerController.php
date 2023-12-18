@@ -117,7 +117,8 @@ class TaskAnswerController extends Controller
 //    dd($task);
     $task_answer = TaskAnswer::where([
         'task_id'       => $task->id,
-        'jenis_tugas'   => $pretest->id
+        'jenis_tugas'   => $pretest->id,
+        'student_id'    => Auth::id()
     ]);
 //    dd($task_answer->first());
     $training_question  = TrainingQuestion::where('training_id', $enroll->training_id)->first();

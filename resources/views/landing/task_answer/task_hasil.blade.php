@@ -2,7 +2,7 @@
 @extends('layout.landing')
 @section('content')
     <section class="section schedule">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
 
                 <div class="col-md-12">
