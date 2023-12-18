@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegistrationRequest;
 use App\Models\Code;
 use App\Models\User;
 use App\Notifications\RegistrationNotification;
@@ -60,7 +61,7 @@ class AuthController extends Controller
         ];
         return view('auth.register', $data);
     }
-    public function do_register(Request $request){
+    public function do_register(RegistrationRequest $request){
         $user           = new User();
         $data           = $request->all();
         $data['role']   = 'user';
