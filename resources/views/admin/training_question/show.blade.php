@@ -176,6 +176,7 @@
                 <thead>
                 <tr>
                     <th>#</th>
+                    <th>Kompetensi</th>
                     <th>Question</th>
                     <th>Video</th>
                     <th>Detaill</th>
@@ -185,6 +186,7 @@
                 @foreach($question as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->curriculum->title }}</td>
                         <td>{{ $data->title }}</td>
                         <td>{{ $data->youtube_id_video }}</td>
                         <td>
