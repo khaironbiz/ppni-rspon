@@ -18,9 +18,10 @@
                             @foreach($question as $data)
                                 <div class="col-md-6">
                                     <div class="card mt-2">
-                                        <div class="card-header @if($data->id_jawaban !=null) {{ "bg-success" }} @else {{ "bg-gray" }} @endif ">
+                                        <div class="card-header @if($data->id_jawaban != null) {{ "bg-success" }} @else {{ "bg-gray" }} @endif ">
                                             @if($data->id_jawaban !=null)
-                                                <button class="btn btn-success"><b>{{ $data->curriculum->title }}</b></button>
+                                                <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
+
                                             @else
                                                 <a href="{{ route('landing.task.show_soal', ['id'=>$data->id, 'enroll_id'=>$training_enroll->id]) }}" class="btn btn-white-md"><b>{{ $data->curriculum->title }}</b></a>
                                             @endif
