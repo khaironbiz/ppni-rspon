@@ -34,7 +34,8 @@ class CurriculumController extends Controller
             'class'         => 'E-Module',
             'version'       => $curriculum_version,
             'curriculums'   => $curriculums,
-            'training_enroll'   => $enroll
+            'training_enroll'   => $enroll,
+            'menu_atas'         => true
         ];
         return view('landing.module/index', $data);
     }
@@ -46,7 +47,8 @@ class CurriculumController extends Controller
             'title'         => 'NIHSS',
             'class'         => 'E-Module',
             'version'       => $curriculum_version,
-            'curriculums'   => $curriculums
+            'curriculums'   => $curriculums,
+            'menu_atas'     => false
         ];
         return view('landing.module/index', $data);
     }
@@ -58,7 +60,8 @@ class CurriculumController extends Controller
             'title'         => 'NIHSS',
             'class'         => 'E-Module',
             'curriculum'   => $curriculum,
-            'training_enroll'   => $enroll
+            'training_enroll'   => $enroll,
+            'menu_atas'         => false
         ];
         return view('landing.module/canva', $data);
     }

@@ -2,10 +2,9 @@
 @extends('layout.landing')
 @section('content')
     <section class="section schedule">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                @include('landing.enrolls.side_menu')
-                <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="col-md-12">
                     <div class="section-title">
                         <h4>Jawablah pertanyaan dibawah ini</h4>
                     </div>
