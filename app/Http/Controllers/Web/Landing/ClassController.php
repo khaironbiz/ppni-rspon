@@ -34,6 +34,7 @@ class ClassController extends Controller
     }
     public function show_enroll($id){
         $training_enroll = TrainingEnroll::find($id);
+
 //        dd($training_enroll);
         $data = [
             'title'             => 'HOME',
