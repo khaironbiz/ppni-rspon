@@ -98,16 +98,16 @@
                         <span>/</span>
                     </a>
                 </li>
-                @if(isset($training_enroll))
+                @if(isset($training_enroll) && $menu_atas == true)
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('landing.task.pretest',['id'=>$training_enroll->id]) }}">Pre Test</a>
+                        <a class="nav-link" href="{{ route('landing.task.pretest',['id'=>$training_enroll->id]) }}">PRE TEST <span>/</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('landing.task.posttest',['id'=>$training_enroll->id]) }}">Post Test</a>
+                        <a class="nav-link" href="{{ route('landing.task.posttest',['id'=>$training_enroll->id]) }}">POST TEST <span>/</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('curriculum.show',['id'=>$training_enroll->id]) }}">Module</a>
+                        <a class="nav-link" href="{{ route('curriculum.show',['id'=>$training_enroll->id]) }}">MODULE <span>/</span></a>
                     </li>
                 @endif
                 <li class="nav-item">

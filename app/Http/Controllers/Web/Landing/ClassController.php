@@ -16,7 +16,8 @@ class ClassController extends Controller
         $data = [
             'title'         => 'HOME',
             'class'         => 'Events',
-            'class_events'  => $class
+            'class_events'  => $class,
+            'menu_atas'     => false
         ];
         return view('landing.event_class.index', $data);
     }
@@ -26,7 +27,8 @@ class ClassController extends Controller
         $data = [
             'title'     => 'HOME',
             'class'     => 'Events',
-            'enrolls'   => $enroll
+            'enrolls'   => $enroll,
+            'menu_atas'     => false
         ];
         return view('landing.enrolls.index', $data);
     }
@@ -36,7 +38,8 @@ class ClassController extends Controller
         $data = [
             'title'             => 'HOME',
             'class'             => 'Events',
-            'training_enroll'   => $training_enroll
+            'training_enroll'   => $training_enroll,
+            'menu_atas'         => true
         ];
         return view('landing.enrolls.show', $data);
     }
@@ -52,7 +55,8 @@ class ClassController extends Controller
             'title'             => 'HOME',
             'class'             => 'Events',
             'class_event'       => $class,
-            'training_enroll'   => $training_enroll
+            'training_enroll'   => $training_enroll,
+            'menu_atas'         => false
         ];
         return view('landing.event_class.show', $data);
     }

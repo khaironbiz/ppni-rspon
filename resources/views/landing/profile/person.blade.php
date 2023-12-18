@@ -189,11 +189,11 @@
                             </div>
                             <div class="row mb-1">
                                 <div class="col-4"><label>Agama</label></div>
-                                <div class="col-8">{{ $user->agama_code->title }}</div>
+                                <div class="col-8">@if($user->agama != null){{ $user->agama_code->title }}@endif</div>
                             </div>
                             <div class="row mb-1">
                                 <div class="col-4"><label>Status Pernikahan</label></div>
-                                <div class="col-8">{{ $user->status_pernikahan_code->title }}</div>
+                                <div class="col-8">@if($user->status_pernikahan != null){{ $user->status_pernikahan_code->title }}@endif</div>
                             </div>
                             <div class="row mb-1">
                                 <div class="col-4"><label>Email</label></div>
@@ -205,7 +205,7 @@
                             </div>
                             <div class="row mb-1">
                                 <div class="col-4"><label>Pendidikan Terahir</label></div>
-                                <div class="col-8">{{ $user->pendidikan_code->title }}</div>
+                                <div class="col-8">@if($user->pendidikan !=null) {{ $user->pendidikan_code->title }} @endif</div>
                             </div>
                             <div class="row mb-1">
                                 <div class="col-4"><label>Tempat Kerja</label></div>

@@ -26,10 +26,10 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 //        dd($user->gender_code);
-        $agama_id = Code::where('code','agama')->first();
-        $agama = $agama_id->child()->orderBy('urutan')->get();
         $gender_id = Code::where('code','sex')->first();
         $gender = $gender_id->child()->orderBy('urutan')->get();
+        $agama_id = Code::where('code','agama')->first();
+        $agama = $agama_id->child()->orderBy('urutan')->get();
         $status_pernikahan_id = Code::where('code','status-pernikahan')->first();
         $status_pernikahan = $status_pernikahan_id->child()->orderBy('urutan')->get();
         $jenis_pekerjaan_id = Code::where('code','jenis-pekerjaan')->first();
@@ -46,7 +46,8 @@ class ProfileController extends Controller
             'status_pernikahan' => $status_pernikahan,
             'pekerjaan'         => $jenis_pekerjaan,
             'pendidikan'        => $pendidikan,
-            'training_enroll'   => $training_enroll
+            'training_enroll'   => $training_enroll,
+            'menu_atas'         => false
         ];
         return view('landing.profile.person', $data);
     }

@@ -27,7 +27,8 @@ class TaskAnswerController extends Controller
         $data = [
             'title'         => 'Training',
             'class'         => 'Pre Test',
-            'enroll'        => $enroll
+            'enroll'        => $enroll,
+            'menu_atas'     => false
         ];
         return view('landing.task_answer.enroll', $data);
 
@@ -83,7 +84,8 @@ class TaskAnswerController extends Controller
                 'task'              => $task,
                 'task_answer'       => $task_answer->first(),
                 'question'          => $list_task_answer_detail,
-                'training_enroll'   => $enroll
+                'training_enroll'   => $enroll,
+                'menu_atas'         => true
             ];
 //        dd($data);
             return view('landing.task_answer.task', $data);
@@ -94,7 +96,8 @@ class TaskAnswerController extends Controller
                 'task'              => $task,
                 'task_answer'       => $task_answer->first(),
                 'question'          => $list_task_answer_detail,
-                'training_enroll'   => $enroll
+                'training_enroll'   => $enroll,
+                'menu_atas'         => true
             ];
 //        dd($data);
             return view('landing.task_answer.task_hasil', $data);
@@ -128,7 +131,7 @@ class TaskAnswerController extends Controller
             'class_event_id'    => $task->class_event_id,
             'student_id'        => Auth::id(),
             'jenis_tugas'       => $pretest->id,
-            'date_start'        => date('Y-m-d H:i:s')
+            'date_start'        => date('Y-m-d H:i:s'),
         ];
         $create_answer  = new TaskAnswer();
         $create = $create_answer->create($data);
@@ -160,7 +163,8 @@ class TaskAnswerController extends Controller
             'task'              => $task,
             'task_answer'       => $task_answer->first(),
             'question'          => $list_task_answer_detail,
-            'training_enroll'   => $enroll
+            'training_enroll'   => $enroll,
+            'menu_atas'         => true
         ];
 //        dd($data);
         return view('landing.task_answer.task', $data);
@@ -171,7 +175,8 @@ class TaskAnswerController extends Controller
             'task'              => $task,
             'task_answer'       => $task_answer->first(),
             'question'          => $list_task_answer_detail,
-            'training_enroll'   => $enroll
+            'training_enroll'   => $enroll,
+            'menu_atas'         => true
         ];
 //        dd($data);
         return view('landing.task_answer.task_hasil', $data);
@@ -202,7 +207,8 @@ class TaskAnswerController extends Controller
             'task'              => $task,
             'task_answer'       => $task_answer->first(),
             'question'          => $task_answer_detail,
-            'training_enroll'   => $enroll
+            'training_enroll'   => $enroll,
+            'menu_atas'         => true
         ];
         return view('landing.task_answer.task', $data);
     }
@@ -219,7 +225,8 @@ class TaskAnswerController extends Controller
             'class'             => 'Pre Test',
             'task_answer_detail' => $task_answer_detail,
             'training_enroll'   => $enroll,
-            'answer'            => $answer
+            'answer'            => $answer,
+            'menu_atas'         => true
         ];
         return view('landing.task_answer.form_menjawab', $data);
     }
