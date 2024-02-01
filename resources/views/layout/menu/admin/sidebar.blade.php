@@ -5,7 +5,12 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="https://ppni.or.id/simk/id/image/foto/31720126348.jpg" class="img-circle elevation-2" alt="User Image">
+                @if(empty(Auth::user()['foto']))
+                    <img src="https://ppni.or.id/simk/id/image/foto/31720126348.jpg" class="img-circle elevation-2" alt="User Image">
+                @else
+                    <img src="{{ Auth::user()['foto'] }}" class="img-circle elevation-2" alt="User Image">
+                @endif
+
             </div>
             <div class="info">
                 @if(auth()->check())
