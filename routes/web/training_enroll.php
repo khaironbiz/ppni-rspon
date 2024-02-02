@@ -9,3 +9,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/training/enroll', [\App\Http\Controllers\Web\Landing\TrainingEnrollController::class,'show'])->name('landing.training.enroll.show');
     Route::get('/training/enroll', [\App\Http\Controllers\Web\Landing\TrainingEnrollController::class,'edit'])->name('landing.training.enroll.edit');
 });
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/trainings', [\App\Http\Controllers\Web\User\TrainingMaineController::class,'index'])->name('user.training.mine.index');
+});

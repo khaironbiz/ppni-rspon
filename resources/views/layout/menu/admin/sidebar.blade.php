@@ -76,6 +76,12 @@
                         <p class="text">Topics</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.user.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-primary"></i>
+                        <p class="text">Users</p>
+                    </a>
+                </li>
 
 
                 <li class="nav-item">
