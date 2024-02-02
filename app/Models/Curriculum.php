@@ -29,4 +29,12 @@ class Curriculum extends Model
     {
         return $this->hasMany(Module::class, 'curriculum_id');
     }
+    public function question()
+    {
+        return $this->hasMany(Question::class, 'curriculum_id');
+    }
+    public function task_answer_detail()
+    {
+        return $this->hasMany(TaskAnswerDetail::class, 'curriculum_id');
+    }
 }

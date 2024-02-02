@@ -1,3 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
-Route::get('/profile', [\App\Http\Controllers\Web\Landing\UserController::class, 'profile'])->name('landing.profile');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/users', [\App\Http\Controllers\Web\Admin\UserController::class,'index'])->name('admin.user.index');
+    Route::post('/admin/users', [\App\Http\Controllers\Web\Admin\UserController::class,'store'])->name('admin.user.store');
+});

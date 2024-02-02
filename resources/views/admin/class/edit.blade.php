@@ -5,7 +5,7 @@
             <b>Create New Class</b>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.class.update') }}" method="POST">
+            <form action="{{ route('admin.class.update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group row">
@@ -44,7 +44,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">File</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control">
+                        <input type="file" class="form-control" name="file">
                     </div>
                 </div>
                 <div class="form-group row">
