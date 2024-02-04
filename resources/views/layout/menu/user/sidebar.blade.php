@@ -8,19 +8,19 @@ $foto = \Illuminate\Support\Facades\Auth::user()['foto']
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                @if($foto == null)
+                @if(Auth::user()['foto'] == null)
                     <?php
                     $url = "https://file.atm-sehat.com/storage/image/ZQC6SOX05hA0enLhvPWrEfVxMv9zzm9Sc7qp2EQO.jpg";
                     ?>
                 @else
                     <?php
-                    $url = $foto['url'];
+                        $url = Auth::user()['foto'];
                     ?>
                 @endif
                     <img src="{{ $url }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()['nama']['nama_depan'] }}</a>
+                <a href="#" class="d-block">{{ Auth::user()['nama_depan'] }} {{ Auth::user()['nama_belakang'] }}</a>
             </div>
         </div>
 
@@ -42,7 +42,12 @@ $foto = \Illuminate\Support\Facades\Auth::user()['foto']
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
 
-
+                <li class="nav-item">
+                    <a href="{{ route('user.training.mine.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
+                        <p class="text">Trainings</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('auth.logout') }}" class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>

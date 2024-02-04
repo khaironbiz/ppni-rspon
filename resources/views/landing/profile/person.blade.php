@@ -226,56 +226,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <h5>Riwayat Pendidikan</h5>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary btn-sm mb-1" data-toggle="modal" data-target="#addPendidikan">
-                        Add Data
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="addPendidikan" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <label class="col-sm-4">Level</label>
-                                            <div class="col-sm-8">
-                                                <select class="form-select form-select-lg">
-                                                    @foreach($pendidikan as $data)
-                                                        <option value="{{ $data->id }}" @if($user->pendidikan === $data->id){{ "selected" }}@endif>{{ $data->title }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label class="col-sm-4">Nama Sekolah</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label class="col-sm-4">Tahun Lulus</label>
-                                            <div class="col-sm-8">
-                                                <input type="date" class="form-control">
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
 
                     <table class="table table-sm table-striped">
                         <thead>

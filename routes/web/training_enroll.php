@@ -11,4 +11,5 @@ Route::middleware(['auth'])->group(function () {
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/user/trainings', [\App\Http\Controllers\Web\User\TrainingMaineController::class,'index'])->name('user.training.mine.index');
+    Route::get('/user/training/{id}', [\App\Http\Controllers\Web\User\TrainingMaineController::class,'show'])->name('user.training.mine.show');
 });

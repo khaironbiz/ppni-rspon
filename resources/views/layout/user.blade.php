@@ -29,10 +29,10 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-{{--    @include('layout.menu.user.navbar')--}}
+    @include('layout.menu.user.navbar')
     <!-- /.navbar -->
     <!-- Main Sidebar Container -->
-{{--    @include('layout.menu.user.sidebar')--}}
+    @include('layout.menu.user.sidebar')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

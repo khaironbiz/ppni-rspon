@@ -20,8 +20,8 @@
                 <thead>
                 <tr>
                     <th class="text-center">No</th>
-                    <th>Code</th>
                     <th>Title</th>
+                    <th>Date</th>
                     <th>Child Number</th>
                     <th>Sub</th>
                     <th>Action</th>
@@ -37,7 +37,7 @@
                         <td>{{ $data->child_number }}</td>
                         <td></td>
                         <td>
-                            <a href="{{ route('admin.code.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('user.training.mine.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>
                     </tr>
                 @endforeach
