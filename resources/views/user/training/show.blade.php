@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('layout.user')
 @section('content')
     @if(session('success'))
         <div class="alert alert-success ml-2">

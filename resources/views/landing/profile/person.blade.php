@@ -241,7 +241,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td> </td>
                         </tr>
                         </tbody>
                     </table>
@@ -265,7 +265,7 @@
                         <td>{{ $data->training->title }}</td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td><a href="{{ route('user.training.mine.show',['id'=>$data->id]) }}" class="btn btn-sm btn-info" target="_blank">Detail</a></td>
                     </tr>
                     @endforeach
                     </tbody>
