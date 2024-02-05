@@ -49,6 +49,25 @@
         </div>
         <div class="card-footer"></div>
     </div>
+    <div class="card ml-2 mt-2">
+        <div class="card-header">
+            <b>Materi</b>
+        </div>
+        <div class="card-body">
+            <div class="row">
+            @foreach($kurikulum as $data)
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header">
+                            {{ $data->title }}
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            </div>
+
+        </div>
+    </div>
 
 
 @endsection
