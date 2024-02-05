@@ -46,8 +46,9 @@ class ClassController extends Controller
 
     }
     public function show($slug){
-        $class = ClassEvent::where('slug', $slug)->first();
-        $mata_ajar = SubjectStudy::where('class_event_id', $class->id)->get();
+        $class                  = ClassEvent::where('slug', $slug)->first();
+        $mata_ajar              = SubjectStudy::where('class_event_id', $class->id)->get();
+        $curriculum_version_id  = $class->curriculum_version_id;
         $data = [
             'class'         => 'Event',
             'sub_class'     => 'Class',

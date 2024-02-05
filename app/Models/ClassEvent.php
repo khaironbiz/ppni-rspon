@@ -25,6 +25,10 @@ class ClassEvent extends Model
     {
         return $this->belongsTo(Event::class);
     }
+    public function curriculumVersion()
+    {
+        return $this->belongsTo(CurriculumVersion::class, 'curriculum_version_id');
+    }
     public function subjectStudy()
     {
         return $this->hasMany(SubjectStudy::class, 'class_event_id');

@@ -38,6 +38,14 @@
                     {{ $training->class->date_start }} sd {{ $training->class->date_finish }}
                 </div>
             </div>
+            <div class="row mb-2">
+                <div class="col-md-2">
+                    <b>Kurikulum</b>
+                </div>
+                <div class="col-md-10">
+                    {{ $training->class->curriculum_version_id}}
+                </div>
+            </div>
         </div>
         <div class="card-footer"></div>
     </div>

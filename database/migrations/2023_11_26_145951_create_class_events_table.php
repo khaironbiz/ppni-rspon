@@ -15,12 +15,13 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignIdFor(\App\Models\Event::class);
             $table->foreignIdFor(\App\Models\Training::class)->nullable();
+            $table->foreignIdFor(\App\Models\CurriculumVersion::class)->nullable();
             $table->string('title');
             $table->date('date_start');
             $table->date('date_finish');
             $table->string('file')->nullable();
-            $table->text('canva_url');
-            $table->text('description');
+            $table->text('canva_url')->nullable();
+            $table->text('description')->nullable();
             $table->string('slug');
             $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->timestamps();

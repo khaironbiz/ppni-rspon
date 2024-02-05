@@ -29,4 +29,8 @@ class CurriculumVersion extends Model
     {
         return $this->hasMany(Curriculum::class, 'curriculum_version_id');
     }
+    public function class()
+    {
+        return $this->hasMany(ClassEvent::class, 'curriculum_version_id');
+    }
 }
