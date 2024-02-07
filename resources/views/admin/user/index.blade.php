@@ -116,7 +116,7 @@
                         <td>{{ $data->email }}</td>
                         <td>{{ $data->nomor_telepon }}</td>
                         <td>
-                            <a href="" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('admin.user.show',['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>
                     </tr>
                 @endforeach

@@ -49,5 +49,9 @@ class Code extends Model
     {
         return $this->hasMany(User::class, 'agama');
     }
+    public function user_roles()
+    {
+        return $this->belongsToMany(User::class);
+    }
 
 }
