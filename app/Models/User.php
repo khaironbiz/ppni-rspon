@@ -60,6 +60,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Code::class, 'pekerjaan');
     }
+    public function role_code()
+    {
+        return $this->belongsTo(Code::class, 'role');
+    }
     public function task()
     {
         return $this->hasMany(Task::class, 'teacher_id');

@@ -41,13 +41,51 @@ $foto = \Illuminate\Support\Facades\Auth::user()['foto']
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-
+                <li class="nav-item">
+                    <a href="{{ route('user.training.mine.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
+                        <p class="text">Profile</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('user.training.mine.index') }}" class="nav-link">
                         <i class="nav-icon far fa-circle text-success"></i>
                         <p class="text">Trainings</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
+                        <p class="text">MOT</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
+                        <p class="text">TOC</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
+                        <p class="text">Pembicara</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
+                        <p class="text">Panitia</p>
+                    </a>
+                </li>
+                @if(Auth::user()->role_code->title == 'Super Admin')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.class.index') }}" class="nav-link">
+                            <i class="nav-icon far fa-circle text-success"></i>
+                            <p class="text">Admin</p>
+                        </a>
+                    </li>
+                @endif
+
                 <li class="nav-item">
                     <a href="{{ route('auth.logout') }}" class="nav-link">
                         <i class="nav-icon far fa-circle text-warning"></i>

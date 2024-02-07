@@ -15,75 +15,72 @@
         </div>
         <div class="card-body">
             <div class="row mb-2">
-                <div class="col-md-4">
-                    <img src="{{ $user->foto }}">
-                </div>
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <b>Nama</b>
-                                </div>
-                                <div class="col-md-10">
-                                    {{ $user->nama_depan }} {{ $user->nama_belakang }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <b>NIK</b>
-                                </div>
-                                <div class="col-md-10">
-                                    {{ $user->nik }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <b>Gender</b>
-                                </div>
-                                <div class="col-md-10">
-                                    {{ $user->gender_code->title }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <b>Tanggal Lahir</b>
-                                </div>
-                                <div class="col-md-10">
-                                    {{ $user->tempat_lahir }}, {{ $user->tanggal_lahir }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <b>Email</b>
-                                </div>
-                                <div class="col-md-10">
-                                    {{ $user->email }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <b>HP</b>
-                                </div>
-                                <div class="col-md-10">
-                                    {{ $user->nomor_telepon }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <b>Role</b>
-                                </div>
-                                <div class="col-md-10">
-                                    @foreach($user->roles as $role)
-                                        <button class="btn btn-sm @if($user->role == $role->role_code) {{ "btn-danger" }} @else {{ "btn-primary" }} @endif" >{{ $role->role->title  }}</button>
-
-                                    @endforeach
-
-                                </div>
-                            </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <b>Nama</b>
                         </div>
-
+                        <div class="col-md-10">
+                            {{ $user->nama_depan }} {{ $user->nama_belakang }}
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <b>NIK</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $user->nik }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <b>Gender</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $user->gender_code->title }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <b>Tanggal Lahir</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $user->tempat_lahir }}, {{ $user->tanggal_lahir }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <b>Email</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $user->email }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <b>HP</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $user->nomor_telepon }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <b>Role</b>
+                        </div>
+                        <div class="col-md-10">
+                            @foreach($user->roles as $role)
+                                <span class="badge @if($user->role == $role->role_code) {{ "badge-danger" }} @else {{ "badge-primary" }} @endif">{{ $role->role->title  }}</span>
+
+
+                            @endforeach
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-2">
+                    <img src="{{ $user->foto }}" class="img-thumbnail img-fluid w-75 rounded">
                 </div>
             </div>
 
