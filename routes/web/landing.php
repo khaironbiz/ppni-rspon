@@ -19,3 +19,4 @@ Route::get('/pengembangan', [LandingController::class, 'pengembangan'])->name('l
 
 
 Route::get('/admin/event/create', [LandingController::class, 'ckeditor'])->name('admin.events.create')->middleware('guest');
+Route::get('/stroke/knn', [LandingController::class, 'knn'])->name('stroke.knn')->middleware('guest');

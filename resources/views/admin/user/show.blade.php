@@ -83,10 +83,6 @@
                     <img src="{{ $user->foto }}" class="img-thumbnail img-fluid w-75 rounded">
                 </div>
             </div>
-
-
-
-
         </div>
 
     </div>
