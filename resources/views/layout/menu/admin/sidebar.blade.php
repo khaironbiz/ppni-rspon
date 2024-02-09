@@ -25,7 +25,12 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-
+                <li class="nav-item">
+                    <a href="{{ route('user.profile.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-success"></i>
+                        <p class="text">Profile</p>
+                    </a>
+                </li>
                 <li class="nav-header">Admin Area</li>
                 <li class="nav-item">
                     <a href="{{ route('admin.code.parent') }}" class="nav-link">
@@ -33,6 +38,7 @@
                         <p class="text">Codes</p>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="{{ route('admin.training.index') }}" class="nav-link">
                         <i class="nav-icon far fa-circle text-success"></i>

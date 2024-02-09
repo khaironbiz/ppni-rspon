@@ -42,45 +42,45 @@ $foto = \Illuminate\Support\Facades\Auth::user()['foto']
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('user.training.mine.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-success"></i>
+                    <a href="{{ route('user.profile.index') }}" class="nav-link">
+                        <i class="nav-icon fa fa-user-circle text-info"></i>
                         <p class="text">Profile</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('user.training.mine.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-success"></i>
+                        <i class="nav-icon fa fa-university text-primary"></i>
                         <p class="text">Trainings</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link">
-                        <i class="nav-icon far fa-circle text-success"></i>
+                        <i class="nav-icon fa fa-graduation-cap text-success"></i>
                         <p class="text">MOT</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link">
-                        <i class="nav-icon far fa-circle text-success"></i>
+                        <i class="nav-icon fa fa-cog text-warning"></i>
                         <p class="text">TOC</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link">
-                        <i class="nav-icon far fa-circle text-success"></i>
+                        <i class="nav-icon fa fa-book text-info"></i>
                         <p class="text">Pembicara</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link">
-                        <i class="nav-icon far fa-circle text-success"></i>
+                        <i class="nav-icon fa fa-cogs text-success"></i>
                         <p class="text">Panitia</p>
                     </a>
                 </li>
                 @if(Auth::user()->role_code->title == 'Super Admin')
                     <li class="nav-item">
                         <a href="{{ route('admin.class.index') }}" class="nav-link">
-                            <i class="nav-icon far fa-circle text-success"></i>
+                            <i class="nav-icon fa fa-server text-warning"></i>
                             <p class="text">Admin</p>
                         </a>
                     </li>
@@ -88,7 +88,7 @@ $foto = \Illuminate\Support\Facades\Auth::user()['foto']
 
                 <li class="nav-item">
                     <a href="{{ route('auth.logout') }}" class="nav-link">
-                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <i class="nav-icon far fa-circle text-danger"></i>
                         <p>Logout</p>
                     </a>
                 </li>
