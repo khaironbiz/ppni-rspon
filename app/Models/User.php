@@ -48,17 +48,17 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Code::class, 'pendidikan');
     }
-    public function status_pernikahan_code()
+    public function status_menikah_code()
     {
-        return $this->belongsTo(Code::class, 'status_pernikahan');
+        return $this->belongsTo(Code::class, 'status_menikah');
     }
     public function agama_code()
     {
         return $this->belongsTo(Code::class, 'agama');
     }
-    public function pekerjaan_code()
+    public function status_pekerjaan_code()
     {
-        return $this->belongsTo(Code::class, 'pekerjaan');
+        return $this->belongsTo(Code::class, 'status_pekerjaan');
     }
     public function role_code()
     {

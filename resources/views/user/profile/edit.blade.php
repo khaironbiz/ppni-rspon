@@ -27,12 +27,18 @@
                         </div>
                         <div class="col-md-4">
                             <input type="text" name="nama_depan" class="form-control" required value="{{ $user->nama_depan }}">
+                            @error('nama_depan')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="col-md-2">
                             <b>Nama Belakang</b>
                         </div>
                         <div class="col-md-4">
                             <input type="text" name="nama_belakang" class="form-control" required value="{{ $user->nama_belakang }}">
+                            @error('nama_belakang')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-1">
@@ -49,9 +55,12 @@
                             <b>Gender</b>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-control" name="Gender">
-                                <option>{{ $user->gender_code->title }}</option>
+                            <select class="form-control" name="gender" required>
+                                <option value="{{ $user->gender  }}">{{ $user->gender_code->title }}</option>
                             </select>
+                            @error('gender')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                     </div>
 
@@ -110,26 +119,45 @@
                             <b>Status Pekerjaan</b>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-control" name="jenis_pekerjaan" required>
+                            <select class="form-control" name="status_pekerjaan" required>
                                 <option value="">--------</option>
                                 @foreach($jenis_pekerjaan as $data)
-                                    <option>{{ $data->title }}</option>
+                                    <option @if($user->status_pekerjaan == $data->id) {{ "selected" }}@elseif(old('status_pekerjaan') == $data->id ) {{ "selected" }}  @endif value="{{ $data->id }} ">{{ $data->title }}</option>
                                 @endforeach
-
                             </select>
+                            @error('jenis_pekerjaan')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-1">
                         <div class="col-md-2">
-                            <b>Status Pekerjaan</b>
+                            <b>Status Pernikahan</b>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-4">
                             <select class="form-control" name="status_menikah" required>
                                 <option value="">------</option>
                                 @foreach($stutus_menikah as $sm)
-                                    <option>{{ $sm->title }}</option>
+                                    <option @if($user->status_menikah == $sm->id) {{ "selected" }}@elseif(old('status_menikah') == $sm->id ) {{ "selected" }}  @endif value="{{ $sm->id }} ">{{ $sm->title }}</option>
                                 @endforeach
                             </select>
+                            @error('status_menikah')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="col-md-2">
+                            <b>Agama</b>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control" name="agama" required>
+                                <option value="">------</option>
+                                @foreach($agama as $ag)
+                                    <option @if($user->agama == $ag->id) {{ "selected" }}@elseif(old('agama') == $ag->id ) {{ "selected" }}  @endif value="{{ $ag->id }} ">{{ $ag->title }}</option>
+                                @endforeach
+                            </select>
+                            @error('status_menikah')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -139,6 +167,7 @@
             </div>
         </div>
         <div class="card-footer">
+            <a href="{{ route('user.profile.index') }}" class="btn btn-danger">Back</a>
             <button type="submit" class="btn btn-success">Save Data</button>
         </div>
         </form>

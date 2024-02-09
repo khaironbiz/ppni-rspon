@@ -25,11 +25,14 @@ class UpdateProfileRequest extends FormRequest
             'nama_depan'    => 'required|string|max:50',
             'nama_belakang' => 'required|string|max:50',
             'nik'           => 'required|numeric|digits:16',
+            'gender'        => 'required',
+            'agama'         => 'required',
             'tempat_lahir'  => 'required|string|min:2',
-            'tanggal_lahir' => 'required|date',
-            'email'         => 'required|email',
-            'nomor_telepon' => 'required|numeric|digits_between:10,18',
-            'tempat_kerja'  => 'required|string|min:5',
+            'tanggal_lahir'     => 'required|date',
+            'email'             => 'required|email',
+            'nomor_telepon'     => 'required|numeric|digits_between:10,18',
+            'tempat_kerja'      => 'required|string|min:5',
+            'status_pekerjaan'  => 'required',
         ];
     }
 }

@@ -51,20 +51,21 @@
                     </div>
                     <div class="row mb-1">
                         <div class="col-md-2">
-                            <b>Status Pernikahan</b>
+                            <b>Agama</b>
                         </div>
                         <div class="col-md-10">
-                            {{ $user->alamat }}
+                            {{ $user->agama_code->title }}
                         </div>
                     </div>
                     <div class="row mb-1">
                         <div class="col-md-2">
-                            <b>Alamat</b>
+                            <b>Status Pernikahan</b>
                         </div>
                         <div class="col-md-10">
-                            {{ $user->alamat }}
+                            {{ $user->status_menikah_code->title }}
                         </div>
                     </div>
+
                     <div class="row mb-1">
                         <div class="col-md-2">
                             <b>Email</b>
@@ -86,7 +87,8 @@
                             <b>Tempat Kerja</b>
                         </div>
                         <div class="col-md-10">
-                            {{ $user->alamat }}
+                            {{ $user->tempat_kerja }}
+
                         </div>
                     </div>
                     <div class="row mb-1">
@@ -94,7 +96,7 @@
                             <b>Status Pekrjaan</b>
                         </div>
                         <div class="col-md-10">
-
+                            {{ $user->status_pekerjaan_code->title }}
                         </div>
                     </div>
                     <div class="row mb-1">
