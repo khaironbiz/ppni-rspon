@@ -19,4 +19,8 @@ class ModuleAttachment extends Model
     {
         return $this->belongsTo(Module::class,'module_id');
     }
+    public function file()
+    {
+        return $this->belongsTo(File::class,'file_id');
+    }
 }

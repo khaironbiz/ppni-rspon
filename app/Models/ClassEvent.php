@@ -25,6 +25,18 @@ class ClassEvent extends Model
     {
         return $this->belongsTo(Event::class);
     }
+    public function training()
+    {
+        return $this->belongsTo(Training::class,'training_id');
+    }
+    public function toc_user()
+    {
+        return $this->belongsTo(User::class,'toc');
+    }
+    public function mot_user()
+    {
+        return $this->belongsTo(User::class,'mot');
+    }
     public function curriculumVersion()
     {
         return $this->belongsTo(CurriculumVersion::class, 'curriculum_version_id');

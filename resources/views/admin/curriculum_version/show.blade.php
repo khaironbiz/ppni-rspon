@@ -103,7 +103,7 @@
     </div>
     <div class="card ml-2">
         <div class="card-header">
-            <b>Kurikulum</b>
+            <b>Struktur Program</b>
         </div>
         <div class="card-body">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addData">
@@ -202,6 +202,12 @@
                     </tr>
                 @endforeach
                 </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3" class="text-center"><b>Total</b></td>
+                    <td colspan="2"><b>{{ $curriculum->sum('jpl') }}</b></td>
+                </tr>
+                </tfoot>
             </table>
             <a href="{{ route('admin.training.show', ['slug'=>$curriculum_version->training->slug]) }}" class="btn btn-warning mt-3">Back</a>
 

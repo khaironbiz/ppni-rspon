@@ -5,23 +5,41 @@
             <b>{{ $title }}</b>
         </div>
         <div class="card-body">
-            <div class="row mb-2">
-                <div class="col-md-2"><b>Title</b></div>
-                <div class="col-md-10">{{ $class_event->title }}</div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row mb-2">
+                        <div class="col-md-2"><b>Event</b></div>
+                        <div class="col-md-10">{{ $class_event->event->title }}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2"><b>Jenis Pelatihan</b></div>
+                        <div class="col-md-10">{{ $class_event->training->title }}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2"><b>Title</b></div>
+                        <div class="col-md-10">{{ $class_event->title }}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2"><b>Date</b></div>
+                        <div class="col-md-10">{{ $class_event->date_start }} sd {{ $class_event->date_finish }}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2"><b>TOC</b></div>
+                        <div class="col-md-10">{{ $class_event->toc_user->nama_depan  }} {{ $class_event->toc_user->nama_belakang  }}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2"><b>MOT</b></div>
+                        <div class="col-md-10">{{ $class_event->mot_user->nama_depan }} {{ $class_event->mot_user->nama_belakang  }}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2"><b>Description</b></div>
+                        <div class="col-md-10"><?= $class_event->description ?></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="{{ $class_event->file }}" class="img-thumbnail">
+                </div>
             </div>
-            <div class="row mb-2">
-                <div class="col-md-2"><b>Date</b></div>
-                <div class="col-md-10">{{ $class_event->date_start }} sd {{ $class_event->date_finish }}</div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2"><b>Description</b></div>
-                <div class="col-md-10"><?= $class_event->description ?></div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2"><b>Canva</b></div>
-                <div class="col-md-10"><?= $class_event->canva_url ?></div>
-            </div>
-
         </div>
         <div class="card-footer">
             <a href="{{ route('admin.class.edit', ['slug'=>$class_event->slug]) }}" class="btn btn-success">Edit</a>

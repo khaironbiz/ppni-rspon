@@ -14,5 +14,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/code/{id}/edit', [\App\Http\Controllers\Web\Admin\CodeController::class,'edit'])->name('admin.code.edit');
 });
 
-Route::get('/master/pendidikan', [\App\Http\Controllers\DependantDropdownController::class,'pendidikan'])->name('dropdown.pendidikan.index');
-Route::get('/master/pendidikan/child/{jenis_pendidikan}', [\App\Http\Controllers\DependantDropdownController::class,'sub_pendidikan'])->name('dropdown.pendidikan.child');

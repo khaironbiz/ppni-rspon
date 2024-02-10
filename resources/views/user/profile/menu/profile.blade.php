@@ -6,8 +6,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ route('user.profile.pendidikan') }}">Pendidikan <span class="sr-only">(current)</span></a>
+            <li class="nav-item @if($sub_class == 'Pendidikan') {{ "Active" }} @else {{ "" }} @endif">
+                <a class="nav-link" href="{{ route('user.profile.pendidikan') }}">Pendidikan</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Pekerjaan</a>
@@ -21,8 +21,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Dokumen Legal</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Berkas</a>
+            <li class="nav-item @if($class == 'Files') {{ "Active" }} @endif">
+                <a class="nav-link" href="{{ route('user.file.index') }}">Berkas</a>
             </li>
 
             <li class="nav-item dropdown">

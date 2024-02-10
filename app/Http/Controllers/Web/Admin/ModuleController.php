@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Code;
 use App\Models\Curriculum;
+use App\Models\File;
 use App\Models\Module;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,14 +29,16 @@ class ModuleController extends Controller
         return view('admin.module.index', $data);
     }
     public function show($id){
-        $module = Module::find($id);
+        $module     = Module::find($id);
         $attachment = $module->attachment()->get();
+        $files      = File::where('user_id', Auth::id())->get();
         $data = [
             'class'     => 'Module',
             'sub_class' => 'Show',
             'title'     => 'Show Model By ID',
             'module'    => $module,
-            'attachment'=> $attachment
+            'attachment'=> $attachment,
+            'files'     => $files
         ];
         return view('admin.module.show', $data);
     }

@@ -38,10 +38,16 @@ class ModuleAttachmentController extends Controller
 
     }
     public function store(Request $request){
-        $attachment = new ModuleAttachment();
-        $data       = $request->all();
-        $data['user_id']= Auth::id();
-        $create     = $attachment->create($data);
+//        dd($request->all());
+        $file           = File::find($request->file_id);
+        $post           = [
+            'module_id'     => $request->module_id,
+            'file_id'       => $file->id,
+            'file_type'     => $file->file_type,
+            'user_id'       => Auth::id()
+        ];
+        $attachment     = new ModuleAttachment();
+        $create         = $attachment->create($post);
         if($create){
             Session::flash('success', 'Berhasil membuat data baru');
         }else{

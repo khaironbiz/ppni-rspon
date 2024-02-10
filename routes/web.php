@@ -20,6 +20,8 @@ Route::get('/nihss', [App\Http\Controllers\Web\LandingController::class, 'index'
 
 Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'])->name('landing.home');
 
+@include ('web/ajax.php');
+
 @include('web/auth.php');
 
 @include('web/event.php');
@@ -63,5 +65,7 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 @include('web/user.php');
 
 @include('web/profile.php');
+
+@include ('web/file.php');
 //landing
 

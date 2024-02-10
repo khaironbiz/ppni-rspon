@@ -18,7 +18,7 @@
                         <article class="blog-post single">
                             <div class="post-thumb">
                                 @if($class_event->file != null)
-                                    <img src="{{ $class_event->file }}" alt="post-image" class="img-fluid">
+                                    <img src="{{ $class_event->file }}" alt="post-image" class="img-fluid w-100">
                                 @else
                                         <?= $class_event->canva_url?>
                                 @endif

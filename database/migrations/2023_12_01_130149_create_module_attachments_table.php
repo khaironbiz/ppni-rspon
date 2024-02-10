@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignIdFor(\App\Models\Module::class);
             $table->string('file_type');
-            $table->text('file_name');
+            $table->string('file_id');
             $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->timestamps();
         });

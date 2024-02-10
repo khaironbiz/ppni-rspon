@@ -132,7 +132,7 @@
                 </div>
             </div>
 
-            <table class="table mt-1">
+            <table class="table table-striped table-sm mt-1">
                 <thead>
                 <tr>
                     <th>#</th>
@@ -151,6 +151,7 @@
                     </tr>
                 @endforeach
                 </tbody>
+
             </table>
 
 

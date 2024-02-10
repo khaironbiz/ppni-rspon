@@ -24,6 +24,18 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Kurikulum</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="curriculum_version_id">
+                            <option>-----</option>
+                            @foreach($versi_kurikulum as $v_k)
+                                <option value="{{ $v_k->id }}" @if($v_k->id == $class_event->curriculum_version_id) {{ "selected" }} @endif>{{ $v_k->title }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Date</label>
                     <div class="col-sm-4">
                         <input type="date" class="form-control" name="date_start" value="{{ $class_event->date_start }}">
@@ -42,9 +54,39 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">TOC</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="toc">
+                            <option>-----</option>
+                            @foreach($users as $u)
+                                <option value="{{ $u->id }}" @if($u->id == $class_event->toc ) {{ "selected" }} @endif>{{ $u->nama_depan }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">MOT</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="mot">
+                            <option>-----</option>
+                            @foreach($users as $u)
+                                <option value="{{ $u->id }}" @if($u->id == $class_event->mot ) {{ "selected" }} @endif>{{ $u->nama_depan }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label class="col-sm-2 col-form-label">File</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control" name="file">
+                        <select class="form-control" name="file">
+                            <option>-----</option>
+                            @foreach($file as $f)
+                                <option value="{{ $f->url }}" @if($f->url == $class_event->file ) {{ "selected" }} @endif>{{ $f->title }}</option>
+                            @endforeach
+
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">

@@ -53,7 +53,7 @@ class UserProfileController extends Controller
         $user               = Auth::user();
         $code_pendidikan    = Code::where('code', 'pendidikan')->first();
         $db_pendidikan      = Code::where('parent_id',$code_pendidikan->id)->orderBy('urutan')->get();
-        $user_education     = UserEducation::where('user_id', $user->id)->get();
+        $user_education     = UserEducation::where('user_id', $user->id)->orderBy('tahun_keluar')->get();
 //        dd($user_education);
         $data = [
             'class'         => 'Profile',
@@ -66,7 +66,22 @@ class UserProfileController extends Controller
         return view('user.profile.pendidikan', $data);
     }
     public function store_pendidikan(Request $request){
-        dd($request->all());
+//        dd($request->all());
+        $input = [
+            'jenjang_pendidikan_id' => $request->pendidikan_id,
+            'user_id'               => Auth::id(),
+            'nama_institusi'        => $request->nama_instansi,
+            'tahun_masuk'           => $request->tahun_masuk,
+            'tahun_keluar'          => $request->tahun_keluar,
+            'nomor_ijazah'          => $request->nomor_ijazah,
+            'nama_penandatangan_ijazah' => $request->nama_penandatangan_ijazah
+        ];
+
+        $user_education = new UserEducation();
+        $create = $user_education->create($input);
+        if($create){
+            return back()->with('success', 'Data Berhasil disimpan');
+        }
     }
     public function pekerjaan(){
 

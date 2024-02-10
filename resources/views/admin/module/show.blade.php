@@ -113,17 +113,63 @@
             <b>Attachment</b>
         </div>
         <div class="card-body">
-            @include('admin.module.modal.new_canva')
-            @include('admin.module.modal.new_youtube')
-            @include('admin.module.modal.file')
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addFile">
+                Attachment
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="addFile" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-success">
+                            <h5 class="modal-title" id="staticBackdropLabel">Tambah File</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="{{ route('admin.module_attachment.store') }}" method="post">
+                            @csrf
+                            <div class="modal-body">
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
+                                        <b>Module</b>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="module_id">
+                                            <option value="{{ $module->id }}">{{ $module->title }} </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
+                                        <b>Berkas</b>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select class="form-control" name="file_id">
+                                            <option>----</option>
+                                            @foreach($files as $f)
+                                                <option value="{{ $f->id }}">{{ $f->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <table class="table table-sm">
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Jenis Materi</th>
-                    <th>Title</th>
-                    <th>JPL</th>
+                    <th>Nama Berkas</th>
+                    <th>Tipe Berkas</th>
+                    <th>Hit</th>
                     <th>Detail</th>
                 </tr>
                 </thead>
@@ -134,9 +180,9 @@
                     @endphp
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $data->id }}</td>
+                        <td>{{ $data->file->title }}</td>
                         <td>{{ $data->file_type }}</td>
-                        <td>{{ $data->jpl }}</td>
+                        <td></td>
                         <td>
                             @if($data->file_type == 'file')
                                 <a href="{{ route('admin.module_attachment.download',['id'=>$data->id]) }}"

@@ -53,5 +53,8 @@ class Code extends Model
     {
         return $this->belongsToMany(User::class);
     }
+    public function user_education(){
+        return $this->hasMany(UserEducation::class, 'user_id');
+    }
 
 }

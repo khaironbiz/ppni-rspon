@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <select class="form-control" name="jenis_pendidikan" id="jenis_pendidikan">
-                                        <option value="">Jenis Pendidikan</option>
+                                        <option value="">---pilih---</option>
                                         @foreach ($db_pendidikan as $db)
                                             <option value="{{ $db->id }}">{{ $db->title }}</option>
                                         @endforeach
@@ -76,26 +76,6 @@
                                         });
                                     });
                                 </script>
-{{--                                <script>--}}
-{{--                                    function pendidikan_id(jenis_pendidikan) {--}}
-{{--                                        $.ajax({--}}
-{{--                                            url: "{{ route('dropdown.pendidikan.child') }}",--}}
-{{--                                            type: "GET",--}}
-{{--                                            data: {--}}
-{{--                                                jenis_pendidikan: jenis_pendidikan,--}}
-{{--                                                // _token: response.csrf_token,--}}
-{{--                                            },--}}
-{{--                                            success: function(response) {--}}
-{{--                                                $("#pendidikan_id").empty();--}}
-{{--                                                $("#pendidikan_id").append("<option value=''>---pilih---</option>");--}}
-{{--                                                $.each(response.pendidikan, function(key, value) {--}}
-{{--                                                    $("#pendidikan_id").append("<option value='" + value.id + "'>" + value.title +"</option>");--}}
-{{--                                                });--}}
-{{--                                            }--}}
-{{--                                        });--}}
-{{--                                    }--}}
-{{--                                </script>--}}
-
                             </div>
                             <div class="row mb-1">
                                 <div class="col-md-4">
@@ -157,24 +137,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($db_pendidikan as $data)
+                @foreach($user_education as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $data->title }}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $data->code_pendidikan->parent->title }}</td>
+                        <td>{{ $data->code_pendidikan->title }}</td>
+                        <td>{{ $data->nama_institusi }}</td>
+                        <td>{{ date('Y', strtotime($data->tahun_masuk)) }} sd {{ date('Y', strtotime($data->tahun_keluar)) }}</td>
                         <td></td>
                     </tr>
+
                 @endforeach
 
                 </tbody>
 
             </table>
 
-        </div>
-        <div class="card-footer">
-            <a href="{{ route('user.profile.edit') }}" class="btn btn-sm btn-success">Edit Profile</a>
         </div>
 
     </div>

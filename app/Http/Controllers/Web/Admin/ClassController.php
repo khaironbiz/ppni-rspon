@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Web\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClassEvent;
+use App\Models\CurriculumVersion;
 use App\Models\Event;
+use App\Models\File;
 use App\Models\SubjectStudy;
 use App\Models\Training;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,14 +28,20 @@ class ClassController extends Controller
         return view('admin.class.index', $data);
     }
     public function create(){
+        $versi_kurikulum = CurriculumVersion::all();
+        $file       = File::where('user_id', Auth::id())->wherein('extention',['png','jpg'])->get();
         $events     = Event::all();
         $trainings  = Training::all();
+        $users      = User::all();
         $data = [
             'class'         => 'Event',
             'sub_class'     => 'Create Class',
             'title'         => 'Create New Class',
             'events'        => $events,
-            'trainings'     => $trainings
+            'trainings'     => $trainings,
+            'file'          => $file,
+            'users'         => $users,
+            'versi_kurikulum'   => $versi_kurikulum,
         ];
         return view('admin.class.create', $data);
     }
@@ -60,36 +70,25 @@ class ClassController extends Controller
     }
     public function edit($slug){
         $class = ClassEvent::where('slug', $slug)->first();
+        $versi_kurikulum = CurriculumVersion::where('training_id', $class->training_id)->get();
+        $file       = File::where('user_id', Auth::id())->wherein('extention',['png','jpg'])->get();
+        $users      = User::all();
         $data = [
-            'class'         => 'Event',
-            'sub_class'     => 'Class',
-            'title'         => 'Show Class Event',
-            'class_event'   => $class
+            'class'             => 'Event',
+            'sub_class'         => 'Class',
+            'title'             => 'Show Class Event',
+            'class_event'       => $class,
+            'versi_kurikulum'   => $versi_kurikulum,
+            'file'              => $file,
+            'users'             => $users
         ];
         return view('admin.class.edit', $data);
     }
     public function update(Request $request){
-//        dd($request->file('file'));
-        $file       = $request->file('file');
-        $data_request = $request->all();
-        $class_slug = $request->class_slug;
-        $class      = ClassEvent::where('slug', $class_slug)->first();
-        if(!empty($request->file('file'))){
-            $file       = $request->file('file');
-            $result     = Storage::disk('s3')->putFileAs('latihan', $file, $file->hashName(),'public');
-            $url        = Storage::disk('s3')->url($result);
-            $data_file  = [
-                'file_name' => $file->hashName(),
-                'extention' => $file->getClientOriginalExtension(),
-                'file_type' => $file->getType(),
-                'size'      => $file->getSize(),
-                'url'       => url($url)
-            ];
-
-            $data_request['file']=  url($url);
-        }
-
-        $update     = $class->update($data_request);
+        $data_request   = $request->all();
+        $class_slug     = $request->class_slug;
+        $class          = ClassEvent::where('slug', $class_slug)->first();
+        $update         = $class->update($data_request);
         if(empty($class)){
             Session::flash('danger', 'Wrong slug class');
         }elseif($update){

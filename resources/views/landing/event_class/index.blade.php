@@ -13,7 +13,7 @@
                             <div class="post-thumb">
                                 <a href="{{  route('landing.class.show', ['slug'=>$data->slug]) }}">
                                     @if($data->file != null)
-                                        <img src="{{ $data->file }}" alt="post-image" class="img-fluid">
+                                        <img src="{{ $data->file }}" alt="post-image" class="img-fluid w-100">
                                     @else
                                         <img src="assets/theme/images/news/post-thumb-two.jpg" alt="post-image" class="img-fluid">
                                     @endif

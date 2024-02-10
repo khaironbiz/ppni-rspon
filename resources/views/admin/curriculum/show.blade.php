@@ -31,6 +31,14 @@
                     {{ $curriculum->title }}
                 </div>
             </div>
+            <div class="row mb-2">
+                <div class="col-md-2">
+                    <b>JPL</b>
+                </div>
+                <div class="col-md-10">
+                    {{ $curriculum->jpl }}
+                </div>
+            </div>
 
 
         </div>
@@ -59,6 +67,14 @@
                                     <div class="col-md-8">
                                         <input type="hidden" class="form-control" name="id" value="{{ $curriculum->id }}">
                                         <input type="text" class="form-control" name="title" value="{{ $curriculum->title }}">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-4">
+                                        <label>JPL</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="jpl" value="{{ $curriculum->jpl }}">
                                     </div>
                                 </div>
                                 <div class="row mb-2">

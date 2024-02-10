@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Code;
+use App\Models\CurriculumVersion;
 use Illuminate\Http\Request;
 
 class DependantDropdownController extends Controller
@@ -22,6 +23,12 @@ class DependantDropdownController extends Controller
             'pendidikan' => $pendidikan,
             'csrf_token' => csrf_token() // Include CSRF token
         ]);
+
+    }
+    public function kurikulum_versi($training_id)
+    {
+        $kurikulim_versi = CurriculumVersion::where('training_id', $training_id)->get();
+        return response()->json($kurikulim_versi);
 
     }
 }
