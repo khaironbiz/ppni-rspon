@@ -47,15 +47,10 @@
                         <input type="date" class="form-control" name="date_finish" value="{{ $class_event->date_finish }}">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Penjelasan</label>
-                    <div class="col-sm-10">
-                        <textarea id="my-editor" name="description"><?= $class_event->description?></textarea>
-                    </div>
-                </div>
+
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">TOC</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-4">
                         <select class="form-control" name="toc">
                             <option>-----</option>
                             @foreach($users as $u)
@@ -64,21 +59,43 @@
 
                         </select>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">MOT</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-2 col-form-label text-center">MOT</label>
+                    <div class="col-sm-4">
                         <select class="form-control" name="mot">
                             <option>-----</option>
                             @foreach($users as $u)
                                 <option value="{{ $u->id }}" @if($u->id == $class_event->mot ) {{ "selected" }} @endif>{{ $u->nama_depan }}</option>
                             @endforeach
-
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">File</label>
+                    <label class="col-sm-2 col-form-label">Kuota</label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" name="kuota" value="{{ $class_event->kuota }}">
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <b>Harga</b>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" name="price" value="{{ $class_event->price }}">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Penjelasan</label>
+                    <div class="col-sm-10">
+                        <textarea id="my-editor" name="description"><?= $class_event->description?></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Embed Canva</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" name="canva_url">{{ $class_event->canva_url }}</textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Poster</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="file">
                             <option>-----</option>
@@ -87,12 +104,6 @@
                             @endforeach
 
                         </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Embed Canva</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control" name="canva_url">{{ $class_event->canva_url }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -105,6 +116,7 @@
                     </div>
 
                 </div>
+
 
             </form>
         </div>

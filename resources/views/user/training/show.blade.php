@@ -67,7 +67,7 @@
                     <b>MOT</b>
                 </div>
                 <div class="col-md-10">
-                    {{ $training->class->mot }}
+                    {{ $training->class->mot_user->nama_depan }} {{ $training->class->mot_user->nama_belakang }}
                 </div>
             </div>
             <div class="row mb-2">
@@ -75,7 +75,7 @@
                     <b>TOC</b>
                 </div>
                 <div class="col-md-10">
-                    {{ $training->class->toc }}
+                    {{ $training->class->toc_user->nama_depan }} {{ $training->class->toc_user->nama_belakang }}
                 </div>
             </div>
             <div class="row mb-2">
@@ -100,45 +100,67 @@
                 <tr>
                     <th>#</th>
                     <th>Materi</th>
-                    <th>JPL</th>
+                    <th colspan="2">JPL</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>A</td>
-                    <td><b>Materi Dasar</b></td>
-                    <td></td>
+                    <td colspan="3"><b>Materi Dasar</b></td>
                 </tr>
                 @foreach($materi_dasar as $mat_das)
                     <tr>
                         <td class="text-right">{{ $loop->iteration }}</td>
                         <td>{{ $mat_das->title }}</td>
                         <td>{{ $mat_das->jpl }}</td>
+                        <td>{{ $mat_das->module->sum('jpl') }}</td>
                     </tr>
+                    @foreach($mat_das->module as $module)
+                        <tr>
+                            <td></td>
+                            <td colspan="2">{{ $module->title }}</td>
+                            <td>{{ $module->jpl }}</td>
+                        </tr>
+                    @endforeach
                 @endforeach
                 <tr>
                     <td>B</td>
-                    <td><b>Materi Inti</b></td>
-                    <td></td>
+                    <td colspan="3"><b>Materi Inti</b></td>
                 </tr>
                 @foreach($materi_inti as $mat_in)
                     <tr>
                         <td class="text-right">{{ $loop->iteration }}</td>
                         <td>{{ $mat_in->title }}</td>
                         <td>{{ $mat_in->jpl }}</td>
+                        <td>{{ $mat_in->module->sum('jpl') }}</td>
                     </tr>
+                    @foreach($mat_in->module as $module)
+                        <tr>
+                            <td></td>
+                            <td colspan="2">{{ $module->title }}</td>
+                            <td>{{ $module->jpl }}</td>
+                        </tr>
+                    @endforeach
+
                 @endforeach
                 <tr>
                     <td>C</td>
-                    <td><b>Materi Penunjang</b></td>
-                    <td></td>
+                    <td colspan="3"><b>Materi Penunjang</b></td>
                 </tr>
                 @foreach($materi_penunjang as $mat_pen)
                     <tr>
                         <td class="text-right">{{ $loop->iteration }}</td>
                         <td>{{ $mat_pen->title }}</td>
                         <td>{{ $mat_pen->jpl }}</td>
+                        <td>{{ $mat_pen->module->sum('jpl') }}</td>
                     </tr>
+                    @foreach($mat_pen->module as $module)
+                        <tr>
+                            <td></td>
+                            <td colspan="2">{{ $module->title }}</td>
+                            <td>{{ $module->jpl }}</td>
+                        </tr>
+                    @endforeach
                 @endforeach
                 </tbody>
             </table>

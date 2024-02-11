@@ -67,5 +67,7 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 @include('web/profile.php');
 
 @include ('web/file.php');
+
+@include ('web/schedule.php');
 //landing
 

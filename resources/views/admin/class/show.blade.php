@@ -24,9 +24,18 @@
                         <div class="col-md-10">{{ $class_event->date_start }} sd {{ $class_event->date_finish }}</div>
                     </div>
                     <div class="row mb-2">
+                        <div class="col-md-2"><b>Kuota</b></div>
+                        <div class="col-md-10">{{ $class_event->kuota}} Peserta</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2"><b>Harga</b></div>
+                        <div class="col-md-10">{{ number_format($class_event->price)}}</div>
+                    </div>
+                    <div class="row mb-2">
                         <div class="col-md-2"><b>TOC</b></div>
                         <div class="col-md-10">{{ $class_event->toc_user->nama_depan  }} {{ $class_event->toc_user->nama_belakang  }}</div>
                     </div>
+
                     <div class="row mb-2">
                         <div class="col-md-2"><b>MOT</b></div>
                         <div class="col-md-10">{{ $class_event->mot_user->nama_depan }} {{ $class_event->mot_user->nama_belakang  }}</div>
