@@ -33,6 +33,18 @@
                 </div>
                 <div class="col-md-10">{{ $module->title }}</div>
             </div>
+            <div class="row mb-2">
+                <div class="col-md-2">
+                    <b>JPL</b>
+                </div>
+                <div class="col-md-10">{{ $module->jpl }}</div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-2">
+                    <b>Metode</b>
+                </div>
+                <div class="col-md-10">{{ $module->code->title }}</div>
+            </div>
 
 
         </div>
@@ -51,7 +63,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="post" action="{{ route('admin.curriculum.update') }}">
+                        <form method="post" action="{{ route('admin.module.update') }}">
                             @csrf
                             @method('PUT')
                             <div class="modal-body">

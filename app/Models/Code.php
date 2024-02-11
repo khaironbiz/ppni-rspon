@@ -56,5 +56,8 @@ class Code extends Model
     public function user_education(){
         return $this->hasMany(UserEducation::class, 'user_id');
     }
+    public function curriculum(){
+        return $this->hasMany(Curriculum::class, 'user_id');
+    }
 
 }

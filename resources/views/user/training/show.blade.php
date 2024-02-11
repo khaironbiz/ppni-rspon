@@ -112,7 +112,7 @@
                     <tr>
                         <td class="text-right">{{ $loop->iteration }}</td>
                         <td>{{ $mat_das->title }}</td>
-                        <td>{{ $mat_das->jpl }}</td>
+                        <td></td>
                         <td>{{ $mat_das->module->sum('jpl') }}</td>
                     </tr>
                     @foreach($mat_das->module as $module)
@@ -131,7 +131,7 @@
                     <tr>
                         <td class="text-right">{{ $loop->iteration }}</td>
                         <td>{{ $mat_in->title }}</td>
-                        <td>{{ $mat_in->jpl }}</td>
+                        <td></td>
                         <td>{{ $mat_in->module->sum('jpl') }}</td>
                     </tr>
                     @foreach($mat_in->module as $module)
@@ -151,7 +151,7 @@
                     <tr>
                         <td class="text-right">{{ $loop->iteration }}</td>
                         <td>{{ $mat_pen->title }}</td>
-                        <td>{{ $mat_pen->jpl }}</td>
+                        <td></td>
                         <td>{{ $mat_pen->module->sum('jpl') }}</td>
                     </tr>
                     @foreach($mat_pen->module as $module)

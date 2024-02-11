@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Web\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClassEvent;
+use App\Models\Code;
+use App\Models\Curriculum;
 use App\Models\CurriculumVersion;
 use App\Models\Event;
 use App\Models\File;
+use App\Models\Schedule;
 use App\Models\SubjectStudy;
 use App\Models\Training;
 use App\Models\User;
@@ -58,16 +61,63 @@ class ClassController extends Controller
     public function show($slug){
         $class                  = ClassEvent::where('slug', $slug)->first();
         $mata_ajar              = SubjectStudy::where('class_event_id', $class->id)->get();
-        $curriculum_version_id  = $class->curriculum_version_id;
+        $kurikulum_version_id  = $class->curriculum_version_id;
+        $kurikulum              = Curriculum::where('curriculum_version_id', $kurikulum_version_id)->get();
+        $materi_dasar           = Curriculum::where('curriculum_version_id', $kurikulum_version_id)->where('type', 'Materi Dasar')->get();
+        $materi_inti            = Curriculum::where('curriculum_version_id', $kurikulum_version_id)->where('type', 'Materi Inti')->get();
+        $materi_penunjang       = Curriculum::where('curriculum_version_id', $kurikulum_version_id)->where('type', 'Materi Penunjang')->get();
+        $users                  = User::all();
         $data = [
             'class'         => 'Event',
             'sub_class'     => 'Class',
             'title'         => 'Show Class Event',
             'class_event'   => $class,
-            'mata_ajar'     => $mata_ajar
+            'kurikulum'         => $kurikulum,
+            'materi_dasar'      => $materi_dasar,
+            'materi_inti'       => $materi_inti,
+            'materi_penunjang'  => $materi_penunjang,
+            'users'             => $users
         ];
         return view('admin.class.show', $data);
     }
+    public function mata_ajar($slug){
+        $class                  = ClassEvent::where('slug', $slug)->first();
+        $mata_ajar              = SubjectStudy::where('class_event_id', $class->id)->get();
+        $kurikulum_version_id  = $class->curriculum_version_id;
+        $jenis_materi_kurikulum = Code::where('code', 'jenis-materi-kurikulum')->first();
+        $kurikulum              = Curriculum::where('curriculum_version_id', $kurikulum_version_id)->get();
+        $materi_dasar           = Curriculum::where('curriculum_version_id', $kurikulum_version_id)->where('type', 'Materi Dasar')->get();
+        $materi_inti            = Curriculum::where('curriculum_version_id', $kurikulum_version_id)->where('type', 'Materi Inti')->get();
+        $materi_penunjang       = Curriculum::where('curriculum_version_id', $kurikulum_version_id)->where('type', 'Materi Penunjang')->get();
+        $users                  = User::all();
+        $data = [
+            'class'         => 'Class',
+            'sub_class'     => 'Mata Ajar',
+            'title'         => 'Mata Ajar Kelas',
+            'class_event'   => $class,
+            'kurikulum'         => $kurikulum,
+            'materi_dasar'      => $materi_dasar,
+            'materi_inti'       => $materi_inti,
+            'materi_penunjang'  => $materi_penunjang,
+            'users'             => $users
+        ];
+        return view('admin.class.mata_ajar', $data);
+    }
+    public function jadwal($slug){
+        $class                  = ClassEvent::where('slug', $slug)->first();
+        $schedules              = Schedule::where('class_event_id', $class->id)->orderBy('start', 'ASC')->get();
+        $users                  = User::all();
+        $data = [
+            'class'         => 'Class',
+            'sub_class'     => 'Schedules',
+            'title'         => 'Jadwal Acara',
+            'class_event'   => $class,
+            'users'         => $users,
+            'schedules'     => $schedules
+        ];
+        return view('admin.class.jadwal', $data);
+    }
+
     public function edit($slug){
         $class = ClassEvent::where('slug', $slug)->first();
         $versi_kurikulum = CurriculumVersion::where('training_id', $class->training_id)->get();

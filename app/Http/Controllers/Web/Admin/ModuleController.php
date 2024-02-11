@@ -59,7 +59,12 @@ class ModuleController extends Controller
         return redirect()->back();
     }
     public function update(Request $request){
-
+        $module = Module::find($request->id);
+//        dd($module);
+        $update = $module->update($request->all());
+        if($update){
+            return back()->with('success', 'Data berhasil dirubah');
+        }
     }
     public function destroy(Request $request){
         $module = Module::find($request->id);

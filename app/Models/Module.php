@@ -33,4 +33,7 @@ class Module extends Model
     {
         return $this->hasMany(ModuleAttachment::class, 'module_id');
     }
+    public function schedule(){
+        return $this->hasMany(Schedule::class, 'module_id');
+    }
 }

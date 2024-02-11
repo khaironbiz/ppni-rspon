@@ -16,6 +16,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/class', [\App\Http\Controllers\Web\Admin\ClassController::class,'create'])->name('admin.class.create');
     Route::post('/admin/classes', [\App\Http\Controllers\Web\Admin\ClassController::class,'store'])->name('admin.class.store');
     Route::get('/admin/class/{slug}/show', [\App\Http\Controllers\Web\Admin\ClassController::class,'show'])->name('admin.class.show');
+    Route::get('/admin/class/{slug}/pelajaran', [\App\Http\Controllers\Web\Admin\ClassController::class,'mata_ajar'])->name('admin.class.mata_ajar');
+    Route::get('/admin/class/{slug}/jadwal', [\App\Http\Controllers\Web\Admin\ClassController::class,'jadwal'])->name('admin.class.jadwal');
     Route::get('/admin/class/{slug}/edit', [\App\Http\Controllers\Web\Admin\ClassController::class,'edit'])->name('admin.class.edit');
     Route::delete('/admin/class', [\App\Http\Controllers\Web\Admin\ClassController::class,'destroy'])->name('admin.class.delete');
     Route::put('/admin/class', [\App\Http\Controllers\Web\Admin\ClassController::class,'update'])->name('admin.class.update');
