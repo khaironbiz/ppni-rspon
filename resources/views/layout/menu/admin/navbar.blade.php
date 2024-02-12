@@ -7,7 +7,7 @@
         </li>
         <li class="nav-item d-none d-sm-inline-block">
 
-            <a href="#" class="nav-link">My Profile</a>
+            <a href="{{ route('user.profile.index') }}" class="nav-link">My Profile</a>
 
         </li>
         <li class="nav-item d-none d-sm-inline-block">

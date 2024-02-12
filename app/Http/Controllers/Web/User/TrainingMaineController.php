@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Web\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\ClassEvent;
+use App\Models\Code;
 use App\Models\Curriculum;
+use App\Models\Schedule;
+use App\Models\Task;
 use App\Models\TrainingEnroll;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,5 +44,35 @@ class TrainingMaineController extends Controller
             'materi_penunjang'  => $materi_penunjang
         ];
         return view('user.training.show', $data);
+    }
+    public function schedule($enroll_id){
+        $enroll         = TrainingEnroll::find($enroll_id);
+        $schedules      = Schedule::where('class_event_id', $enroll->class_event_id)->get();
+
+        $data = [
+            'class'             => 'Training',
+            'sub_class'         => 'Show',
+            'title'             => 'Informasi Pelatihan',
+            'training'          => $enroll,
+            'schedules'         => $schedules
+        ];
+        return view('user.training.schedule', $data);
+    }
+    public function pretest($enroll_id){
+        $pre_test_code  = Code::where('code', 'pre-test')->first();
+        $enroll         = TrainingEnroll::find($enroll_id);
+        $pre_test       = Task::where([
+            'class_event_id'=> $enroll->class_event_id,
+            'jenis_tugas'   => $pre_test_code->id
+        ])->get();
+
+        $data = [
+            'class'             => 'Training',
+            'sub_class'         => 'Show',
+            'title'             => 'Informasi Pelatihan',
+            'training'          => $enroll,
+            'pre_test'          => $pre_test
+        ];
+        return view('user.training.pretest', $data);
     }
 }

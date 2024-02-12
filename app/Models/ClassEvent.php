@@ -53,4 +53,7 @@ class ClassEvent extends Model
     {
         return $this->hasMany(Task::class,'class_event_id');
     }
+    public function schedule(){
+        return $this->hasMany(Schedule::class,'class_event_id');
+    }
 }

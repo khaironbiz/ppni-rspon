@@ -29,17 +29,18 @@ class TrainingEnrollController extends Controller
             'user_id'           => Auth::id(),
             'class_event_id'    => $class_event->id,
             'training_id'       => $class_event->training_id,
+            'price'             => $class_event->price,
             'status'            => $status
         ];
 
         $training_enroll        = new TrainingEnroll();
         $create                 = $training_enroll->create($data_input);
         if($create){
-            Session::flash('success', 'Sukses mendaftar pelatihan ini');
+            return back()->with('success', 'Sukses mendaftar pelatihan ini');
         }else{
-            Session::flash('danger', 'Gagal mendaftar pelatihan ini');
+            return back()->with('danger', 'Gagal mendaftar pelatihan ini');
         }
-        return redirect()->back();
+
     }
     public function update(Request $request){
 

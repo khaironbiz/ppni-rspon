@@ -14,81 +14,86 @@
             @include('user.training.menu.training_detail')
         </div>
         <div class="card-body">
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Nama Pelatihan</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $training->training->title }}
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Kelas Pelatihan</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $training->class->title }}
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Kurikulum</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $training->class->curriculumVersion->title}}
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Tanggal Kegiatan</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $training->class->date_start }} sd {{ $training->class->date_finish }}
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Metode Pembelajaran</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $training->class->tempat }}
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>Tempat</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $training->class->tempat }}
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>MOT</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $training->class->mot_user->nama_depan }} {{ $training->class->mot_user->nama_belakang }}
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>TOC</b>
-                </div>
-                <div class="col-md-10">
-                    {{ $training->class->toc_user->nama_depan }} {{ $training->class->toc_user->nama_belakang }}
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-2">
-                    <b>SKP</b>
-                </div>
-                <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>Nama Pelatihan</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $training->training->title }}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>Kelas Pelatihan</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $training->class->title }}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>Kurikulum</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $training->class->curriculumVersion->title}}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>Tanggal Kegiatan</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $training->class->date_start }} sd {{ $training->class->date_finish }}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>Metode Pembelajaran</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $training->class->tempat }}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>Tempat</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $training->class->tempat }}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>MOT</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $training->class->mot_user->nama_depan }} {{ $training->class->mot_user->nama_belakang }}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>TOC</b>
+                        </div>
+                        <div class="col-md-10">
+                            {{ $training->class->toc_user->nama_depan }} {{ $training->class->toc_user->nama_belakang }}
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-2">
+                            <b>SKP</b>
+                        </div>
+                        <div class="col-md-10">
 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <img src="{{ $training->class->file }}" class="w-100">
                 </div>
             </div>
-
         </div>
-        <div class="card-footer"></div>
     </div>
     <div class="card ml-2 mt-2">
         <div class="card-header bg-dark">
@@ -141,7 +146,6 @@
                             <td>{{ $module->jpl }}</td>
                         </tr>
                     @endforeach
-
                 @endforeach
                 <tr>
                     <td>C</td>
@@ -164,10 +168,7 @@
                 @endforeach
                 </tbody>
             </table>
-
         </div>
     </div>
-
-
 @endsection
 

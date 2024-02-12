@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Information</a>
+    <a class="navbar-brand" href="{{ route('user.training.mine.show', ['id'=> $training->id]) }}">Information</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Pre Test <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('user.training.mine.pretest', ['id'=> $training->id]) }}">Pre Test </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Sesi Pembelajaran</a>
+                <a class="nav-link" href="{{ route('user.training.mine.schedule', ['id'=> $training->id]) }}">Sesi Pembelajaran</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Penugasan</a>

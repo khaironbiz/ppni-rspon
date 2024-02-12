@@ -262,7 +262,7 @@
                     @foreach($training_enroll as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $data->training->title }}</td>
+                        <td>{{ $data->class->title }}</td>
                         <td></td>
                         <td></td>
                         <td><a href="{{ route('user.training.mine.show',['id'=>$data->id]) }}" class="btn btn-sm btn-info" target="_blank">Detail</a></td>
