@@ -299,6 +299,7 @@
                                 </div>
                             </div>
                         </div>
+
                     @endif
                 </td>
                 <td>{{ $module->jpl }}</td>

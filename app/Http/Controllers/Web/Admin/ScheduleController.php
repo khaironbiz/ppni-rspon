@@ -39,11 +39,23 @@ class ScheduleController extends Controller
             return back()->with('success', 'Data berhasil disimpan');
         }
     }
-    public function edit(){
-
+    public function edit(Request $request){
+        $post = $request->all();
+        $post['finish'] = date('Y-m-d H:i:s',strtotime($request->start)+(60*(int)$request->durasi));
+        $schedule = Schedule::find($request->id);
+        $create = $schedule->update($post);
+        if($create){
+            return back()->with('success', 'Data berhasil disimpan');
+        }
     }
-    public function update(){
-
+    public function update(Request $request){
+        $post = $request->all();
+        $post['finish'] = date('Y-m-d H:i:s',strtotime($request->start)+(60*(int)$request->durasi));
+        $schedule = Schedule::find($request->id);
+        $create = $schedule->update($post);
+        if($create){
+            return back()->with('success', 'Data berhasil disimpan');
+        }
     }
     public function destroy(){
 

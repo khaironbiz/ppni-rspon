@@ -20,4 +20,8 @@ class TrainingEnroll extends Model
     {
         return $this->belongsTo(Training::class, 'training_id');
     }
+    public function module()
+    {
+        return $this->belongsTo(Module::class, 'module_id');
+    }
 }

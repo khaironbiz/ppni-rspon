@@ -21,25 +21,19 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
             return redirect()->route('landing.profile');
         }
-
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
     }
     public function logout(Request $request){
         Auth::logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
         Session::flash('success', 'Logout success');
-
         return redirect()->route('login');
     }
     public function forgot(){
@@ -47,7 +41,6 @@ class AuthController extends Controller
     }
     public function getPassword()
     {
-
     }
     public function register(){
         $gender_id = Code::where('code', 'sex')->first();
@@ -62,16 +55,17 @@ class AuthController extends Controller
         return view('auth.register', $data);
     }
     public function do_register(RegistrationRequest $request){
+        $user_code      = Code::where('code', 'user')->first();
         $user           = new User();
         $data           = $request->all();
-        $data['role']   = 'user';
+        $data['role']   = $user_code->id;
+        $data['password']= bcrypt($request->password);
         $daftar         = $user->create($data);
         $user->notify(new RegistrationNotification());
         if($daftar){
             Session::flash('success', 'Registration success');
             return redirect()->route('login');
         }
-
     }
     public function fast_login_admin(Request $request){
         $id= $request->id;
@@ -81,8 +75,6 @@ class AuthController extends Controller
         }else{
             return back();
         }
-
-
     }
 
 }

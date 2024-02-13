@@ -9,6 +9,7 @@ use App\Models\Curriculum;
 use App\Models\Schedule;
 use App\Models\Task;
 use App\Models\TrainingEnroll;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,13 +49,14 @@ class TrainingMaineController extends Controller
     public function schedule($enroll_id){
         $enroll         = TrainingEnroll::find($enroll_id);
         $schedules      = Schedule::where('class_event_id', $enroll->class_event_id)->get();
-
+        $users          = User::all();
         $data = [
             'class'             => 'Training',
             'sub_class'         => 'Show',
             'title'             => 'Informasi Pelatihan',
             'training'          => $enroll,
-            'schedules'         => $schedules
+            'schedules'         => $schedules,
+            'users'             => $users
         ];
         return view('user.training.schedule', $data);
     }

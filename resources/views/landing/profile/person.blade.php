@@ -107,10 +107,10 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label">Status Pernikahan</label>
-                                                    <select class="form-select form-select-lg" name="status_pernikahan" required>
+                                                    <select class="form-select form-select-lg" name="status_menikah" required>
                                                         <option value="">----pilih------</option>
                                                         @foreach($status_pernikahan as $data)
-                                                            <option value="{{ $data->id }}" @if($user->status_pernikahan === $data->id){{ "selected" }}@endif>{{ $data->title }}</option>
+                                                            <option value="{{ $data->id }}" @if($user->status_menikah === $data->id){{ "selected" }}@endif>{{ $data->title }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -147,10 +147,10 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label">Pekerjaan</label>
-                                                    <select class="form-select form-select-lg" name="pekerjaan" required>
+                                                    <select class="form-select form-select-lg" name="status_pekerjaan" required>
                                                         <option value="">----pilih------</option>
                                                         @foreach($pekerjaan as $data)
-                                                            <option value="{{ $data->id }}" @if($user->pekerjaan === $data->id){{ "selected" }}@endif>{{ $data->title }}</option>
+                                                            <option value="{{ $data->id }}" @if($user->status_pekerjaan === $data->id){{ "selected" }}@endif>{{ $data->title }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -161,7 +161,6 @@
                                             <button type="submit" class="btn btn-success">Update</button>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
