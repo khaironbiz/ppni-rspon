@@ -81,22 +81,13 @@
                         <input type="number" class="form-control" name="price" value="{{ $class_event->price }}">
                     </div>
                 </div>
-
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Penjelasan</label>
-                    <div class="col-sm-10">
-                        <textarea id="my-editor" name="description"><?= $class_event->description?></textarea>
+                    <label class="col-sm-2 col-form-label">ID Canva</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="canva_url" value="{{ $class_event->canva_url }}">
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Embed Canva</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control" name="canva_url">{{ $class_event->canva_url }}</textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Poster</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-2 text-center">Poster</label>
+                    <div class="col-sm-4">
                         <select class="form-control" name="file">
                             <option>-----</option>
                             @foreach($file as $f)
@@ -106,6 +97,15 @@
                         </select>
                     </div>
                 </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Penjelasan</label>
+                    <div class="col-sm-10">
+                        <textarea id="my-editor" name="description"><?= $class_event->description?></textarea>
+                    </div>
+                </div>
+
+
                 <div class="form-group row">
                     <div class="col-sm-2">
 

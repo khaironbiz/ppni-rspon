@@ -8,6 +8,7 @@ use App\Models\File;
 use App\Models\ModuleAttachment;
 use App\Models\TrainingEnroll;
 use App\Models\User;
+use App\Models\UserEducation;
 use App\Service\User\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +38,7 @@ class ProfileController extends Controller
         $pendidikan_id = Code::where('code','pendidikan')->first();
         $pendidikan = $pendidikan_id->child()->orderBy('urutan')->get();
         $training_enroll = TrainingEnroll::where('user_id',Auth::id())->get();
+        $user_education = UserEducation::where('user_id', Auth::id())->orderBy('tahun_masuk', 'ASC')->get();
         $data = [
             'title'             => 'USER',
             'class'             => 'PROFILE',
@@ -47,7 +49,8 @@ class ProfileController extends Controller
             'pekerjaan'         => $jenis_pekerjaan,
             'pendidikan'        => $pendidikan,
             'training_enroll'   => $training_enroll,
-            'menu_atas'         => false
+            'menu_atas'         => false,
+            'user_education'    => $user_education
         ];
         return view('landing.profile.person', $data);
     }

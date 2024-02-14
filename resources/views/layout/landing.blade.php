@@ -115,7 +115,7 @@
                 </li>
             </ul>
             @if(\Illuminate\Support\Facades\Auth::check())
-                <a href="{{ route('user.profile.index') }}" class="ticket">
+                <a href="{{ route('landing.profile') }}" class="ticket">
 
                     <span>Account</span>
                 </a>

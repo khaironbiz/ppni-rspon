@@ -74,35 +74,29 @@
                         <input type="date" class="form-control" name="date_finish">
                     </div>
                 </div>
-
-
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">TOC</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-4">
                         <select class="form-control" name="toc">
                             <option>-----</option>
                             @foreach($users as $u)
                                 <option value="{{ $u->id }}">{{ $u->nama_depan }}</option>
                             @endforeach
-
                         </select>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">MOT</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-2 text-center">MOT</label>
+                    <div class="col-sm-4">
                         <select class="form-control" name="mot">
                             <option>-----</option>
                             @foreach($users as $u)
                                 <option value="{{ $u->id }}">{{ $u->nama_depan }}</option>
                             @endforeach
-
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Poster</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-4">
                         <select class="form-control" name="file">
                             <option>-----</option>
                             @foreach($file as $f)
@@ -111,10 +105,18 @@
                         </select>
                         <small class="text-success">Pastikananda telah memiliki file gambar pada list dokument <a href="{{ route('user.file.index') }}" target="_blank">Klik disisni</a></small>
                     </div>
+                    <label class="col-sm-2 text-center">Harga</label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" name="price">
+                    </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Embed Canva</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-2 col-form-label">Kuota</label>
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" name="kuota">
+                    </div>
+                    <label class="col-sm-2 text-center">ID Canva</label>
+                    <div class="col-sm-4">
                         <input type="text" class="form-control" name="canva_url">
                     </div>
                 </div>
@@ -126,17 +128,12 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-2">
-
                     </div>
                     <div class="col-sm-10">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <a href="{{ route('admin.event.index') }}" class="btn btn-danger">Cancel</a>
-
                     </div>
-
-
                 </div>
-
             </form>
         </div>
     </div>

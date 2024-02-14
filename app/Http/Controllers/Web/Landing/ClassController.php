@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class ClassController extends Controller
 {
     public function index(){
-        $class = ClassEvent::all();
+        $class = ClassEvent::where('date_start', '>=', date('Y-m-d'))->orderBy('date_start', 'ASC')->get();
         $data = [
             'title'         => 'HOME',
             'class'         => 'Events',

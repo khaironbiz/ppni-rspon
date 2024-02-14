@@ -77,4 +77,36 @@ class TrainingMaineController extends Controller
         ];
         return view('user.training.pretest', $data);
     }
+    public function current_training(){
+
+        $trainings = TrainingEnroll::where('user_id', Auth::id())->get();
+        $data = [
+            'class'         => 'Training',
+            'sub_class'     => 'Current',
+            'title'         => 'Current Training',
+            'enrolls'       => $trainings->where('class.date_finish', '>=', date('Y-m-d'))->where('class.date_start', '<=', date('Y-m-d'))->where('status', 'success')
+        ];
+        return view('user.training.index', $data);
+    }
+    public function next_training(){
+        $trainings = TrainingEnroll::where('user_id', Auth::id())->get();
+//        dd($trainings);
+        $data = [
+            'class'         => 'Training',
+            'sub_class'     => 'Next',
+            'title'         => 'Next Training',
+            'enrolls'       => $trainings->where('class.date_start', '>', date('Y-m-d'))->where('status', 'success')
+        ];
+        return view('user.training.index', $data);
+    }
+    public function order_training(){
+        $trainings = TrainingEnroll::where('user_id', Auth::id())->get();
+        $data = [
+            'class'         => 'Training',
+            'sub_class'     => 'Pending',
+            'title'         => 'Order Training',
+            'enrolls'       => $trainings->where('class.date_start', '>=', date('Y-m-d'))->where('status', 'pending')
+        ];
+        return view('user.training.index', $data);
+    }
 }

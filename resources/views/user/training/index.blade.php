@@ -10,10 +10,13 @@
         </div>
     @endif
     <div class="card ml-2">
+        <div class="card-header bg-dark">
+            @include('user.training.menu.training')
+        </div>
 
         <div class="card-body">
 
-            <table id="example1" class="table table-bordered table-striped table-sm mt-2">
+            <table class="table table-bordered table-striped table-sm mt-2">
                 <thead>
                 <tr>
                     <th class="text-center">No</th>
@@ -32,7 +35,7 @@
                         <td>{{ $data->class->title }}</td>
                         <td>{{ $data->class->date_start }}</td>
                         <td>{{ number_format($data->class->price,0,',','.') }}</td>
-                        <td></td>
+                        <td>{{ $data->status }}</td>
                         <td>
                             <a href="{{ route('user.training.mine.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>

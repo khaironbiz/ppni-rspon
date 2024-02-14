@@ -77,6 +77,12 @@ $foto = \Illuminate\Support\Facades\Auth::user()['foto']
                         <p class="text">Panitia</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('user.file.index') }}" class="nav-link">
+                        <i class="nav-icon fa fa-file text-success"></i>
+                        <p class="text">Berkas</p>
+                    </a>
+                </li>
                 @if(Auth::user()->role_code->title == 'Super Admin')
                     <li class="nav-item">
                         <a href="{{ route('admin.class.index') }}" class="nav-link">

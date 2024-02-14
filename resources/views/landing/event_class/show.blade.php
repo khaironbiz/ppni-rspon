@@ -31,16 +31,22 @@
                                 <div class="post-meta">
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <i class="fa fa-user-o"></i>
-                                            <a href="#">Admin</a>
+                                            <i class="fa fa-money"></i>
+                                            <a href="#">{{ number_format($class_event->price) }}</a>
+                                        </li>
+
+                                        <li class="list-inline-item">
+                                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                            <a href="#">{{ $class_event->kuota }}</a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <i class="fa fa-heart-o"></i>
-                                            <a href="#">350</a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <i class="fa fa-comments-o"></i>
-                                            <a href="#">30</a>
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            @if(date('Y-m', strtotime($class_event->date_start)) != date('Y-m', strtotime($class_event->date_finish)))
+                                                <a href="#">{{ $class_event->date_start }} sd {{ $class_event->date_finish }}</a>
+                                            @else
+                                                <a href="#">{{ date('d', strtotime($class_event->date_start)) }} - {{ date('d', strtotime($class_event->date_finish)) }} {{ date('F Y', strtotime($class_event->date_finish)) }}</a>
+                                            @endif
+
                                         </li>
                                     </ul>
                                 </div>
