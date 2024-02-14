@@ -77,13 +77,13 @@
                                             <b>Mulai</b>
                                         </div>
                                         <div class="col-md-3">
-                                            <input type="datetime-local" class="form-control" name="start">
+                                            <input type="datetime-local" class="form-control" name="start" value="{{ $data->start }}">
                                         </div>
                                         <div class="col-md-3">
                                             <b>Durasi (Menit)</b>
                                         </div>
                                         <div class="col-md-3">
-                                            <input type="number" class="form-control" name="durasi">
+                                            <input type="number" class="form-control" name="durasi" value="{{ (strtotime($data->finish) - strtotime($data->start))/60 }}">
                                         </div>
 
                                     </div>

@@ -53,7 +53,7 @@ class TrainingMaineController extends Controller
         $data = [
             'class'             => 'Training',
             'sub_class'         => 'Show',
-            'title'             => 'Informasi Pelatihan',
+            'title'             => 'Jadwal Acara',
             'training'          => $enroll,
             'schedules'         => $schedules,
             'users'             => $users
