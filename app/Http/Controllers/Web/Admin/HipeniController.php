@@ -13,7 +13,7 @@ class HipeniController extends Controller
             'class'         => 'Event',
             'sub_class'     => 'Topic',
             'title'         => 'Event Topic All',
-            'hipeni'        => $hipeni
+            'paginator'     => $hipeni
         ];
         return view('admin.hipeni.users.index', $data);
     }

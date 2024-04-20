@@ -33,7 +33,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($hipeni as $data)
+                                    @foreach($paginator as $data)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $data->nama }}</td>
@@ -47,7 +47,9 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                                {{ $hipeni->onEachSide(3)->links() }}
+{{--                                {{ $paginator->hasPages() }}--}}
+                                @include('pagination.bs4')
+
                             </div>
                         </div>
                     </div>
