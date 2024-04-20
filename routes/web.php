@@ -69,5 +69,7 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 @include ('web/file.php');
 
 @include ('web/schedule.php');
+
+@include ('web/hipeni.php');
 //landing
 
