@@ -38,7 +38,8 @@
                             <b>Gender</b>
                         </div>
                         <div class="col-md-10">
-                            {{ $user->gender_code->title }}
+                            @if($user->gender != null) {{ $user->gender_code->title }} @endif
+
                         </div>
                     </div>
                     <div class="row mb-1">
@@ -54,7 +55,8 @@
                             <b>Agama</b>
                         </div>
                         <div class="col-md-10">
-                            {{ $user->agama_code->title }}
+                            @if($user->agama != null) {{ $user->agama_code->title }} @endif
+
                         </div>
                     </div>
                     <div class="row mb-1">
@@ -62,7 +64,8 @@
                             <b>Status Pernikahan</b>
                         </div>
                         <div class="col-md-10">
-                            {{ $user->status_menikah_code->title }}
+                            @if($user->status_menikah != null) {{ $user->status_menikah_code->title }} @endif
+
                         </div>
                     </div>
 
@@ -96,7 +99,9 @@
                             <b>Status Pekrjaan</b>
                         </div>
                         <div class="col-md-10">
-                            {{ $user->status_pekerjaan_code->title }}
+                            @if($user->status_pekerjaan != null) {{ $user->status_pekerjaan_code->title }} @endif
+
+
                         </div>
                     </div>
                     <div class="row mb-1">

@@ -56,7 +56,9 @@
                         </div>
                         <div class="col-md-4">
                             <select class="form-control" name="gender" required>
-                                <option value="{{ $user->gender  }}">{{ $user->gender_code->title }}</option>
+                                <option value="male">---pilih---</option>
+
+                                <option value="{{ $user->gender  }}">@if($user->gender != null) {{ $user->gender_code->title }} @endif</option>
                             </select>
                             @error('gender')
                             <small class="text-danger">{{ $message }}</small>
