@@ -17,6 +17,76 @@
                     <div class="card">
                         <div class="card-header">
                             {{ $users->total() }}
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                Add New Member
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <form action="" method="post">
+                                        @csrf
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row mb-1">
+                                                    <label class="col-sm-2 col-form-label">NIK</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-1">
+                                                    <label class="col-sm-2 col-form-label">Nama</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-1">
+                                                    <label class="col-sm-2 col-form-label">Email</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="email" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-1">
+                                                    <label class="col-sm-2 col-form-label">HP</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-1">
+                                                    <label class="col-sm-2 col-form-label">NIRA</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-1">
+                                                    <label class="col-sm-2 col-form-label">DPW</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-1">
+                                                    <label class="col-sm-2 col-form-label">DPD</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -91,4 +161,82 @@
     </section>
 
 @endsection
+{{--
+var ajaxku;
+function ajaxkota(id){
+    ajaxku = buatajax();
+    var url="ajax/select_kota.php";
+    url=url+"?q="+id;
+    url=url+"&sid="+Math.random();
+    ajaxku.onreadystatechange=stateChanged;
+    ajaxku.open("GET",url,true);
+    ajaxku.send(null);
+}
+
+if (!empty($_GET['q'])){
+	if (ctype_digit($_GET['q'])) {
+		include '../konek.php';
+		$query = mysql_query("SELECT * FROM id_desa where lokasi_propinsi=$_GET[q] and lokasi_kecamatan=0 and lokasi_kelurahan=0 and lokasi_kabupatenkota!=0 order by lokasi_nama");
+		echo"<option selected value=''>Pilih Kota/Kab</option>";
+		while($d = mysql_fetch_array($query)){
+			echo "<option value='$d[lokasi_kabupatenkota]&prop=$_GET[q]'>$d[lokasi_nama]</option>";
+		}
+
+
+	}
+}
+
+if (empty($_GET['kel'])){
+
+	if (!empty($_GET['kec']) and !empty($_GET['prop'])){
+		if (ctype_digit($_GET['kec']) and ctype_digit($_GET['prop'])) {
+		include '../konek.php';
+			$query = mysql_query("SELECT * FROM id_desa where lokasi_propinsi=$_GET[prop] and lokasi_kecamatan!=0 and lokasi_kelurahan=0 and lokasi_kabupatenkota=$_GET[kec] order by lokasi_nama");
+			echo"<option selected value=''>Pilih Kecamatan</option>";
+			while($d = mysql_fetch_array($query)){
+				echo "<option value='$d[lokasi_kecamatan]&kec=$d[lokasi_kabupatenkota]&prop=$d[lokasi_propinsi]''>$d[lokasi_nama]</option>";
+			}
+		}
+	}
+} else {
+	if (!empty($_GET['kec']) and !empty($_GET['prop'])){
+		if (ctype_digit($_GET['kec']) and ctype_digit($_GET['prop'])) {
+		include '../konek.php';
+			$query = mysql_query("SELECT * FROM id_desa where lokasi_propinsi=$_GET[prop] and lokasi_kecamatan=$_GET[kel] and lokasi_kelurahan!=0 and lokasi_kabupatenkota=$_GET[kec] order by lokasi_nama");
+			echo"<option selected value=''>Pilih Kelurahan/Desa</option>";
+			while($d = mysql_fetch_array($query)){
+				echo "<option value='$d[lokasi_kelurahan]'>$d[lokasi_nama]</option>";
+			}
+		}
+	}
+}
+--}}
+
+
+{{--<tr>
+       <td><label>Provinsi</label></td>
+            <td>:</td>
+
+			<td>
+				<script type="text/javascript" src="ajax_kota.js"></script>
+				<select name="prop" id="prop" onchange="ajaxkota(this.value)" class="form-control"/ required>
+					<option value="<? echo $data['prop']; ?>"><? echo $kodeprovinsi; ?></option>
+					<?php
+					$queryProvinsi=mysql_query("SELECT * FROM id_desa where lokasi_kabupatenkota=0 and lokasi_kecamatan=0 and lokasi_kelurahan=0 order by lokasi_nama");
+					while ($dataProvinsi=mysql_fetch_array($queryProvinsi)){
+						echo '<option value="'.$dataProvinsi['lokasi_propinsi'].'">'.$dataProvinsi['lokasi_nama'].'</option>';
+					}
+					?>
+				<select>
+			</td>
+		</tr>
+		<tr>
+			<td> Kota/Kab</td><td>:</td>
+
+			<td>
+				<select name="kota" id="kota" onchange="ajaxkec(this.value)" class="form-control"/ required>
+					<option value="<? echo $data['kota']; ?>"><? echo $kodekota11; ?></option>
+				</select>
+			</td>
+		</tr>--}}
 
