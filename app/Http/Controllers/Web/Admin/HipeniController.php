@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Hipeni;
+use App\Models\Province;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -54,14 +55,20 @@ class HipeniController extends Controller
             }
         }
 
-
+        $provinsi = Province::all();
         $data = [
             'class'         => 'HIPENI',
             'sub_class'     => 'Member',
             'title'         => 'Member Hipeni',
             'paginator'     => $hipeni,
-            'users'         => User::paginate(10)
+            'users'         => User::paginate(10),
+            'provinsi'      => $provinsi
         ];
         return view('admin.hipeni.users.index', $data);
+    }
+    public function store(Request $request){
+        $max_id = Hipeni::all()->max('id');
+        $hipeni = Hipeni::find($max_id);
+        dd($hipeni);
     }
 }

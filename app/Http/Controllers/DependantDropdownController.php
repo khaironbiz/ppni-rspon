@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Code;
 use App\Models\CurriculumVersion;
 use Illuminate\Http\Request;
@@ -30,5 +31,12 @@ class DependantDropdownController extends Controller
         $kurikulim_versi = CurriculumVersion::where('training_id', $training_id)->get();
         return response()->json($kurikulim_versi);
 
+    }
+
+
+    /// kota
+    public function kota($id_prov){
+        $kota = City::where('id_prov', $id_prov)->get();
+        return response()->json(['cities'=>$kota]);
     }
 }
