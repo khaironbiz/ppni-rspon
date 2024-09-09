@@ -73,5 +73,7 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 @include ('web/hipeni.php');
 
 @include ('web/enroll.php');
+
+@include ('web/nira.php');
 //landing
 
