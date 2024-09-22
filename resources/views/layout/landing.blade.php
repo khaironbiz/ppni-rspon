@@ -89,7 +89,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing.class.index') }}">CLASS
+                    <a class="nav-link" href="{{ route('landing.events') }}">EVENT
                         <span>/</span>
                     </a>
                 </li>
@@ -193,7 +193,7 @@
             <div class="col-md-8 align-self-center">
                 <div class="copyright-text">
 {{--                    <p><a href="{{ route('landing.home') }}">DPK PPNI RS Pusat Otak Nasional Jakarta</a> &copy; 2016, Developed by <b class="text-danger">Khairon</b></p>--}}
-                    <p><a href="{{ route('landing.home') }}"><b class="text-danger">E MODULE</b><b></b></a> &copy;
+                    <p><a href="{{ route('landing.home') }}"><b class="text-danger">{{ env('APP_NAME') }}</b><b></b></a> &copy;
                         {{ date('Y') }} </p>
                 </div>
             </div>

@@ -29,7 +29,7 @@ class HipeniController extends Controller
                 $tl = date('Y-m-d', strtotime($data->tl));
             }
             if($data->foto != null){
-                $foto = "https://hipeni.or.id/en/foto_user_hipeni/".$data->foto;
+                $foto = $data->foto;
             }else{
                 $foto = "";
             }
@@ -43,17 +43,24 @@ class HipeniController extends Controller
                 'tanggal_lahir'     => $tl,
                 'password'          => bcrypt("password"),
                 'role'              => "01hgypq1q4tsxp49b5dtn2645f",
-                'foto'              => $foto
+                'foto'              => $foto,
+                'tempat_kerja'      => $data->perusahaan,
             ];
-            $find = User::where('nik', $data->noktp)->orWhere('email', $data->email)
-                ->orWhere('email', $data->email)->orWhere('nomor_telepon', $data->hp);
+            $find       = User::where('nik', $data->noktp)->orWhere('email', $data->email)
+                            ->orWhere('email', $data->email)->orWhere('nomor_telepon', $data->hp);
+            $user_id    = $find->first();
             if($find->count()>0){
                 $update = Hipeni::find($data->id)->update(['migrate'=>true]);
             }else{
-                $create_user = $user->create($data_user);
-                $update = Hipeni::find($data->id)->update(['migrate'=>true]);
+                $create_user    = $user->create($data_user);
+                $update         = Hipeni::find($data->id)->update([
+                    'migrate'   => true,
+                    'user_id'   => $create_user['id']
+                ]);
             }
         }
+
+
 
         $provinsi = Province::all();
         $data = [

@@ -17,7 +17,6 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            {{ $users->total() }}
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                                 Add New Member

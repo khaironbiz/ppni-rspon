@@ -6,10 +6,11 @@ use Illuminate\Support\Facades\Route;
 //landing
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/events', [EventController::class,'index'])->name('landing.events');
-    Route::get('/event/{slug}/show', [EventController::class,'show'])->name('landing.event.show');
-    Route::get('/event/{id}/topik', [EventController::class,'topik'])->name('landing.event.topik');
+
 });
+Route::get('/events', [EventController::class,'index'])->name('landing.events');
+Route::get('/event/{slug}/show', [EventController::class,'show'])->name('landing.event.show');
+Route::get('/event/{id}/topik', [EventController::class,'topik'])->name('landing.event.topik');
 
 
 Route::middleware(['auth'])->group(function () {

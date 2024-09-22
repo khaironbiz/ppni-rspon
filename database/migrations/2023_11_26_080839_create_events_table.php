@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('slug');
             $table->foreignIdFor(\App\Models\User::class)->nullable();
+            $table->foreignIdFor(\App\Models\File::class)->nullable();
             $table->timestamps();
         });
     }

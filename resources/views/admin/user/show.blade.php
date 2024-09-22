@@ -37,7 +37,10 @@
                             <b>Gender</b>
                         </div>
                         <div class="col-md-10">
-                            {{ $user->gender_code->title }}
+                            @if($user->gender != null)
+                                {{ $user->gender_code->title }}
+                            @endif
+
                         </div>
                     </div>
                     <div class="row">
@@ -71,8 +74,6 @@
                         <div class="col-md-10">
                             @foreach($user->roles as $role)
                                 <span class="badge @if($user->role == $role->role_code) {{ "badge-danger" }} @else {{ "badge-primary" }} @endif">{{ $role->role->title  }}</span>
-
-
                             @endforeach
 
                         </div>
