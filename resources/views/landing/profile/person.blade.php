@@ -38,7 +38,9 @@
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-4"><label>Gender</label></div>
-                                    <div class="col-8">{{ $user->gender_code->title }}</div>
+                                    <div class="col-8">
+                                        @if($user->gender != null) {{ $user->gender_code->title }}@endif
+                                    </div>
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-4"><label>TTL</label></div>
@@ -70,7 +72,9 @@
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-4"><label>Status Pekerjaan</label></div>
-                                    <div class="col-8">{{ $user->status_pekerjaan_code->title }}</div>
+                                    <div class="col-8">
+                                        @if($user->status_pekerjaan != null) {{ $user->status_pekerjaan_code->title }} @endif
+                                    </div>
                                 </div>
 
                             </div>

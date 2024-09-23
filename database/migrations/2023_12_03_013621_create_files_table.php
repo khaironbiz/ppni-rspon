@@ -14,8 +14,13 @@ return new class extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignIdFor(\App\Models\User::class);
-            $table->string('mimeType');
-            $table->text('file_name');
+            $table->string('title')->nullable();
+            $table->string('file_name')->nullable();
+            $table->string('mimeType')->nullable();
+            $table->string('file_type')->nullable();
+            $table->string('extention')->nullable();
+            $table->integer('size')->nullable();
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }

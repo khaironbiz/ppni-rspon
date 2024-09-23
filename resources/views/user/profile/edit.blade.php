@@ -57,8 +57,9 @@
                         <div class="col-md-4">
                             <select class="form-control" name="gender" required>
                                 <option value="male">---pilih---</option>
-
-                                <option value="{{ $user->gender  }}">@if($user->gender != null) {{ $user->gender_code->title }} @endif</option>
+                                @foreach($gender as $data_gender)
+                                    <option value="{{ $data_gender->id  }}" @if($data_gender->id == $user->gender) {{ "selected" }} @endif>{{ $data_gender->title }}</option>
+                                @endforeach
                             </select>
                             @error('gender')
                             <small class="text-danger">{{ $message }}</small>
@@ -140,7 +141,7 @@
                             <select class="form-control" name="status_menikah" required>
                                 <option value="">------</option>
                                 @foreach($stutus_menikah as $sm)
-                                    <option @if($user->status_menikah == $sm->id) {{ "selected" }}@elseif(old('status_menikah') == $sm->id ) {{ "selected" }}  @endif value="{{ $sm->id }} ">{{ $sm->title }}</option>
+                                    <option @if($user->status_menikah == $sm->id) {{ "selected" }}@elseif(old('status_menikah') == $sm->id ) {{ "selected" }}  @endif value="{{ $sm->id }}">{{ $sm->title }}</option>
                                 @endforeach
                             </select>
                             @error('status_menikah')

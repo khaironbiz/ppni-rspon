@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nama_belakang');
             $table->string('gender')->nullable();
             $table->bigInteger('nik')->unique();
+            $table->string('agama')->nullable();
             $table->string('email')->unique();
             $table->string('nomor_telepon')->unique();
             $table->string('tempat_lahir');
@@ -26,8 +27,8 @@ return new class extends Migration
             $table->string('status_pekerjaan')->nullable();;
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role');
-            $table->string('foto');
+            $table->string('role')->nullable();
+            $table->string('foto')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

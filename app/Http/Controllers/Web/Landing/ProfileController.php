@@ -9,7 +9,7 @@ use App\Models\ModuleAttachment;
 use App\Models\TrainingEnroll;
 use App\Models\User;
 use App\Models\UserEducation;
-use App\Service\User\UserService;
+use App\Services\User\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
-    private UserService $userService;
 
-    public function __construct() {
-        $this->userService = new UserService();
+
+    public function __construct(UserService $userService) {
+        $this->userService = $userService;
 
     }
     public function index(){

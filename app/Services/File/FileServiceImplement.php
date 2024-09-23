@@ -32,11 +32,8 @@ class FileServiceImplement extends ServiceApi implements FileService{
       $this->mainRepository = $mainRepository;
     }
 
-    public function store($user_id, $nama_file, $request){
-
-
+    public function store($user_id, $nama_file, $file){
         try {
-            $file       = $request->file('logo');
             $result     = Storage::disk('s3')->putFileAs('files', $file, $file->hashName(), 'public');
             $url        = Storage::disk('s3')->url($result);
             $data_file  = [

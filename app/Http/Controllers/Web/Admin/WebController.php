@@ -32,20 +32,25 @@ class WebController extends Controller
 
 //        dd($request->all());
         $nama_file = "Logo Web";
-
         $user_id = Auth::id();
-        $save_file = $this->fileService->store($user_id, $nama_file, $request);
+        $data_foto  = $request->file('logo');
+        $save_file = $this->fileService->store($user_id, $nama_file, $data_foto);
+//        dd($save_file);
         if($save_file != []){
-            dd($save_file);
+            $data_web = [
+                'nama_web'  => $request->nama_web,
+                'logo'      => $save_file->url,
+                'url'       => $request->url,
+                'email'     => $request->email,
+                'alamat'    => $request->alamat
+            ];
+            $store_web = $this->webService->store($data_web);
+            if($store_web != []){
+                return back()->with('success', 'Data Berhasil Disimpan');
+            }
+            return back()->with('danger', 'Data Gagal Disimpan');
         }
-        $data_web = [
-            'nama_web'  => $request->nama_web,
-            'logo'      => $save_file->url,
-            'url'       => $request->url,
-            'email'     => $request->email,
-            'alamat'    => $request->alamat
-        ];
-        $store_web = $this->webService->create($data_web);
+
 
         return 'gagal upload';
 

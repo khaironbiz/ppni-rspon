@@ -2,6 +2,7 @@
 
 namespace App\Services\Web;
 
+use Illuminate\Support\Facades\Log;
 use LaravelEasyRepository\ServiceApi;
 use App\Repositories\Web\WebRepository;
 
@@ -28,6 +29,16 @@ class WebServiceImplement extends ServiceApi implements WebService{
     public function __construct(WebRepository $mainRepository)
     {
       $this->mainRepository = $mainRepository;
+    }
+
+    public function store($data){
+        try {
+            $save = $this->mainRepository->create($data);
+            return $save;
+        }catch (\Exception $exception){
+            Log::debug($exception->getMessage());
+            return [];
+        }
     }
 
     // Define your custom methods :)
