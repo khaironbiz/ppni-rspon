@@ -10,6 +10,9 @@
         </div>
     @endif
     <div class="card">
+        <div class="card-header bg-info">
+            @include('admin.menu.training')
+        </div>
         <div class="card-header">
             {{ session('danger') }}
             <a href="{{ route('admin.subjectStudy.create') }}" class="btn btn-primary">Add New Subject</a>

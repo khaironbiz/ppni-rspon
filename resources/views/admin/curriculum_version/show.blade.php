@@ -10,10 +10,11 @@
         </div>
     @endif
     <div class="card ml-2">
-        <div class="card-header bg-dark">
-            <b>{{ $title }}</b>
+        <div class="card-header bg-info">
+            @include('admin.menu.training')
         </div>
-        <div class="card-body bg-gray">
+        <div class="card-body">
+            <b>{{ $title }}</b>
             <div class="row mb-2">
                 <div class="col-md-2">
                     <b>Training Name</b>

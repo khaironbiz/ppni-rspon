@@ -1,6 +1,9 @@
 @extends('layout.admin')
 @section('content')
     <div class="card ml-2 ">
+        <div class="card-header bg-info">
+            @include('admin.menu.training')
+        </div>
         <div class="card-header bg-dark">
             <b>{{ $title }}</b>
         </div>

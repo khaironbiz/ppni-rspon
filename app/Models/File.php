@@ -12,7 +12,7 @@ use Spatie\Sluggable\SlugOptions;
 class File extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
-    use HasFactory, SoftDeletes, HasUlids;
+    use HasFactory, HasUlids;
     public function class()
     {
         return $this->hasMany(ClassEvent::class);

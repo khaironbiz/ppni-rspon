@@ -9,7 +9,10 @@
             {{ session('danger') }}
         </div>
     @endif
-    <div class="card">
+    <div class="card ml-2">
+        <div class="card-header bg-info">
+            @include('admin.menu.training')
+        </div>
         <div class="card-header">
             <a href="{{ route('admin.event.create') }}" class="btn btn-primary">Add Event</a>
         </div>

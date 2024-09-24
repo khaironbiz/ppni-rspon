@@ -9,10 +9,13 @@
             {{ session('danger') }}
         </div>
     @endif
-    <div class="card">
-        <div class="card-header">
+    <div class="card ml-2">
+        <div class="card-header bg-info">
+            @include('admin.menu.training')
+        </div>
+        <div class="card-body">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+            <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#staticBackdrop">
                 Add New Data
             </button>
 
@@ -36,7 +39,7 @@
                                     <div class="col-md-8">
                                         <select class="form-control" name="training_id">
                                             @foreach($trainings as $data)
-                                            <option value="{{ $data->id }}">{{ $data->title }}</option>
+                                                <option value="{{ $data->id }}">{{ $data->title }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -58,8 +61,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card-body">
             <table id="example1" class="table table-bordered table-striped table-sm">
                 <thead>
                 <tr>

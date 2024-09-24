@@ -1,9 +1,10 @@
 @extends('layout.admin')
 @section('content')
     <div class="card ml-2">
-        <div class="card-header">
-            <b>Create New Event</b>
+        <div class="card-header bg-info">
+            @include('admin.menu.training')
         </div>
+
         <div class="card-body">
             <form action="{{ route('admin.event.store') }}" method="POST">
                 @csrf

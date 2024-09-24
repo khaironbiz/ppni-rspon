@@ -10,6 +10,9 @@
         </div>
     @endif
     <div class="card">
+        <div class="card-header bg-info">
+            @include('admin.menu.training')
+        </div>
         <div class="card-header">
             <a href="{{ route('admin.topic.create') }}" class="btn btn-primary">Add Topic</a>
         </div>

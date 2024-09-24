@@ -10,6 +10,9 @@
         </div>
     @endif
     <div class="card ml-2">
+        <div class="card-header bg-info">
+            @include('admin.menu.training')
+        </div>
         <div class="card-header">
             {{ session('danger') }}
             <a href="{{ route('admin.class.create') }}" class="btn btn-primary">Add New Class</a>

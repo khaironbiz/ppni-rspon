@@ -10,7 +10,7 @@ use Spatie\Sluggable\SlugOptions;
 
 class FileEvent extends Model
 {
-    protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $guarded = ['id', 'created_at'];
     use HasFactory;
     use HasSlug;
     use HasUlids;

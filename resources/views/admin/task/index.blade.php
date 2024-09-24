@@ -9,9 +9,9 @@
             {{ session('danger') }}
         </div>
     @endif
-    <div class="card">
-        <div class="card-header">
-
+    <div class="card ml-2">
+        <div class="card-header bg-info">
+            @include('admin.menu.training')
         </div>
         <div class="card-body">
             <!-- Button trigger modal -->
