@@ -12,7 +12,7 @@
 
     <div class="card ml-2">
         <div class="card-header bg-info">
-            @include('user.profile.menu.profile')
+            @include('user.menu.profile')
         </div>
         <div class="card-body">
             <div class="row mb-2">
@@ -38,7 +38,9 @@
                             <b>Gender</b>
                         </div>
                         <div class="col-md-10">
-                            @if($user->gender != null) {{ $user->gender_code->title }} @endif
+                            @if($user->gender != null)
+                                {{ $user->gender_code->title }}
+                            @endif
 
                         </div>
                     </div>
@@ -55,7 +57,9 @@
                             <b>Agama</b>
                         </div>
                         <div class="col-md-10">
-                            @if($user->agama != null) {{ $user->agama_code->title }} @endif
+                            @if($user->agama != null)
+                                {{ $user->agama_code->title }}
+                            @endif
 
                         </div>
                     </div>
@@ -64,7 +68,9 @@
                             <b>Status Pernikahan</b>
                         </div>
                         <div class="col-md-10">
-                            @if($user->status_menikah != null) {{ $user->status_menikah_code->title }} @endif
+                            @if($user->status_menikah != null)
+                                {{ $user->status_menikah_code->title }}
+                            @endif
 
                         </div>
                     </div>
@@ -99,7 +105,9 @@
                             <b>Status Pekrjaan</b>
                         </div>
                         <div class="col-md-10">
-                            @if($user->status_pekerjaan != null) {{ $user->status_pekerjaan_code->title }} @endif
+                            @if($user->status_pekerjaan != null)
+                                {{ $user->status_pekerjaan_code->title }}
+                            @endif
 
 
                         </div>

@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('webs', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('nama_web')->nullable();
+            $table->string('singkatan')->nullable();
             $table->string('logo')->nullable();
             $table->string('visi')->nullable();
             $table->text('misi')->nullable();
             $table->string('url')->nullable();
             $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->string('alamat')->nullable();
-            $table->string('pemimpin')->nullable();
+            $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->timestamps();
         });
     }

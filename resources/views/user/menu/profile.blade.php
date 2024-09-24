@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item @if($sub_class == 'Pendidikan') {{ "Active" }} @else {{ "" }} @endif">
-                <a class="nav-link" href="{{ route('user.profile.pendidikan') }}">Pendidikan</a>
+                <a class="nav-link" href="{{ route('user.pendidikan') }}">Pendidikan</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Pekerjaan</a>

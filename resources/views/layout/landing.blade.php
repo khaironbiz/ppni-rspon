@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 
+    @php
+    $web = \App\Models\Web::where('id', '!=', null)->first();
+    @endphp
+
     <!-- Basic Page Needs
     ================================================== -->
     <meta charset="utf-8">
@@ -30,7 +34,7 @@
     <link href="{{ asset('assets/theme/css/style.css') }}" rel="stylesheet">
 
     <!-- FAVICON -->
-    <link href="https://ppni.or.id/simk/image/LOGO-PPNI.png" rel="shortcut icon">
+    <link href="{{ $web->logo }}" rel="shortcut icon">
 
 </head>
 
@@ -44,7 +48,7 @@
     <div class="container-fluid p-0">
         <!-- logo -->
         <a class="navbar-brand" href="{{ route('landing.home') }}">
-            <h4><b class="text-danger">{{ env('APP_NAME') }}</b> </h4>
+            <h4><b class="text-danger">{{ $web->singkatan }}</b> </h4>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,37 +56,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
-
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('landing.home') }}">Home--}}
-{{--                        <span>/</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('landing.news') }}">News--}}
-{{--                        <span>/</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('landing.events') }}">Events--}}
-{{--                        <span>/</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('landing.photos') }}">Photos--}}
-{{--                        <span>/</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('landing.faq') }}">Faq--}}
-{{--                        <span>/</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="{{ route('landing.price') }}">Price--}}
-{{--                        <span>/</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('landing.home') }}">HOME
                         <span>/</span>
@@ -193,7 +166,7 @@
             <div class="col-md-8 align-self-center">
                 <div class="copyright-text">
 {{--                    <p><a href="{{ route('landing.home') }}">DPK PPNI RS Pusat Otak Nasional Jakarta</a> &copy; 2016, Developed by <b class="text-danger">Khairon</b></p>--}}
-                    <p><a href="{{ route('landing.home') }}"><b class="text-danger">{{ env('APP_NAME') }}</b><b></b></a> &copy;
+                    <p><a href="{{ route('landing.home') }}"><b class="text-danger">{{ $web->nama_web }}</b><b></b></a> &copy;
                         {{ date('Y') }} </p>
                 </div>
             </div>

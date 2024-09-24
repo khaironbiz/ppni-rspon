@@ -72,4 +72,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserRole::class, 'user_id');
     }
+    public function web(){
+        return $this->hasMany(Web::class, 'user_id');
+    }
 }

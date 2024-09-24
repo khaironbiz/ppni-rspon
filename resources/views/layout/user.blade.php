@@ -1,10 +1,13 @@
 <html lang="en">
+@php
+    $web = \App\Models\Web::where('id', '!=', null)->first();
+@endphp
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title }}</title>
-    <link rel="icon" href="https://nos.wjv-1.neo.id/atm-sehat/image/tsi_logo_small.png">
+    <link rel="icon" href="{{ $web->logo }}">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -59,7 +62,7 @@
     <footer class="main-footer mt-5">
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 2.0.0    </div>
-        <strong>Copyright &copy; 2014-2022 <a href="">{{ env('APP_NAME') }}</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; {{ date('Y') }} <a href="">{{ $web->nama_web }}</a>.</strong> All rights reserved.
     </footer>
 
 </div>    <!-- ./wrapper -->

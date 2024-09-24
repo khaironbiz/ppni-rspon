@@ -44,6 +44,14 @@
                                 </div>
                                 <div class="row mb-1">
                                     <div class="col-md-4">
+                                        <label>Singkatan</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="singkatan">
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
                                         <label>Logo</label>
                                     </div>
                                     <div class="col-md-8">
@@ -65,6 +73,14 @@
                                     </div>
                                     <div class="col-md-8">
                                         <input type="email" class="form-control" name="email">
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-4">
+                                        <label>Phone</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="number" class="form-control" name="phone">
                                     </div>
                                 </div>
                                 <div class="row mb-1">
@@ -91,10 +107,11 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th>Nama Web</th>
+                    <th>Singkatan</th>
                     <th>URL</th>
                     <th>Email</th>
-                    <th>Logo</th>
                     <th>Alamat</th>
+                    <th>Logo</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -104,12 +121,13 @@
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>{{ $data->nama_web }}</td>
+                        <td>{{ $data->singkatan }}</td>
                         <td>{{ $data->url }}</td>
                         <td>{{ $data->email }}</td>
-                        <td>{{ $data->logo }}</td>
                         <td>{{ $data->alamat }}</td>
+                        <td><img src="{{$data->logo}}" class="img-thumbnail w-25"></td>
                         <td>
-                            <a href="" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('admin.web.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>
                     </tr>
                 @endforeach

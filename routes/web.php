@@ -62,6 +62,8 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 
 @include('web/user.php');
 
+@include('web/pendidikan.php');
+
 @include('web/profile.php');
 
 @include ('web/file.php');

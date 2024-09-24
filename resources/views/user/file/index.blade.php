@@ -11,7 +11,7 @@
     @endif
     <div class="card ml-2">
         <div class="card-header bg-info">
-            @include('user.profile.menu.profile')
+            @include('user.menu.profile')
         </div>
         <div class="card-body">
             <!-- Button trigger modal -->
@@ -22,7 +22,8 @@
                 External
             </button>
             <!-- Internal -->
-            <div class="modal fade" id="internal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="internal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <form action="{{ route('user.file.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -61,7 +62,8 @@
                 </div>
             </div>
             <!-- external -->
-            <div class="modal fade" id="external" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="external" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <form action="{{ route('user.file.store.external') }}" method="post">
                         @csrf
@@ -130,7 +132,8 @@
                         <td>{{ $data->file_type }}</td>
                         <td>{{ number_format($data->size) }}</td>
                         <td>
-                            <a href="{{ route('user.file.show.view', ['id' => $data->id]) }}" class="btn btn-sm btn-info">View</a>
+                            <a href="{{ route('user.file.show.view', ['id' => $data->id]) }}"
+                               class="btn btn-sm btn-info">View</a>
                         </td>
                         <td>
                             <a href="{{ route('user.file.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
