@@ -51,6 +51,12 @@
                         <p class="text">Users</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.web.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-warning"></i>
+                        <p class="text">Webs</p>
+                    </a>
+                </li>
 
 
                 <li class="nav-item">

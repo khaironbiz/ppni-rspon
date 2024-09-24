@@ -77,5 +77,7 @@ Route::get('/', [App\Http\Controllers\Web\Landing\ClassController::class,'index'
 @include ('web/nira.php');
 
 @include ('web/web.php');
+
+@include ('web/user_role.php');
 //landing
 
