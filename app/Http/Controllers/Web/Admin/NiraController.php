@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Nira;
+use App\Models\Province;
 use App\Models\User;
 use App\Services\User\UserService;
 
@@ -15,11 +16,11 @@ class NiraController extends Controller
     }
 
     public function index(){
-        $nira = Nira::where('migrate', null)->limit(10);
-
+        $user   = new User();
+        $nira   = Nira::where('migrate', false)->paginate(100);
         foreach ($nira as $data){
-            $password = bcrypt(uniqid());
-            $data_user = [
+            $password   = bcrypt(uniqid());
+            $data_user  = [
                 'nama_depan'        => $data->nama,
                 'nama_belakang'     => "Null",
                 'nik'               => $data->ktp,
@@ -31,14 +32,22 @@ class NiraController extends Controller
                 'role'              => "01hgypq1q4tsxp49b5dtn2645f",
                 'foto'              => $data->foto
             ];
-            $find = User::where('nik', $data->ktp)->orWhere('email', $data->email)->orWhere('nomor_telepon', $data->hp);
-            if($find->count()>0){
+            $find       = User::where('nik', $data->ktp);
+            if($find->count() > 0){
                 $update = Nira::find($data->id)->update(['migrate'=>true]);
             }else{
-                $user = new User();
-                $create_user = $user->create($data_user);
-                $update = Nira::find($data->id)->update(['migrate'=>true]);
+                $create_user    = $user->create($data_user);
+                $update         = Nira::find($data->id)->update(['migrate'=>true]);
             }
         }
+        $provinsi = Province::all();
+        $data = [
+            'class'         => 'HIPENI',
+            'sub_class'     => 'Member',
+            'title'         => 'Member Hipeni',
+            'paginator'     => $nira,
+            'provinsi'      => $provinsi
+        ];
+        return view('admin.nira.users.index', $data);
     }
 }
