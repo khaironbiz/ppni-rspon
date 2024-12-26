@@ -126,4 +126,12 @@ class LandingController extends Controller
         return response()->json(['success'=>'Crop Image Uploaded Successfully']);
     }
 
+    public function comingsoon(){
+        return view('layout.comingsoon');
+    }
+
+    public function blog(){
+        return view('landing.compact.blog.index');
+    }
+
 }

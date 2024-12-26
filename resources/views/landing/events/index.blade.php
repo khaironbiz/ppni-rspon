@@ -10,7 +10,11 @@
                         <div class="blog-post">
                             <div class="post-thumb">
                                 <a href="{{  route('landing.event.show', ['slug'=>$data->slug]) }}">
+                                    @if($data->poster == null)
                                     <img src="assets/theme/images/news/post-thumb-two.jpg" alt="post-image" class="img-fluid">
+                                    @else
+                                        <img src="{{ $data->poster }}" alt="post-image" class="img-fluid">
+                                    @endif
                                 </a>
                             </div>
                             <div class="post-content">

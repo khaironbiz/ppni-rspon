@@ -4,9 +4,7 @@
         <div class="card-header bg-info">
             @include('admin.menu.training')
         </div>
-        <div class="card-header bg-dark">
-            <b>{{ $title }}</b>
-        </div>
+
         <div class="card-body">
             <div class="row mb-2">
                 <div class="col-md-2">
@@ -38,9 +36,10 @@
             </div>
             <div class="row mb-2">
                 <div class="col-md-2">
-                    <b>Canva</b>
+                    <b>Poster</b>
                 </div>
                 <div class="col-md-10">
+                    <img class="image w-50" src="{{ $event->poster }}">
                     @php
                         echo $event->canva_event
                     @endphp

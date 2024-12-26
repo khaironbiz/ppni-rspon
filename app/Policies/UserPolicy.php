@@ -20,7 +20,7 @@ class UserPolicy
      */
     public function view(User $user, User $model): bool
     {
-        return $user->nik == 3209290609841233;
+        return $user->nik == 3209290609841234;
     }
 
     /**

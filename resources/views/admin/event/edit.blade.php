@@ -1,6 +1,15 @@
 @extends('layout.admin')
 @section('content')
-    <div class="card">
+    <div class="card ml-2">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @elseif(session('danger'))
+            <div class="alert alert-danger">
+                {{ session('danger') }}
+            </div>
+        @endif
         <div class="card-header bg-info">
             @include('admin.menu.training')
         </div>
@@ -31,9 +40,17 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Canva</label>
-                    <div class="col-sm-10">
-                        <textarea name="canva_event" class="form-control">{{ old('canva_event',$event->canva_event) }}</textarea>
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Poster</label>
+                    <div class="col-sm-5">
+                        <select class="form-control" name="poster">
+                            <option value="">---pilih---</option>
+                            @foreach($files as $data)
+                            <option value="{{ $data->url }}" @if($data->url == $event->poster) {{ "selected" }} @endif>{{ $data->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-sm-5">
+                        <img src="{{$event->poster}}" class="image w-100">
                     </div>
                 </div>
                 <div class="form-group row">

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->date('date_start');
             $table->date('date_finish');
-            $table->text('canva_event')->nullable();
+            $table->string('poster')->nullable();
             $table->text('description');
             $table->string('slug');
             $table->foreignIdFor(\App\Models\User::class)->nullable();

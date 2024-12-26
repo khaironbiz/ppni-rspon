@@ -56,7 +56,7 @@ class WebController extends Controller
 
     }
     public function show($id){
-        $this->authorize('view', User::class, User::class);
+//        $this->authorize('view', User::class, User::class);
         $web = $this->webService->show($id);
 
         $encrypt = encrypt($web->user->nik);

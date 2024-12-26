@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Web\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Event\StoreEventRequest;
 use App\Models\Event;
+use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class EventController extends Controller
@@ -21,10 +23,13 @@ class EventController extends Controller
         return view('admin.event.index', $data);
     }
     public function create(){
+        $user_id = Auth::id();
+        $files = File::where('user_id', $user_id)->where('file_type', 'file')->get();
         $data = [
             'class'         => 'Event',
             'sub_class'     => 'Create',
-            'title'         => 'Create New Event'
+            'title'         => 'Create New Event',
+            'files'         => $files
         ];
         return view('admin.event.create', $data);
     }
@@ -33,9 +38,10 @@ class EventController extends Controller
         $data_post          = $request->all();
         $create             = $event->create($data_post);
         if($create){
+            return back()->with('success', 'Data Event success created');
             // Flash an array of data
-            $session = Session::flash('success', 'Data Event success created');
-            return redirect()->route('admin.event.index');
+//            $session = Session::flash('success', 'Data Event success created');
+//            return redirect()->route('admin.event.index');
         }else{
             return back();
         }
@@ -54,12 +60,15 @@ class EventController extends Controller
         return view('admin.event.show', $data);
     }
     public function edit($slug){
+        $user_id = Auth::id();
+        $files = File::where('user_id', $user_id)->where('file_type', 'file')->get();
         $event = Event::where('slug', $slug)->first();
         $data = [
             'class'         => 'Event',
             'sub_class'     => 'Show',
             'title'         => 'Show Event',
-            'event'         => $event
+            'event'         => $event,
+            'files'         => $files
         ];
         return view('admin.event.edit', $data);
     }
@@ -69,11 +78,9 @@ class EventController extends Controller
         $event = Event::find($request->event_id);
         $update = $event->update($data_post);
         if($update){
-            Session::flash('success', 'Data event updated');
-            return redirect()->route('admin.event.index');
+            return back()->with('success', 'Data event updated');
         }else{
-            Session::flash('danger', 'Data event failed update');
-            return redirect()->route('admin.event.index');
+            return back()->with('danger', 'Data event failed update');
         }
     }
     public function destroy(Request $request){
@@ -94,4 +101,5 @@ class EventController extends Controller
         }
 
     }
+
 }
