@@ -93,6 +93,43 @@ class LandingController extends Controller
     public function upload(){
         return view('upload.upload');
     }
+    public function crop(Request $request){
+        $validatedData = $request->validate([
+            'image_base64' => 'required',
+        ]);
+        $imageBase64 = $request->image_base64;
+        if($request->title == null){
+            $title = time().".jpg";
+        }else{
+            $title = $request->title;
+        }
+
+        $user_id    = Auth::id();
+        $user       = User::find($user_id);
+        $file       = $request->image_base64;
+        $file_name  = $title;
+        $result     = Storage::disk('s3')->putFileAs('files', $file, $title, 'public');
+        $url        = Storage::disk('s3')->url($result);
+        $size       = Storage::disk('s3')->size($result);
+        $data_file  = [
+            'user_id'   => $user_id,
+            'title'     => $title,
+            'file_name' => $file_name,
+            'extention' => ".jpg",
+            'file_type' => "file",
+            'size'      => $size,
+            'url'       => url($url)
+        ];
+
+        $file = new File();
+        $create = $file->create($data_file);
+        if($create){
+            CropImage::create(['name'=>$title]);
+            $update_foto = $user->update(['foto'=>$url]);
+            return back()->with('success', 'Image uploaded successfully.');
+        }
+
+    }
     public function pengembangan(){
         $data = [
             'title'     => 'HOME',
@@ -116,42 +153,7 @@ class LandingController extends Controller
         ];
         return view('knn.stroke', $data);
     }
-    public function crop(Request $request){
-        $validatedData = $request->validate([
-            'image_base64' => 'required',
-        ]);
-        $imageBase64 = $request->image_base64;
-        if($request->title == null){
-            $title = time().".png";
-        }else{
-            $title = $request->title;
-        }
 
-        $user_id    = Auth::id();
-        $user       = User::find($user_id);
-        $file       = $request->image_base64;
-        $file_name  = $title;
-        $result     = Storage::disk('s3')->putFileAs('files', $file, $title, 'public');
-        $url        = Storage::disk('s3')->url($result);
-        $size       = Storage::disk('s3')->size($result);
-        $data_file  = [
-            'user_id'   => $user_id,
-            'title'     => $title,
-            'file_name' => $file_name,
-            'extention' => ".png",
-            'file_type' => "file",
-            'size'      => $size,
-            'url'       => url($url)
-        ];
-
-        $file = new File();
-        $create = $file->create($data_file);
-        if($create){
-            CropImage::create(['name'=>$title]);
-            return back()->with('success', 'Image uploaded successfully.');
-        }
-
-    }
     public function comingsoon(){
         return view('layout.comingsoon');
     }

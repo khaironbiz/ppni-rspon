@@ -51,7 +51,7 @@
                 @csrf
                 <input type="file" name="image" class="image">
                 <input type="hidden" name="image_base64">
-                <img src="" style="width: 200px;display: none;" class="show-image">
+                <img class="show-image image mt-2 w-50">
                 <br/>
                 <a href="" class="btn btn-secondary mt-3">Cancel</a>
                 <button class="btn btn-primary mt-3">Save</button>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Models\Code;
+use App\Models\CropImage;
 use App\Models\File;
 use App\Models\ModuleAttachment;
 use App\Models\TrainingEnroll;

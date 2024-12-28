@@ -131,6 +131,17 @@
         </div>
         <div class="card-footer">
             <a href="{{ route('user.profile.edit') }}" class="btn btn-sm btn-success">Edit Profile</a>
+
+            <button class="btn btn-sm btn-info" onclick="myFunction()">Update Foto</button>
+
+            <script>
+                function myFunction() {
+                    const width = screen.width;  // Get the screen's width
+                    const height = screen.height; // Get the screen's height
+                    const myWindow = window.open("{{ route('landing.upload.foto') }}", "", `width=${width},height=${height},left=0,top=0`);
+                    myWindow.focus();
+                }
+            </script>
         </div>
 
     </div>

@@ -113,7 +113,7 @@
                 </div>
             </div>
 
-            <table class="table table-bordered table-striped table-sm mt-2">
+            <table class="table table-bordered table-striped table-sm mt-2" id="example1">
                 <thead>
                 <tr>
                     <th class="text-center">No</th>

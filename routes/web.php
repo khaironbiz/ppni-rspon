@@ -257,7 +257,7 @@ Route::get('/person/show', [\App\Http\Controllers\Web\LandingController::class, 
 Route::get('/text-area', [\App\Http\Controllers\Web\LandingController::class, 'text'])->middleware('guest');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/crop-image-upload', [\App\Http\Controllers\Web\LandingController::class, 'upload'])->name('landing.upload');
+    Route::get('/upload-foto', [\App\Http\Controllers\Web\LandingController::class, 'upload'])->name('landing.upload.foto');
     Route::post('/crop-image-upload', [\App\Http\Controllers\Web\LandingController::class, 'crop'])->name('crop.image.upload.store');
 });
 Route::get('/pengembangan', [\App\Http\Controllers\Web\LandingController::class, 'pengembangan'])->name('landing.pengembangan');
@@ -296,6 +296,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/profile', [\App\Http\Controllers\Web\Landing\ProfileController::class, 'update'])->name('landing.profile.update');
     Route::post('/profile/update/foto', [\App\Http\Controllers\Web\Landing\ProfileController::class, 'update_foto'])->name('landing.profile.update.foto');
     Route::get('/profile/update', [\App\Http\Controllers\Web\Landing\ProfileController::class, 'edit'])->name('landing.profile.edit');
+    Route::get('/profile/update/foto/crop', [\App\Http\Controllers\Web\Landing\ProfileController::class, 'upload_foto_crop'])->name('landing.profile.upload.foto.crop');
 });
 
 Route::get('user/files', [\App\Http\Controllers\Web\User\UserFileController::class,'index'])->name('user.file.index');
