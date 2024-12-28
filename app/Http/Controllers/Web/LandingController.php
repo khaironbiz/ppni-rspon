@@ -4,7 +4,12 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\CropImage;
+use App\Models\File;
+use App\Models\Picture;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class LandingController extends Controller
 {
@@ -112,24 +117,44 @@ class LandingController extends Controller
         return view('knn.stroke', $data);
     }
     public function crop(Request $request){
-        $folderPath     = public_path('upload/');
-        $image_parts    = explode(";base64,", $request->image);
-        $image_type_aux = explode("image/", $image_parts[0]);
-        $image_type     = $image_type_aux[1];
-        $image_base64   = base64_decode($image_parts[1]);
-        $imageName      = uniqid() . '.png';
-        $imageFullPath  = $folderPath.$imageName;
-        file_put_contents($imageFullPath, $image_base64);
-        $saveFile       = new CropImage;
-        $saveFile->name = $imageName;
-        $saveFile->save();
-        return response()->json(['success'=>'Crop Image Uploaded Successfully']);
-    }
+        $validatedData = $request->validate([
+            'image_base64' => 'required',
+        ]);
+        $imageBase64 = $request->image_base64;
+        if($request->title == null){
+            $title = time().".png";
+        }else{
+            $title = $request->title;
+        }
 
+        $user_id    = Auth::id();
+        $user       = User::find($user_id);
+        $file       = $request->image_base64;
+        $file_name  = $title;
+        $result     = Storage::disk('s3')->putFileAs('files', $file, $title, 'public');
+        $url        = Storage::disk('s3')->url($result);
+        $size       = Storage::disk('s3')->size($result);
+        $data_file  = [
+            'user_id'   => $user_id,
+            'title'     => $title,
+            'file_name' => $file_name,
+            'extention' => ".png",
+            'file_type' => "file",
+            'size'      => $size,
+            'url'       => url($url)
+        ];
+
+        $file = new File();
+        $create = $file->create($data_file);
+        if($create){
+            CropImage::create(['name'=>$title]);
+            return back()->with('success', 'Image uploaded successfully.');
+        }
+
+    }
     public function comingsoon(){
         return view('layout.comingsoon');
     }
-
     public function blog(){
         return view('landing.compact.blog.index');
     }

@@ -256,9 +256,10 @@ Route::get('/contact', [\App\Http\Controllers\Web\LandingController::class, 'con
 Route::get('/person/show', [\App\Http\Controllers\Web\LandingController::class, 'person'])->name('landing.person.show')->middleware('guest');
 Route::get('/text-area', [\App\Http\Controllers\Web\LandingController::class, 'text'])->middleware('guest');
 
-Route::get('/crop-image-upload', [\App\Http\Controllers\Web\LandingController::class, 'upload'])->name('landing.upload')->middleware('guest');
-Route::post('/crop-image-upload-ajax', [\App\Http\Controllers\Web\LandingController::class, 'crop'])->name('landing.upload.crop')->middleware('guest');
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/crop-image-upload', [\App\Http\Controllers\Web\LandingController::class, 'upload'])->name('landing.upload');
+    Route::post('/crop-image-upload', [\App\Http\Controllers\Web\LandingController::class, 'crop'])->name('crop.image.upload.store');
+});
 Route::get('/pengembangan', [\App\Http\Controllers\Web\LandingController::class, 'pengembangan'])->name('landing.pengembangan');
 
 
