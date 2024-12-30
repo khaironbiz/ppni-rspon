@@ -7,8 +7,10 @@ use App\Http\Requests\Admin\Event\StoreEventRequest;
 use App\Http\Requests\Admin\News\StoreNewsRequest;
 use App\Models\Code;
 use App\Models\Event;
+use App\Models\File;
 use App\Models\News;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -31,12 +33,14 @@ class NewsController extends Controller
         $code_news_category = Code::where('code', 'news-category')->first();
         $news_categories = Code::where('parent_id', $code_news_category->code)->get();
         $users      = User::orderBy('nama_depan', 'ASC')->get();
+        $files      = File::where('user_id', Auth::id())->get();
         $data = [
             'class'             => 'News',
             'sub_class'         => 'Create News',
             'title'             => 'Create News',
             'news_categories'   => $news_categories,
             'authors'           => $users,
+            'files'             => $files
         ];
         return view('admin.news.create', $data);
     }

@@ -356,3 +356,5 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
+Route::get('/image/{id}', [\App\Http\Controllers\Web\Admin\FileController::class,'show'])->name('admin.file.show');
+

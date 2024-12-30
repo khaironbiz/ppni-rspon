@@ -1,5 +1,6 @@
 @extends('layout.admin')
 @section('content')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -14,20 +15,17 @@
             @include('admin.menu.training')
         </div>
         <div class="card-body">
-            <div class="row">
-                <div class="col-md-3">
-                    <label>Title</label>
-                </div>
-                <div class="col-md-9">
-                    <input type="text" name="title" class="form-control">
-                </div>
-
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" name="title" class="form-control">
             </div>
-            <div class="row mt-2">
-                <div class="col-md-3">
-                    <label>Author</label>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Date Publish</label>
+                    <input type="date" class="form-control" id="inputCity">
                 </div>
-                <div class="col-md-3">
+                <div class="form-group col-md-4">
+                    <label for="inputState">Author</label>
                     <select class="form-control" name="author" required>
                         <option value="">--pilih--</option>
                         @foreach($authors as $data)
@@ -35,36 +33,34 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <label>Date Publish</label>
-                </div>
-                <div class="col-md-3">
-                    <input type="date" name="date_publish" class="form-control">
+                <div class="form-group col-md-4">
+                    <label for="inputState">Poster</label>
+                    <select class="form-control" name="id_gambar" id="image-id">
+                        <option value="">--pilih gambar--</option>
+                        @foreach($files as $gambar)
+                            <option value="{{ $gambar->id }}">{{ $gambar->title }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
+            <div class="form-group">
+                <img id="image" src="" alt="Gambar akan ditampilkan di sini" style="max-width: 100%; display: none;">
+            </div>
+            <div class="form-group">
+                <label>Isi Berita</label>
+                <textarea id="my-editor" name="description"></textarea>
+            </div>
+
+
+
+
             <div class="row mt-2">
                 <div class="col-md-3">
                     <label>Isi Berita</label>
                 </div>
                 <div class="col-md-9">
-                    <textarea id="my-editor" name="description"></textarea>
                 </div>
             </div>
-            <div>
-                <div>
-
-                </div>
-                <div>
-                    <select class="form-control" name="id_gambar">
-                        <option></option>
-                    </select>
-
-                </div>
-                <div>
-                    <img id="image" src="" alt="Gambar" style="max-width: 100%; height: auto; display: none;">
-                </div>
-            </div>
-
         </div>
     </div>
     <script>
@@ -89,9 +85,9 @@
                         dataType: 'json',
                         success: function(response) {
                             // Jika gambar ditemukan
-                            if (response.image_url) {
+                            if (response.url) {
                                 // Set gambar di <img> tag
-                                $('#image').attr('src', response.image_url).show();
+                                $('#image').attr('src', response.url).show();
                             }
                         },
                         error: function() {
