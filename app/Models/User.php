@@ -75,4 +75,7 @@ class User extends Authenticatable
     public function web(){
         return $this->hasMany(Web::class, 'user_id');
     }
+    public function news(){
+        return $this->hasMany(Web::class, 'author');
+    }
 }

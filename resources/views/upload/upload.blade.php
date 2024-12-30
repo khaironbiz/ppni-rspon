@@ -44,6 +44,18 @@
 </style>
 <body>
 <div class="container">
+    @if(session('success'))
+        <div class="alert alert-success ml-2">
+            {{ session('success') }}
+        </div>
+        <script type='text/javascript'>window.close();</script>
+    @elseif(session('danger'))
+        <div class="alert alert-danger ml-2">
+            {{ session('danger') }}
+        </div>
+    @endif
+
+
     <div class="row">
         <div class="col-md-8 offset-md-2 section">
             <h1>Upload Passfoto</h1>
@@ -51,7 +63,7 @@
                 @csrf
                 <input type="file" name="image" class="image">
                 <input type="hidden" name="image_base64">
-                <img class="show-image image mt-2 w-50">
+                <img class="show-image image mt-2 w-100">
                 <br/>
                 <a href="" class="btn btn-secondary mt-3">Cancel</a>
                 <button class="btn btn-primary mt-3">Save</button>
@@ -139,8 +151,8 @@
     --------------------------------------------*/
     $("#crop").click(function(){
         canvas = cropper.getCroppedCanvas({
-            width: 200,
-            height: 200,
+            width: 800,
+            height: 800,
         });
         canvas.toBlob(function(blob) {
             url = URL.createObjectURL(blob);

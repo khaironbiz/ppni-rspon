@@ -349,5 +349,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/userRoles', [\App\Http\Controllers\Web\Admin\UserRoleController::class,'store'])->name('admin.user_role.store');
 });
 
-//landing
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/news', [\App\Http\Controllers\Web\Admin\NewsController::class,'index'])->name('admin.news.index');
+    Route::get('/admin/news/create', [\App\Http\Controllers\Web\Admin\NewsController::class,'create'])->name('admin.news.create');
+    Route::post('/admin/news', [\App\Http\Controllers\Web\Admin\NewsController::class,'store'])->name('admin.news.store');
+
+});
 

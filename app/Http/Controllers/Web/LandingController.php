@@ -99,7 +99,7 @@ class LandingController extends Controller
         ]);
         $imageBase64 = $request->image_base64;
         if($request->title == null){
-            $title = time().".jpg";
+            $title = time().".WebP";
         }else{
             $title = $request->title;
         }
@@ -115,7 +115,7 @@ class LandingController extends Controller
             'user_id'   => $user_id,
             'title'     => $title,
             'file_name' => $file_name,
-            'extention' => ".jpg",
+            'extention' => ".WebP",
             'file_type' => "file",
             'size'      => $size,
             'url'       => url($url)
@@ -124,7 +124,7 @@ class LandingController extends Controller
         $file = new File();
         $create = $file->create($data_file);
         if($create){
-            CropImage::create(['name'=>$title]);
+//            CropImage::create(['name'=>$title]);
             $update_foto = $user->update(['foto'=>$url]);
             return back()->with('success', 'Image uploaded successfully.');
         }
