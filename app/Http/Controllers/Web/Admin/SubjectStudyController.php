@@ -14,8 +14,8 @@ class SubjectStudyController extends Controller
     public function index(){
         $subject_study = SubjectStudy::all();
         $data = [
-            'class'         => 'Event',
-            'sub_class'     => 'Subject',
+            'class'         => 'Training',
+            'sub_class'     => 'Subject Study',
             'title'         => 'Subject Study All',
             'subject_study'    => $subject_study
         ];
@@ -24,9 +24,9 @@ class SubjectStudyController extends Controller
     public function create(){
         $class_event = ClassEvent::all();
         $data = [
-            'class'         => 'Event',
-            'sub_class'     => 'Class',
-            'title'         => 'Class Event All',
+            'class'         => 'Training',
+            'sub_class'     => 'Subject Study',
+            'title'         => 'Create Mata Ajar',
             'class_event'   => $class_event
         ];
         return view('admin.subject_study.create', $data);
@@ -48,8 +48,8 @@ class SubjectStudyController extends Controller
         $subject_study = SubjectStudy::where('slug', $slug)->first();
         $topics = $subject_study->topic;
         $data = [
-            'class'         => 'Subject Study',
-            'sub_class'     => 'Show',
+            'class'         => 'Training',
+            'sub_class'     => 'Subject Study',
             'title'         => 'Show Subject Study',
             'subject_study' => $subject_study,
             'topics'        => $topics

@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             'email'         => 'khaironbizzz@gmail.com',
             'nomor_telepon' => '081213798776',
             'password'      => bcrypt('123456'),
+            'super_admin'   => false,
             'role'          => '01hgypq1q4tsxp49b5dtn2645f'
         ];
         $user = new User();

@@ -8,7 +8,7 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.curriculum_version.index') }}">Curricula</a>
+                <a class="nav-link @if($sub_class=="Curricula") {{ "active" }} @endif" href="{{ route('admin.curriculum_version.index') }}">Curricula</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.event.index') }}">Event</a>
@@ -17,7 +17,7 @@
                 <a class="nav-link" href="{{ route('admin.class.index') }}">Class</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.subjectStudy.index') }}">Mata Ajar</a>
+                <a class="nav-link @if($sub_class=="Subject Study") {{ "active" }} @endif" href="{{ route('admin.subjectStudy.index') }}">Mata Ajar</a>
             </li>
             <li class="nav-item @if($class == 'Files') {{ "Active" }} @endif">
                 <a class="nav-link" href="{{ route('admin.topic.index') }}">Topic</a>

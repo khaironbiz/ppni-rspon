@@ -33,26 +33,26 @@
                 </li>
                 <li class="nav-header">Admin Area</li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.code.parent') }}" class="nav-link">
+                    <a href="{{ route('admin.code.parent') }}" class="nav-link @if($class=="Code") {{"active"}} @endif">
                         <i class="nav-icon far fa-circle text-warning"></i>
                         <p class="text">Codes</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.training.index') }}" class="nav-link">
+                    <a href="{{ route('admin.training.index') }}" class="nav-link @if($class=="Training") {{"active"}} @endif">
                         <i class="nav-icon far fa-circle text-success"></i>
                         <p class="text">Trainings</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.user.index') }}" class="nav-link">
+                    <a href="{{ route('admin.user.index') }}" class="nav-link @if($class=="User") {{"active"}} @endif">
                         <i class="nav-icon far fa-circle text-primary"></i>
                         <p class="text">Users</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.news.index') }}" class="nav-link">
+                    <a href="{{ route('admin.news.index') }}" class="nav-link @if($class=="News") {{"active"}} @endif">
                         <i class="nav-icon far fa-circle text-warning"></i>
                         <p class="text">News</p>
                     </a>

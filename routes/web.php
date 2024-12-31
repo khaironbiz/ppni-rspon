@@ -339,6 +339,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/webs', [\App\Http\Controllers\Web\Admin\WebController::class,'index'])->name('admin.web.index');
     Route::post('/admin/webs', [\App\Http\Controllers\Web\Admin\WebController::class,'store'])->name('admin.web.store');
     Route::get('/admin/web/{id}/show', [\App\Http\Controllers\Web\Admin\WebController::class,'show'])->name('admin.web.show');
+    Route::get('/admin/web/{id}/edit', [\App\Http\Controllers\Web\Admin\WebController::class,'edit'])->name('admin.web.edit');
+    Route::put('/admin/web/{id}/update', [\App\Http\Controllers\Web\Admin\WebController::class,'update'])->name('admin.web.update');
 
 });
 

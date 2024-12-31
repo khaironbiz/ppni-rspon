@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('role')->nullable();
             $table->string('foto')->nullable();
+            $table->boolean('super_admin');
             $table->rememberToken();
             $table->timestamps();
         });

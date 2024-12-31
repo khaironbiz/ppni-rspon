@@ -12,7 +12,7 @@ class Web extends Model
     use HasUlids;
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function user(){
+    public function pic(){
         return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -16,8 +16,8 @@ class CurriculumVersionController extends Controller
         $trainings = Training::all();
         $curriculum_version = CurriculumVersion::all();
         $data = [
-            'class'         => 'Curricula',
-            'sub_class'     => 'Version',
+            'class'         => 'Training',
+            'sub_class'     => 'Curricula',
             'title'         => 'Curricula Version',
             'trainings'     => $trainings,
             'curriculum_version'    => $curriculum_version
@@ -28,11 +28,11 @@ class CurriculumVersionController extends Controller
         $curriculum_version = CurriculumVersion::where('slug', $slug)->first();
         $curriculum = Curriculum::where('curriculum_version_id', $curriculum_version->id)->orderBy('type', 'ASC')->get();
         $data = [
-            'class'         => 'Curricula',
-            'sub_class'     => 'Version',
-            'title'         => 'Curricula Version',
+            'class'                 => 'Training',
+            'sub_class'             => 'Curricula',
+            'title'                 => 'Show Curricula Version',
             'curriculum_version'    => $curriculum_version,
-            'curriculum'    => $curriculum
+            'curriculum'            => $curriculum
         ];
         return view('admin.curriculum_version.show', $data);
     }

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\File;
 use App\Models\User;
 use App\Models\Web;
 use App\Services\File\FileService;
 use App\Services\Web\WebService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class WebController extends Controller
 {
@@ -17,7 +19,8 @@ class WebController extends Controller
         $this->webService = $webService;
     }
     public function index(){
-        $this->authorize('viewAny', User::class);
+        Gate::authorize('view');
+//        $this->authorize('viewAny', User::class);
         $webs = Web::all();
         $data = [
             'class'         => 'Web',
@@ -56,13 +59,62 @@ class WebController extends Controller
 
     }
     public function show($id){
-//        $this->authorize('view', User::class, User::class);
-        $web = $this->webService->show($id);
+        $web = Web::find($id);
+        $data = [
+            'class'     => 'Web',
+            'sub_class' => 'Web',
+            'title'     => 'Detail Web',
+            'web'       => $web,
+        ];
+        return view('admin.web.show', $data);
 
-        $encrypt = encrypt($web->user->nik);
-        $decrypt = decrypt($encrypt);
-
-        dd($encrypt, $decrypt);
-
+    }
+    public function edit($id){
+        $users = User::OrderBy('nama_depan', 'ASC')->get();
+        $web = Web::find($id);
+        $files = File::where('file_type', 'file')->get();
+        $data = [
+            'class'     => 'Web',
+            'sub_class' => 'Web',
+            'title'     => 'Update Web',
+            'web'       => $web,
+            'users'     => $users,
+            'files'     => $files
+        ];
+        return view('admin.web.edit', $data);
+    }
+    public function update(Request $request, $id){
+        $file_id    = $request->logo;
+        $nama_web   = $request->nama_web;
+        $singkatan  = $request->singkatan;
+        $file       = File::find($file_id);
+        $logo       = $file->url;
+        $email      = $request->email;
+        $phone      = $request->phone;
+        $alamat     = $request->alamat;
+        $visi       = $request->visi;
+        $misi       = $request->misi;
+        $pic        = $request->pic;
+        $url        = $request->url;
+        $web        = Web::find($id);
+        $data_update = [
+            'nama_web'      => $nama_web,
+            'singkatan'     => $singkatan,
+            'logo'          => $logo,
+            'pic'           => $pic,
+            'visi'          => $visi,
+            'misi'          => $misi,
+            'alamat'        => $alamat,
+            'url'           => $url,
+            'email'         => $email,
+            'phone'         => $phone
+        ];
+        dd($request->all());
+        $update = $web->update($data_update);
+        if($update){
+            return back()->with('success', 'Data Berhasil Disimpan');
+        }else{
+            return back()->with('danger', 'Data Gagal Disimpan');
+        }
     }
 }

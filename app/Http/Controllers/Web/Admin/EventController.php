@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Session;
 class EventController extends Controller
 {
     public function index(){
+
         $events = Event::all();
         $data = [
-            'class'         => 'Event',
+            'class'         => 'Training',
             'sub_class'     => 'All Event',
             'title'         => 'Event All',
             'events'        => $events
@@ -26,7 +27,7 @@ class EventController extends Controller
         $user_id = Auth::id();
         $files = File::where('user_id', $user_id)->where('file_type', 'file')->get();
         $data = [
-            'class'         => 'Event',
+            'class'         => 'Training',
             'sub_class'     => 'Create',
             'title'         => 'Create New Event',
             'files'         => $files
@@ -51,7 +52,7 @@ class EventController extends Controller
         $classes = $event->class()->get();
 //        dd($classes);
         $data = [
-            'class'         => 'Event',
+            'class'         => 'Training',
             'sub_class'     => 'Show',
             'title'         => 'Show Event',
             'event'         => $event,
@@ -64,7 +65,7 @@ class EventController extends Controller
         $files = File::where('user_id', $user_id)->where('file_type', 'file')->get();
         $event = Event::where('slug', $slug)->first();
         $data = [
-            'class'         => 'Event',
+            'class'         => 'Training',
             'sub_class'     => 'Show',
             'title'         => 'Show Event',
             'event'         => $event,

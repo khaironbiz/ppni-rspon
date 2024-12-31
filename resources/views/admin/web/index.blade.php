@@ -111,7 +111,6 @@
                     <th>URL</th>
                     <th>Email</th>
                     <th>Alamat</th>
-                    <th>Logo</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -125,7 +124,7 @@
                         <td>{{ $data->url }}</td>
                         <td>{{ $data->email }}</td>
                         <td>{{ $data->alamat }}</td>
-                        <td><img src="{{$data->logo}}" class="img-thumbnail w-25"></td>
+
                         <td>
                             <a href="{{ route('admin.web.show', ['id'=>$data->id]) }}" class="btn btn-sm btn-info">Detail</a>
                         </td>

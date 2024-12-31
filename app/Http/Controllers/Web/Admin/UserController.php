@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index(){
         $users = User::all();
         $data = [
-            'class'         => 'Users',
+            'class'         => 'User',
             'sub_class'     => 'Index',
             'title'         => 'All User',
             'users'         => $users
@@ -27,7 +27,7 @@ class UserController extends Controller
         $data = [
             'class'         => 'User',
             'sub_class'     => 'Show',
-            'title'         => 'Show USer',
+            'title'         => 'Show User',
             'user'          => $user,
             'enrolls'       => $enrolls
         ];
