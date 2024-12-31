@@ -83,9 +83,9 @@ $foto = \Illuminate\Support\Facades\Auth::user()['foto']
                         <p class="text">Berkas</p>
                     </a>
                 </li>
-                @if(Auth::user()->role_code->title == 'Super Admin')
+                @if( Auth::user()->super_admin == true)
                     <li class="nav-item">
-                        <a href="{{ route('admin.class.index') }}" class="nav-link">
+                        <a href="{{ route('admin.training.index') }}" class="nav-link">
                             <i class="nav-icon fa fa-server text-warning"></i>
                             <p class="text">Admin</p>
                         </a>

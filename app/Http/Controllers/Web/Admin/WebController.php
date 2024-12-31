@@ -59,6 +59,7 @@ class WebController extends Controller
 
     }
     public function show($id){
+        Gate::authorize('view');
         $web = Web::find($id);
         $data = [
             'class'     => 'Web',
@@ -70,6 +71,7 @@ class WebController extends Controller
 
     }
     public function edit($id){
+        Gate::authorize('view');
         $users = User::OrderBy('nama_depan', 'ASC')->get();
         $web = Web::find($id);
         $files = File::where('file_type', 'file')->get();
@@ -84,6 +86,7 @@ class WebController extends Controller
         return view('admin.web.edit', $data);
     }
     public function update(Request $request, $id){
+        Gate::authorize('view');
         $file_id    = $request->logo;
         $nama_web   = $request->nama_web;
         $singkatan  = $request->singkatan;

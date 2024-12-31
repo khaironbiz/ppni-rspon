@@ -11,7 +11,7 @@
     @endif
     <div class="card ml-2">
         <div class="card-header bg-info">
-            @include('admin.menu.code')
+            @include('admin.menu.master')
         </div>
 
         <div class="card-body">

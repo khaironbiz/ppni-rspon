@@ -10,8 +10,8 @@
         </div>
     @endif
     <div class="card ml-2">
-        <div class="card-header">
-            <b>{{ $title }}</b>
+        <div class="card-header bg-info">
+            @include('admin.menu.master')
         </div>
         <div class="card-body">
             <div class="row mb-2">

@@ -35,7 +35,7 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.code.parent') }}" class="nav-link @if($class=="Code") {{"active"}} @endif">
                         <i class="nav-icon far fa-circle text-warning"></i>
-                        <p class="text">Codes</p>
+                        <p class="text">Master</p>
                     </a>
                 </li>
 

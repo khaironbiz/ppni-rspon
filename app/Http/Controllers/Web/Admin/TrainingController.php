@@ -8,11 +8,13 @@ use App\Models\Training;
 use App\Models\TrainingQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
 
 class TrainingController extends Controller
 {
     public function index(){
+        Gate::authorize('view');
         $trainings = Training::all();
         $data = [
             'class'         => 'Training',
@@ -23,6 +25,7 @@ class TrainingController extends Controller
         return view('admin.training.index', $data);
     }
     public function show($slug){
+        Gate::authorize('view');
         $training           = Training::where('slug', $slug)->first();
         $curriculumVersion  = CurriculumVersion::where('training_id', $training->id)->get();
         $training_question  = TrainingQuestion::where('training_id', $training->id)->get();
@@ -37,6 +40,7 @@ class TrainingController extends Controller
         return view('admin.training.show', $data);
     }
     public function create(){
+        Gate::authorize('view');
         $trainings = Training::all();
         $data = [
             'class'         => 'Training',
