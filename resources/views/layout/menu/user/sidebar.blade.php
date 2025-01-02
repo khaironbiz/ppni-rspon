@@ -42,12 +42,6 @@ $foto = \Illuminate\Support\Facades\Auth::user()['foto']
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('user.profile.index') }}" class="nav-link">
-                        <i class="nav-icon fa fa-user-circle text-info"></i>
-                        <p class="text">Profile</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('user.training.mine.index') }}" class="nav-link">
                         <i class="nav-icon fa fa-university text-primary"></i>
                         <p class="text">Trainings</p>

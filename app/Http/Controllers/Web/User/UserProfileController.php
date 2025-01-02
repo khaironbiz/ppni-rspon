@@ -72,4 +72,14 @@ class UserProfileController extends Controller
     public function alamat(){
 
     }
+    public function upload_foto(){
+        $user = Auth::user();
+        $data = [
+            'class'         => 'User',
+            'sub_class'     => 'Profile',
+            'title'         => 'Profile User',
+            'user'          => $user
+        ];
+        return view('user.profile.upload_foto', $data);
+    }
 }

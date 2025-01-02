@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('title')->nullable();
+            $table->text('isi')->nullable();
             $table->foreignIdFor(\App\Models\User::class,'author')->nullable();
             $table->foreignIdFor(\App\Models\Code::class, 'news_category')->nullable();
             $table->bigInteger('view')->nullable();

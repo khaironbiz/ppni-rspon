@@ -275,6 +275,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/profile', [\App\Http\Controllers\Web\User\UserProfileController::class,'index'])->name('user.profile.index');
     Route::get('/user/profile/edit', [\App\Http\Controllers\Web\User\UserProfileController::class,'edit'])->name('user.profile.edit');
     Route::put('/user/profile/update', [\App\Http\Controllers\Web\User\UserProfileController::class,'update'])->name('user.profile.update');
+    Route::get('/user/profile/upload/foto', [\App\Http\Controllers\Web\User\UserProfileController::class,'upload_foto'])->name('user.profile.upload.foto');
 
 });
 
@@ -355,6 +356,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/news', [\App\Http\Controllers\Web\Admin\NewsController::class,'index'])->name('admin.news.index');
     Route::get('/admin/news/create', [\App\Http\Controllers\Web\Admin\NewsController::class,'create'])->name('admin.news.create');
     Route::post('/admin/news', [\App\Http\Controllers\Web\Admin\NewsController::class,'store'])->name('admin.news.store');
+    Route::get('/admin/news/{id}/edit', [\App\Http\Controllers\Web\Admin\NewsController::class,'edit'])->name('admin.news.edit');
+    Route::put('/admin/news/{id}/update', [\App\Http\Controllers\Web\Admin\NewsController::class,'update'])->name('admin.news.update');
 
 });
 

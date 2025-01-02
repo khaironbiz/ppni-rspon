@@ -11,7 +11,7 @@
     @endif
     <div class="card ml-2">
         <div class="card-header bg-info">
-            @include('admin.menu.training')
+            @include('admin.menu.news')
         </div>
         <div class="card-header">
             <a href="{{ route('admin.news.create') }}" class="btn btn-primary">Add News</a>
@@ -32,10 +32,10 @@
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>{{ $data->title }}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $data->category->title }}</td>
+                        <td>{{ $data->view }}</td>
                         <td>
-                            <a href="{{ route('admin.event.show', ['slug'=>$data->slug]) }}" class="btn btn-sm btn-info">Detail</a>
+                            <a href="{{ route('admin.news.edit', ['id'=>$data->id]) }}" class="btn btn-sm btn-success">Edit</a>
                         </td>
                     </tr>
                 @endforeach

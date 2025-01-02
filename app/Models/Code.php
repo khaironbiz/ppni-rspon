@@ -59,5 +59,8 @@ class Code extends Model
     public function curriculum(){
         return $this->hasMany(Curriculum::class, 'user_id');
     }
+    public function news_category(){
+        return $this->hasMany(News::class, 'news_category');
+    }
 
 }

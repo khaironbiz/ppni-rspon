@@ -14,28 +14,29 @@
         <div class="card-header bg-info">
             @include('admin.menu.news')
         </div>
-        <form action="{{ route('admin.news.store') }}" method="post">
+        <form action="{{ route('admin.news.update', ['id'=>$news->id]) }}" method="post">
+            @method('PUT')
             @csrf
             <div class="card-body">
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" value="{{ $news->title }}">
                 </div>
                 <div class="form-group">
                     <label>Isi Berita</label>
-                    <textarea id="my-editor" name="isi"></textarea>
+                    <textarea id="my-editor" name="isi">{{ $news->isi }}</textarea>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label>Date Publish</label>
-                        <input type="date" class="form-control" name="publish">
+                        <input type="date" class="form-control" name="publish" value="{{ $news->publish }}">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputState">Author</label>
                         <select class="form-control" name="author" required>
                             <option value="">--pilih--</option>
                             @foreach($authors as $data)
-                                <option value="{{ $data->id }}">{{ $data->nama_depan }} {{ $data->nama_belakang }}</option>
+                                <option value="{{ $data->id }}" @if($data->id == $news->author) {{ "selected" }} @endif>{{ $data->nama_depan }} {{ $data->nama_belakang }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -44,7 +45,7 @@
                         <select class="form-control" name="news_category">
                             <option value="">--pilih category--</option>
                             @foreach($news_categories as $data)
-                                <option value="{{ $data->id }}">{{ $data->title }}</option>
+                                <option value="{{ $data->id }}" @if($data->id === $news->news_category) {{ "selected" }} @endif>{{ $data->title }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -53,18 +54,27 @@
                         <select class="form-control" name="poster" id="image-id">
                             <option value="">--pilih gambar--</option>
                             @foreach($files as $gambar)
-                                <option value="{{ $gambar->id }}">{{ $gambar->title }}</option>
+                                <option value="{{ $gambar->id }}" @if($gambar->url === $news->poster) {{ "selected" }}@endif>{{ $gambar->title }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <img id="image" src="" alt="Gambar akan ditampilkan di sini" class="w-25" style="display: none;">
-                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Poster Lama</label><br>
+                        <img src="{{ $news->poster }}"  class="image w-50">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Poster Baru</label><br>
+                        <img id="image" src="" alt="Gambar akan ditampilkan di sini" class="w-50" style="display: none;">
+                    </div>
 
+
+
+                </div>
             </div>
             <div class="card-footer">
-                <a href="{{ route('admin.news.index') }}" class="btn btn-danger">Back</a>
+                <a href="{{ route('admin.news.edit', ['id'=>$news->id]) }}" class="btn btn-danger">Back</a>
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>

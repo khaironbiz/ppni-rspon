@@ -30,10 +30,12 @@ class NewsController extends Controller
     }
     public function create()
     {
+
         $code_news_category = Code::where('code', 'news-category')->first();
-        $news_categories = Code::where('parent_id', $code_news_category->code)->get();
+//        dd($code_news_category);
+        $news_categories = Code::where('parent_id', $code_news_category->id)->get();
         $users      = User::orderBy('nama_depan', 'ASC')->get();
-        $files      = File::where('user_id', Auth::id())->get();
+        $files      = File::where('user_id', Auth::id())->where('file_type', 'file')->get();
         $data = [
             'class'             => 'News',
             'sub_class'         => 'Create News',
@@ -45,10 +47,44 @@ class NewsController extends Controller
         return view('admin.news.create', $data);
     }
     public function store(StoreNewsRequest $request){
+        $file = File::find($request->poster);
         $news               = new News();
         $data_post          = $request->all();
+        $data_post['poster']= $file->url;
+        $data_post['created_by']= Auth::id();
         $create             = $news->create($data_post);
         if($create){
+            return back()->with('success', 'Data Event success created');
+        }else{
+            return back()->with('danger', 'Data gagal disimpan');
+        }
+    }
+    public function edit($id){
+        $news               = News::find($id);
+        $code_news_category = Code::where('code', 'news-category')->first();
+        $news_categories    = Code::where('parent_id', $code_news_category->id)->get();
+        $users              = User::orderBy('nama_depan', 'ASC')->get();
+        $files              = File::where('user_id', Auth::id())->where('file_type', 'file')->get();
+        $data = [
+            'class'             => 'News',
+            'sub_class'         => 'Update',
+            'title'             => 'Update News',
+            'news_categories'   => $news_categories,
+            'authors'           => $users,
+            'files'             => $files,
+            'news'              => $news
+        ];
+        return view('admin.news.edit', $data);
+
+    }
+    public function update(StoreNewsRequest $request, $id){
+        $news               = News::find($id);
+        $file               = File::find($request->poster);
+        $data_post          = $request->all();
+        $data_post['poster']= $file->url;
+        $data_post['created_by']= Auth::id();
+        $update             = $news->update($data_post);
+        if($update){
             return back()->with('success', 'Data Event success created');
         }else{
             return back()->with('danger', 'Data gagal disimpan');
