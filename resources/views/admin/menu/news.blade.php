@@ -6,13 +6,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.event.index') }}">News Category</a>
+            <li class="nav-item @if($sub_class == 'News Category') {{ "active" }} @endif">
+                <a class="nav-link" href="{{ route('admin.newsCategory.index') }}">News Category</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.class.index') }}">News Tag</a>
             </li>
-            <li class="nav-item @if($class == 'News') {{ "Active" }} @endif">
+            <li class="nav-item @if($sub_class == 'News') {{ "active" }} @endif">
                 <a class="nav-link" href="{{ route('admin.topic.index') }}">Authors</a>
             </li>
         </ul>

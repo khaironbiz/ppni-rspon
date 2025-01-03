@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCodeRequest;
 use App\Models\Code;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,7 +59,7 @@ class CodeController extends Controller
         }
         return redirect()->back();
     }
-    public function child_store(Request $request){
+    public function child_store(StoreCodeRequest $request){
         $code       = new Code();
         $parent_id  = $request->parent_id;
         $data       = $request->all();

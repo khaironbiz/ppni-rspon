@@ -85,7 +85,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="post" action="{{ route('admin.code.update') }}">
+                        <form method="post" action="{{ route('admin.code.update',['id'=>$code->id]) }}">
                             @csrf
                             @method('PUT')
                             <div class="modal-body">
@@ -94,7 +94,6 @@
                                         <label>Urutan</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="hidden" class="form-control" name="id" value="{{ $code->id }}">
                                         <input type="text" class="form-control" name="urutan" value="{{ $code->urutan }}">
                                     </div>
                                 </div>

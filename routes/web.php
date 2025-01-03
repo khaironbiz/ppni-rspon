@@ -164,7 +164,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/code-parent', [\App\Http\Controllers\Web\Admin\CodeController::class,'parent'])->name('admin.code.parent');
     Route::post('/admin/codes', [\App\Http\Controllers\Web\Admin\CodeController::class,'store'])->name('admin.code.store');
     Route::post('/admin/code_child', [\App\Http\Controllers\Web\Admin\CodeController::class,'child_store'])->name('admin.code.child_store');
-    Route::put('/admin/codes', [\App\Http\Controllers\Web\Admin\CodeController::class,'update'])->name('admin.code.update');
+    Route::put('/admin/codes/{id}', [\App\Http\Controllers\Web\Admin\CodeController::class,'update'])->name('admin.code.update');
     Route::delete('/admin/codes', [\App\Http\Controllers\Web\Admin\CodeController::class,'destroy'])->name('admin.code.delete');
     Route::get('/admin/code/{id}/show', [\App\Http\Controllers\Web\Admin\CodeController::class,'show'])->name('admin.code.show');
     Route::get('/admin/code/{id}/edit', [\App\Http\Controllers\Web\Admin\CodeController::class,'edit'])->name('admin.code.edit');
@@ -358,8 +358,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/news', [\App\Http\Controllers\Web\Admin\NewsController::class,'store'])->name('admin.news.store');
     Route::get('/admin/news/{id}/edit', [\App\Http\Controllers\Web\Admin\NewsController::class,'edit'])->name('admin.news.edit');
     Route::put('/admin/news/{id}/update', [\App\Http\Controllers\Web\Admin\NewsController::class,'update'])->name('admin.news.update');
-
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/newsCategories', [\App\Http\Controllers\Web\Admin\NewsCategoryController::class,'index'])->name('admin.newsCategory.index');
+    Route::post('/admin/newsCategories', [\App\Http\Controllers\Web\Admin\NewsCategoryController::class,'store'])->name('admin.newsCategory.store');
+    Route::get('/admin/newsCategories/{id}/edit', [\App\Http\Controllers\Web\Admin\NewsCategoryController::class,'edit'])->name('admin.newsCategory.edit');
+    Route::put('/admin/newsCategories/{id}/update', [\App\Http\Controllers\Web\Admin\NewsCategoryController::class,'update'])->name('admin.newsCategory.update');
+});
+
 
 Route::get('/image/{id}', [\App\Http\Controllers\Web\Admin\FileController::class,'show'])->name('admin.file.show');
 
